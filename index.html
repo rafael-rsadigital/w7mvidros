@@ -78,13 +78,14 @@
       z-index: 1001;
     }
     .nav-logo img { 
-      height: 65px; /* Aumentado para maior visibilidade */
+      height: 65px; 
       width: auto; 
       display: block;
       transition: 0.3s ease;
+      border-radius: 10px; /* Cantos arredondados adicionados aqui */
     }
     nav.scrolled .nav-logo img {
-      height: 55px; /* Ligeiramente menor ao rolar, mas ainda legível */
+      height: 55px; 
     }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -255,7 +256,7 @@
 
     @media (max-width: 992px) {
       nav { padding: 0 5%; height: 90px; }
-      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 160px; min-height: auto; gap: 60px; }
+      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 140px; min-height: auto; gap: 60px; }
       .hero-content { align-items: flex-start; }
       .hero-visual { justify-content: flex-start; order: -1; }
       .hero-actions { flex-direction: column; width: 100%; max-width: 320px; }
@@ -306,7 +307,7 @@
 
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <!-- Logótipo agora limpo, sem moldura e com tamanho otimizado -->
+      <!-- Cantos arredondados aplicados via CSS à imagem -->
       <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias em São José dos Campos">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -362,7 +363,7 @@
     </div>
     <div class="section-content-text">
       <p>Se procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação técnica para o seu projeto. Aliamos o design funcional à máxima segurança.</p>
-      <p>A nossa equipa técnica atua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
+      <p>A nossa equipe técnica atua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
     </div>
   </section>
 
