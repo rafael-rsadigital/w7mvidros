@@ -61,12 +61,12 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 90px; transition: 0.4s ease;
+      padding: 0 8%; height: 100px; transition: 0.4s ease;
       background: transparent;
     }
     nav.scrolled { 
       background: rgba(10, 22, 40, 0.98); 
-      height: 75px; 
+      height: 80px; 
       backdrop-filter: blur(15px); 
       box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
     }
@@ -76,21 +76,15 @@
       align-items: center; 
       text-decoration: none; 
       z-index: 1001;
-      height: 100%;
     }
     .nav-logo img { 
-      height: 42px; /* Reduzido levemente para acomodar a borda */
+      height: 65px; /* Aumentado para maior visibilidade */
       width: auto; 
       display: block;
       transition: 0.3s ease;
-      /* Ajuste de borda minimalista solicitado */
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 6px 12px;
-      border-radius: 4px;
     }
     nav.scrolled .nav-logo img {
-      border-color: rgba(14, 165, 233, 0.3); /* Borda ganha cor de destaque ao rolar */
-      height: 38px;
+      height: 55px; /* Ligeiramente menor ao rolar, mas ainda legível */
     }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -114,7 +108,7 @@
       font-size: 0.75rem !important;
     }
 
-    /* --- MENU HAMBÚRGUER (ROBUSTO) --- */
+    /* --- MENU HAMBÚRGUER --- */
     .hamburger { 
       display: none; 
       flex-direction: column; 
@@ -146,11 +140,11 @@
       .nav-links a { font-size: 1.3rem; color: var(--white); letter-spacing: 0.15em; }
     }
 
-    /* --- HERO SECTION (ALINHAMENTO E MINIMALISMO) --- */
+    /* --- HERO SECTION --- */
     .hero {
       min-height: 90vh; background: var(--blue-900);
       display: grid; grid-template-columns: 1.1fr 1fr;
-      align-items: center; padding: 120px 8% 80px;
+      align-items: center; padding: 140px 8% 80px;
       position: relative; overflow: hidden; gap: 70px;
     }
     .hero-grid-bg { 
@@ -162,11 +156,11 @@
     .hero-content { 
       position: relative; z-index: 2; 
       display: flex; flex-direction: column; 
-      align-items: flex-start; /* Eixo de alinhamento vertical */
+      align-items: flex-start;
       text-align: left;
     }
     .hero h1 { 
-      font-size: clamp(2rem, 5vw, 2.6rem); 
+      font-size: clamp(2rem, 5vw, 2.8rem); 
       line-height: 1.1; 
       color: var(--white); 
       margin-bottom: 25px; 
@@ -230,7 +224,7 @@
     .section-content-text { max-width: 800px; color: var(--gray-600); font-size: 1.05rem; }
     .section-content-text p { margin-bottom: 25px; }
 
-    /* --- GRID DE SERVIÇOS (DESIGN PREMIUM) --- */
+    /* --- GRID DE SERVIÇOS --- */
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
     .service-card { 
       background: white; border: 1px solid var(--gray-100); 
@@ -248,28 +242,6 @@
       text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; 
     }
 
-    /* --- FAQ --- */
-    .faq-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
-    .faq-item { border-bottom: 1px solid var(--gray-100); padding-bottom: 30px; }
-    .faq-item h3 { font-size: 1rem; margin-bottom: 15px; color: var(--blue-800); }
-    .faq-item p { font-size: 0.9rem; color: var(--gray-600); }
-
-    /* --- BOTÕES --- */
-    .btn-primary { 
-      background: var(--accent); color: white; padding: 16px 32px; 
-      border-radius: var(--radius); font-family: var(--font-display); 
-      font-weight: 600; text-transform: uppercase; text-decoration: none; 
-      font-size: 0.85rem; border: none; transition: 0.3s; letter-spacing: 0.08em; 
-    }
-    .btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(14,165,233,0.2); }
-    
-    .btn-outline { 
-      border: 1px solid rgba(255,255,255,0.2); color: var(--white); 
-      padding: 16px 32px; border-radius: var(--radius); text-decoration: none; 
-      font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.08em; 
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--white); }
-
     /* --- FOOTER --- */
     footer { background: var(--blue-900); padding: 120px 8% 40px; color: var(--silver); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 80px; }
@@ -281,15 +253,13 @@
     .footer-col a:hover { color: var(--accent); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); margin-top: 100px; padding-top: 40px; font-size: 0.75rem; opacity: 0.5; text-align: left; }
 
-    /* --- RESPONSIVIDADE --- */
     @media (max-width: 992px) {
-      nav { padding: 0 5%; height: 80px; }
-      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 140px; min-height: auto; gap: 60px; }
+      nav { padding: 0 5%; height: 90px; }
+      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 160px; min-height: auto; gap: 60px; }
       .hero-content { align-items: flex-start; }
       .hero-visual { justify-content: flex-start; order: -1; }
       .hero-actions { flex-direction: column; width: 100%; max-width: 320px; }
       .hero-stats { grid-template-columns: 1fr; gap: 30px; }
-      .faq-container { grid-template-columns: 1fr; gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
     }
     @media (max-width: 600px) {
@@ -336,7 +306,7 @@
 
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <!-- Moldura subtil adicionada ao logótipo via CSS -->
+      <!-- Logótipo agora limpo, sem moldura e com tamanho otimizado -->
       <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias em São José dos Campos">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -391,8 +361,8 @@
       <h2 id="seo-title">Especialistas em Esquadrias em São José dos Campos</h2>
     </div>
     <div class="section-content-text">
-      <p>Se você procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação técnica para o seu projeto. Aliamos o design funcional à máxima segurança.</p>
-      <p>A nossa equipe técnica atua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
+      <p>Se procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação técnica para o seu projeto. Aliamos o design funcional à máxima segurança.</p>
+      <p>A nossa equipa técnica atua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
     </div>
   </section>
 
@@ -448,23 +418,6 @@
     </div>
   </section>
 
-  <section class="faq-section">
-    <div class="section-header">
-      <div class="section-tag">Dúvidas Frequentes</div>
-      <h2>Perguntas Comuns</h2>
-    </div>
-    <div class="faq-container">
-      <div class="faq-item">
-        <h3>Qual o valor da cortina de vidro em SJC?</h3>
-        <p>O valor depende da metragem total da sacada. Oferecemos orçamento gratuito em São José dos Campos para avaliar o seu projeto com precisão técnica.</p>
-      </div>
-      <div class="faq-item">
-        <h3>A W7M Designer atende Jacareí?</h3>
-        <p>Sim! Atendemos Jacareí, Caçapava, Taubaté e todo o Vale do Paraíba com equipe própria de instalação e medição técnica.</p>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -505,14 +458,13 @@
   </footer>
 
   <script>
-    // CONTROLO NAVBAR E MENU MOBILE (CONTAINER DRAWER)
+    // CONTROLO NAVBAR E MENU MOBILE
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
-      // Impede o scroll do corpo quando o menu está aberto
       document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
     });
 
@@ -525,7 +477,6 @@
       }
     });
 
-    // Fechar menu ao clicar em qualquer link
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
