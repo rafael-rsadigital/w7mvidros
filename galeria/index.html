@@ -60,6 +60,7 @@
       text-transform: uppercase;
       font-weight: 700;
       backdrop-filter: blur(4px);
+      z-index: 10;
     }
 
     /* Efeito de overlay no hover */
@@ -84,8 +85,6 @@
       font-size: 1rem;
       text-transform: uppercase;
     }
-
-    /* Modal Simples (Lightbox) - Opcional se quiser implementar via JS depois */
     
     /* Ajustes Mobile para o Hamburger */
     nav {
@@ -131,7 +130,8 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
+      <!-- Caminho atualizado para /img/servicos/ conforme sua decisão -->
+      <img src="/img/servicos/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
@@ -168,7 +168,7 @@
 
       <div class="gallery-grid">
         
-        <!-- Exemplo de Foto (Substitua os nomes depois) -->
+        <!-- Itens da Galeria com caminhos unificados em /img/servicos/ -->
         <div class="gallery-item">
           <img src="/img/servicos/esquadrias-premium-sjc.webp" alt="Esquadrias de Alumínio SJC">
           <div class="gallery-overlay">
@@ -176,11 +176,11 @@
           </div>
         </div>
 
-        <!-- Exemplo de Vídeo (Substitua os nomes depois) -->
         <div class="gallery-item">
           <div class="video-badge">Vídeo</div>
           <video muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
-            <source src="/img/galeria/video-exemplo.mp4" type="video/mp4">
+            <!-- Caminho do vídeo atualizado para /img/servicos/ -->
+            <source src="/img/servicos/video-exemplo.mp4" type="video/mp4">
             Seu navegador não suporta vídeos.
           </video>
           <div class="gallery-overlay">
@@ -188,7 +188,6 @@
           </div>
         </div>
 
-        <!-- Repita para mais itens conforme necessário -->
         <div class="gallery-item">
           <img src="/img/servicos/cortina-de-vidro-sjc.webp" alt="Cortina de Vidro SJC">
           <div class="gallery-overlay">
@@ -221,7 +220,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo" style="margin-bottom:20px;">
-          <img src="/img/logo.webp" alt="W7M Designer" style="height: 40px;">
+          <!-- Logotipo no rodapé também atualizado -->
+          <img src="/img/servicos/logo.webp" alt="W7M Designer" style="height: 40px;">
         </a>
         <p>Expertise em esquadrias de alumínio e vidraçaria em São José dos Campos desde 2008.</p>
       </div>
