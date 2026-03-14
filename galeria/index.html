@@ -47,7 +47,7 @@
       display: block;
     }
 
-    /* Badge de identificação de vídeo */
+    /* Identificação de vídeo */
     .video-badge {
       position: absolute;
       top: 15px;
@@ -130,7 +130,6 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <!-- Caminho atualizado para /img/servicos/ conforme sua decisão -->
       <img src="/img/servicos/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -168,30 +167,50 @@
 
       <div class="gallery-grid">
         
-        <!-- Itens da Galeria com caminhos unificados em /img/servicos/ -->
+        <!-- Itens atualizados com os ficheiros fornecidos -->
+        
+        <!-- Box de Vidro -->
+        <div class="gallery-item">
+          <img src="/img/servicos/box-de-video-sjc.webp" alt="Box de Vidro em São José dos Campos">
+          <div class="gallery-overlay">
+            <span>Box de Vidro SJC</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="/img/servicos/box-de-vidro-sjc-2.webp" alt="Instalação de Box de Vidro Premium">
+          <div class="gallery-overlay">
+            <span>Box de Vidro Premium</span>
+          </div>
+        </div>
+
+        <!-- Cortina de Vidro -->
+        <div class="gallery-item">
+          <img src="/img/servicos/cortina-de-vidro-sjc.webp" alt="Cortina de Vidro em SJC">
+          <div class="gallery-overlay">
+            <span>Cortina de Vidro</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="/img/servicos/cortina-de-vidro-sjc-2.webp" alt="Fechamento de Sacada SJC">
+          <div class="gallery-overlay">
+            <span>Cortina de Vidro Retrátil</span>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="/img/servicos/cortina-de-vidro-esquadrias-w7m.webp" alt="Esquadrias e Cortina de Vidro W7M">
+          <div class="gallery-overlay">
+            <span>Cortina de Vidro & Esquadrias</span>
+          </div>
+        </div>
+
+        <!-- Itens de Exemplo Mantidos (Substituir conforme necessário) -->
         <div class="gallery-item">
           <img src="/img/servicos/esquadrias-premium-sjc.webp" alt="Esquadrias de Alumínio SJC">
           <div class="gallery-overlay">
             <span>Esquadrias Linha Gold</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="video-badge">Vídeo</div>
-          <video muted loop onmouseover="this.play()" onmouseout="this.pause(); this.currentTime=0;">
-            <!-- Caminho do vídeo atualizado para /img/servicos/ -->
-            <source src="/img/servicos/video-exemplo.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos.
-          </video>
-          <div class="gallery-overlay">
-            <span>Cortina de Vidro em Movimento</span>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="/img/servicos/cortina-de-vidro-sjc.webp" alt="Cortina de Vidro SJC">
-          <div class="gallery-overlay">
-            <span>Fechamento de Sacada</span>
           </div>
         </div>
 
@@ -220,7 +239,6 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo" style="margin-bottom:20px;">
-          <!-- Logotipo no rodapé também atualizado -->
           <img src="/img/servicos/logo.webp" alt="W7M Designer" style="height: 40px;">
         </a>
         <p>Expertise em esquadrias de alumínio e vidraçaria em São José dos Campos desde 2008.</p>
@@ -247,7 +265,7 @@
   <!-- Scripts -->
   <script src="/js/main.js"></script>
   <script>
-    // Controle do menu mobile para esta página
+    // Controlo do menu mobile para esta página
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
