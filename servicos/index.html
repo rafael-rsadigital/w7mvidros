@@ -18,6 +18,10 @@
 
   <style>
     /* Estilos específicos para turbinar o layout da página de serviços */
+    :root {
+      --shadow-premium: 0 20px 40px rgba(10, 22, 40, 0.08);
+    }
+
     .service-card-modern {
       background: var(--white);
       border: 1px solid var(--gray-100);
@@ -34,7 +38,7 @@
     .service-card-modern:hover {
       transform: translateY(-10px);
       border-color: var(--accent);
-      box-shadow: 0 20px 40px rgba(10, 22, 40, 0.08);
+      box-shadow: var(--shadow-premium);
     }
 
     .service-card-modern::before {
@@ -74,12 +78,14 @@
       font-size: 1.2rem;
       margin-bottom: 15px;
       transition: 0.3s;
+      color: var(--blue-900);
     }
 
     .service-card-modern p {
       font-size: 0.9rem;
       color: var(--gray-600);
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .category-grid {
@@ -96,6 +102,7 @@
       margin: 30px 0;
     }
 
+    /* Linhas de Esquadrias */
     .line-gold { border-left: 4px solid #d4af37 !important; }
     .line-suprema { border-left: 4px solid var(--accent) !important; }
 
@@ -108,6 +115,21 @@
     .featured-card h3 { color: var(--white); }
     .featured-card p { color: var(--silver); }
     .featured-card .icon-box { background: rgba(255,255,255,0.1); color: var(--accent-bright); }
+
+    /* Botão interno do card */
+    .card-action {
+      margin-top: auto;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+    .card-action:hover { color: var(--blue-900); gap: 12px; }
   </style>
 </head>
 
@@ -124,7 +146,7 @@
       <li><a href="/servicos/" class="active">Serviços</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/galeria/">Galeria</a></li>
-      <li><a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Designer" target="_blank" class="nav-cta">Orçamento</a></li>
+      <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
@@ -134,19 +156,19 @@
     <header class="hero">
       <div class="hero-grid-bg"></div>
       <div class="hero-content">
-        <div class="hero-badge">Catálogo 2024</div>
-        <h1>Soluções em Vidro e Alumínio</h1>
+        <div class="hero-badge">Portfólio Completo</div>
+        <h1>Soluções Premium em Vidro e Alumínio</h1>
         <p class="hero-desc">
-          Do projeto à instalação. Oferecemos a mais completa linha de esquadrias de alto padrão e vidraçaria técnica de São José dos Campos.
+          Liderança em fabricação e instalação de esquadrias sob medida e vidros técnicos. Excelência técnica e estética para sua obra em São José dos Campos.
         </p>
         <div class="hero-actions">
-          <a href="#esquadrias" class="btn-primary">Ver Esquadrias</a>
-          <a href="#vidros" class="btn-outline">Ver Vidros</a>
+          <a href="#esquadrias" class="btn-primary">Esquadrias</a>
+          <a href="#vidros" class="btn-outline">Vidraçaria</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-img-frame">
-          <img src="/img/foto/esquadrias-aluminio-sjc-hero.webp" alt="W7M Designer Projetos Premium" width="600" height="450">
+          <img src="/img/foto/esquadrias-aluminio-sjc-hero.webp" alt="W7M Designer - Especialista em Esquadrias e Vidros" width="600" height="450">
         </div>
       </div>
     </header>
@@ -154,8 +176,8 @@
     <!-- CATEGORIA 1: ESQUADRIAS -->
     <section id="esquadrias">
       <div class="section-header">
-        <div class="section-tag">Fabricação Própria</div>
-        <h2>Esquadrias de Alumínio Sob Medida</h2>
+        <div class="section-tag">Fornecedor de Esquadrias</div>
+        <h2>Fabricação e Instalação de Esquadrias de Alumínio</h2>
         <div class="section-divider"></div>
       </div>
       
@@ -163,19 +185,21 @@
         <!-- Portas e Portão -->
         <article class="service-card-modern">
           <div class="icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM9 3v18m4-18v18"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM9 3v18m4-18v18"/></svg>
           </div>
           <h3>Portas e Portões Externos</h3>
-          <p>Fabricação sob medida de portas pivotantes e portões de garagem com ligas de alta resistência e design exclusivo.</p>
+          <p>Portas e portões de alumínio sob medida com acabamento impecável e alta resistência às intempéries.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Portas%20e%20Portões." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Janelas -->
         <article class="service-card-modern">
           <div class="icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
           </div>
-          <h3>Janelas de Alumínio</h3>
-          <p>Modelos de correr, integradas e maxim-ar com vedação acústica de alto desempenho para o clima de SJC.</p>
+          <h3>Janela de Alumínio</h3>
+          <p>Modelos de correr, integradas e maxim-ar com vedação acústica para o seu conforto térmico em SJC.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Janelas." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Linha Gold -->
@@ -184,7 +208,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
           <h3>Esquadria Linha Gold</h3>
-          <p>O padrão luxo para grandes vãos. Máxima robustez, deslizamento ultra-suave e estética imponente.</p>
+          <p>O padrão luxo para projetos de alto padrão em SJC. Robustez máxima para grandes vãos.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20da%20Linha%20Gold." target="_blank" class="card-action">Saber mais →</a>
         </article>
 
         <!-- Linha Suprema -->
@@ -193,7 +218,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9m3 3h-3m6 6h-6m5 3h-5M3 3h18v18H3V3z"/></svg>
           </div>
           <h3>Esquadria Linha Suprema</h3>
-          <p>O melhor custo-benefício para obras residenciais, mantendo o padrão de qualidade e estanqueidade W7M.</p>
+          <p>Qualidade estrutural superior com o melhor custo-benefício para a sua obra residencial.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20da%20Linha%20Suprema." target="_blank" class="card-action">Saber mais →</a>
         </article>
 
         <!-- Gourmet -->
@@ -201,8 +227,9 @@
           <div class="icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9zm0 0l9-6 9 6M9 21v-6h6v6"/></svg>
           </div>
-          <h3>Áreas Gourmet</h3>
-          <p>Esquadrias planejadas para integração total entre cozinha, churrasqueira e varanda gourmet.</p>
+          <h3>Esquadrias para Áreas Gourmet</h3>
+          <p>Sistemas deslizantes projetados para integrar churrasqueiras e varandas de forma elegante.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Esquadrias%20Gourmet." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Internos -->
@@ -211,7 +238,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3V3zm6 0v18m6-18v18M3 9h18M3 15h18"/></svg>
           </div>
           <h3>Ambientes Internos</h3>
-          <p>Divisórias de ambientes, portas de closet e soluções minimalistas para o interior do seu imóvel.</p>
+          <p>Esquadrias minimalistas e divisórias de vidro para closets, lavanderias e escritórios.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Esquadrias%20Internas." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
       </div>
     </section>
@@ -219,8 +247,8 @@
     <!-- CATEGORIA 2: VIDRAÇARIA -->
     <section id="vidros" style="background: var(--gray-50);">
       <div class="section-header">
-        <div class="section-tag">Vidraçaria Técnica</div>
-        <h2>Soluções em Vidros de Alta Performance</h2>
+        <div class="section-tag">Vidraçaria Especializada</div>
+        <h2>Soluções Técnicas em Vidros</h2>
         <div class="section-divider"></div>
       </div>
       
@@ -231,7 +259,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 3v18m6-18v18"/></svg>
           </div>
           <h3>Cortina de Vidro Deslizante</h3>
-          <p>Sistema retrátil para sacadas. Proteção contra chuva e vento com abertura total do vão.</p>
+          <p>O melhor sistema de fechamento retrátil para sacadas e varandas de SJC, com vedação total.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Cortina%20de%20Vidro." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Fachadas -->
@@ -239,17 +268,19 @@
           <div class="icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2M3 7h18M3 7v14m18-14v14"/></svg>
           </div>
-          <h3>Vidros para Fachada</h3>
-          <p>Vidros temperados e laminados para prédios comerciais e residenciais com segurança certificada.</p>
+          <h3>Vidros Temperados para Fachada</h3>
+          <p>Vidros de segurança de alta performance para fachadas comerciais e residenciais imponentes.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Vidros%20para%20Fachada." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
-        <!-- Guarda-corpo -->
+        <!-- Laminados/Guarda-corpo -->
         <article class="service-card-modern">
           <div class="icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20V4m6 16V4m6 16V4m6 16V4M3 10h18M3 16h18"/></svg>
           </div>
-          <h3>Laminados para Guarda-corpo</h3>
-          <p>Vidros duplos com película de proteção, garantindo segurança máxima em escadas e sacadas.</p>
+          <h3>Vidros Laminados</h3>
+          <p>Vidros técnicos para guarda-corpo e coberturas, oferecendo proteção extra e estética moderna.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Vidros%20Laminados." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Reflexivos -->
@@ -258,7 +289,8 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3>Vidros Reflexivos</h3>
-          <p>Tecnologia que reduz a entrada de calor e garante privacidade total durante o dia.</p>
+          <p>Privacidade total e controle térmico com vidros espelhados de alto desempenho solar.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Vidros%20Reflexivos." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
       </div>
     </section>
@@ -267,7 +299,7 @@
     <section id="especialidades">
       <div class="section-header">
         <div class="section-tag">Acabamento e Design</div>
-        <h2>Revestimentos e Especialidades</h2>
+        <h2>Revestimentos e Estruturas</h2>
         <div class="section-divider"></div>
       </div>
       
@@ -278,17 +310,28 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
           <h3>Fachada de ACM</h3>
-          <p>Revestimento em Alumínio Composto para modernização total de empresas e lojas em SJC.</p>
-          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer.%20Gostaria%20de%20um%20orçamento%20de%20Fachada%20ACM." target="_blank" class="btn-primary" style="margin-top: 20px; padding: 12px 20px; font-size: 0.75rem;">Orçamento de ACM</a>
+          <p>Revestimento em Alumínio Composto. Modernidade e durabilidade extrema para empresas em SJC.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Fachada%20ACM." target="_blank" class="btn-primary" style="padding: 12px 20px; font-size: 0.75rem;">Orçamento ACM →</a>
         </article>
 
-        <!-- Guarda-corpo/Corrimão -->
+        <!-- Guarda-corpo -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V4h16v16"/></svg>
+          </div>
+          <h3>Guarda-corpo</h3>
+          <p>Estruturas em alumínio ou aço inox com vidro, garantindo segurança total em escadas e sacadas.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Guarda-corpo." target="_blank" class="card-action">Pedir Orçamento →</a>
+        </article>
+
+        <!-- Corrimão -->
         <article class="service-card-modern">
           <div class="icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
           </div>
-          <h3>Corrimão de Alumínio e Inox</h3>
-          <p>Acabamento impecável em inox 304 ou alumínio pintado, livre de manutenção e ferrugem.</p>
+          <h3>Corrimão (Alumínio e Inox)</h3>
+          <p>Instalação de corrimão em alumínio pintado ou aço inox 304, livre de corrosão e com design leve.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Corrimão." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
 
         <!-- Box -->
@@ -297,18 +340,19 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4V4zm0 8h16M12 4v16"/></svg>
           </div>
           <h3>Box de Vidro Premium</h3>
-          <p>Instalação de boxes padrão, Elegance ou sob medida com roldanas aparentes e vedação total.</p>
+          <p>Instalação de boxes Elegance ou sob medida com acabamento impecável em banheiros de luxo.</p>
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20Box%20de%20Vidro." target="_blank" class="card-action">Pedir Orçamento →</a>
         </article>
       </div>
     </section>
 
     <!-- CTA FINAL -->
     <section class="cta-final" style="text-align: center; padding: 100px 5%; background: var(--blue-900); color: white;">
-      <h2 style="color: white; margin-bottom: 20px;">Pronto para transformar seu projeto?</h2>
+      <h2 style="color: white; margin-bottom: 20px;">Qual o seu próximo projeto?</h2>
       <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
-        Solicite agora um orçamento detalhado. Nossa equipe técnica está pronta para realizar a medição no seu local em SJC e região.
+        Solicite agora um orçamento detalhado. Nossa equipe técnica está pronta para realizar a medição no seu local em SJC e toda região do Vale.
       </p>
-      <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Solicitar Orçamento Geral</a>
+      <a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20geral." target="_blank" class="btn-primary">Solicitar Orçamento Geral</a>
     </section>
   </main>
 
@@ -332,9 +376,9 @@
       <div class="footer-col">
         <h5>Serviços SJC</h5>
         <ul>
-          <li><a href="/cortina-de-vidro/">Sacadas</a></li>
+          <li><a href="/cortina-de-vidro/">Cortina de Vidro</a></li>
           <li><a href="/esquadrias-aluminio/">Esquadrias</a></li>
-          <li><a href="/fachada-acm/">ACM</a></li>
+          <li><a href="/fachada-acm/">Fachada ACM</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -344,7 +388,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 W7M Designer | CNPJ: 32.501.716/0001-69</span>
+      <span>© 2024 W7M Designer | Vidraçaria e Esquadrias | CNPJ: 32.501.716/0001-69</span>
     </div>
   </footer>
 
