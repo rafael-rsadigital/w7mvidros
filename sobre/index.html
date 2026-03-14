@@ -3,115 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre a W7M Vidros | 16 Anos de Esquadrias em SJC</title>
-  <meta name="description" content="Conheça a história da W7M Vidros. Especialistas em alumínio e vidraçaria em São José dos Campos desde 2008." />
+  <title>Sobre a W7M Designer | Especialistas em Esquadrias em SJC</title>
+  <meta name="description" content="Conheça a W7M Designer. Há 16 anos transformando projetos em realidade com esquadrias de alumínio e vidraçaria de alto padrão em São José dos Campos." />
   <link rel="canonical" href="https://w7mvidros.com.br/sobre/" />
+  <meta name="robots" content="index, follow" />
   
+  <!-- CSS Global + Ajustes de Estilo -->
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Estilos específicos para a página Sobre */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-frame {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 20px 20px 0px rgba(14, 165, 233, 0.05);
+    }
+
+    .about-image-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .value-card {
+      background: var(--gray-50);
+      padding: 40px;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--gray-200);
+      transition: 0.3s;
+    }
+
+    .value-card:hover {
+      border-color: var(--accent);
+      background: var(--white);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .value-card h3 {
+      font-size: 1.1rem;
+      color: var(--blue-900);
+      margin-bottom: 15px;
+    }
+
+    .value-card p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-frame { order: -1; }
+    }
+  </style>
 </head>
 <body>
-   <nav id="navbar">
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
     <a href="/" class="nav-logo">
-      <div class="nav-logo-icon"></div>
-      <span class="nav-logo-text">W<span>7</span>M Vidros</span>
+      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias" style="height: 55px; border-radius: 10px;">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
-      <li><a href="/sobre/">Sobre</a></li>
+      <li><a href="/sobre/" class="active">Sobre</a></li>
       <li><a href="/servicos/">Serviços</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/galeria/">Galeria</a></li>
-      <li><a href="/depoimentos/">Depoimentos</a></li>
-      <li><a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Vidros" target="_blank" class="nav-cta">Orçamento</a></li>
+      <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <div class="page-hero">
-    <div class="page-hero-content">
-      <div class="breadcrumb"><a href="/" style="color:var(--silver); text-decoration:none;">Home</a> <span>/</span> Sobre</div>
-      <h1>Nossa <span class="line-accent">História em SJC</span></h1>
-      <p>Liderança e confiança na fabricação de esquadrias de alumínio há mais de uma década e meia.</p>
-    </div>
-  </div>
-
-  <section>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:60px; align-items:center;" class="footer-grid">
-      <div style="background:var(--blue-100); aspect-ratio:4/3; border-radius:15px; display:flex; align-items:center; justify-content:center;">
-        
-      </div>
-      <div>
-        <div class="section-tag">Tradição e Qualidade</div>
-        <h2>Compromisso com o <span class="accent">Seu Projeto</span></h2>
-        <p>A W7M Vidros consolidou-se em São José dos Campos como sinónimo de precisão. O nosso foco é transformar vãos em molduras de elegância, utilizando as melhores ligas de alumínio e vidros certificados.</p>
-        <div style="margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-          <div class="stat-card" style="text-align:left; background:var(--gray-50);">
-            <h4 style="color:var(--blue-700);">Missão</h4>
-            <p style="font-size:0.85rem; color:var(--gray-600);">Proporcionar segurança e estética através de soluções inovadoras em vidro e alumínio.</p>
-          </div>
-          <div class="stat-card" style="text-align:left; background:var(--gray-50);">
-            <h4 style="color:var(--blue-700);">Valores</h4>
-            <p style="font-size:0.85rem; color:var(--gray-600);">Transparência, pontualidade e excelência técnica em cada instalação.</p>
-          </div>
+  <main>
+    <!-- HERO SOBRE -->
+    <header class="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-content">
+        <div class="hero-badge">Nossa Trajetória</div>
+        <h1>Excelência que atravessa gerações em SJC</h1>
+        <p class="hero-desc">
+          Desde 2008, a W7M Designer combina tradição técnica com inovação em design para entregar as melhores esquadrias e vidros do Vale do Paraíba.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pela%20página%20Sobre%20e%20gostaria%20de%20falar%20com%20vocês." target="_blank" class="btn-primary">Conhecer Projetos</a>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="hero-visual">
+        <div class="about-image-frame">
+          <img src="/img/foto/esquadrias-aluminio-sjc-hero.webp" alt="Equipe W7M Designer em São José dos Campos" width="600" height="450">
+        </div>
+      </div>
+    </header>
 
- <footer>
+    <!-- HISTÓRIA E POSICIONAMENTO -->
+    <section>
+      <div class="about-grid">
+        <div>
+          <div class="section-header" style="margin-bottom: 30px;">
+            <div class="section-tag">Quem Somos</div>
+            <h2>Mais de 16 anos de compromisso com a qualidade</h2>
+          </div>
+          <div class="section-content-text">
+            <p>A <strong>W7M Designer | Vidraçaria e Esquadrias</strong> nasceu com o propósito de elevar o padrão de acabamento em obras residenciais e comerciais em <strong>São José dos Campos</strong>. Ao longo de mais de uma década e meia, nos consolidamos como referência pela precisão na fabricação própria e no rigor técnico das nossas instalações.</p>
+            <p>Nossa sede no <strong>Portal de Minas</strong> abriga uma estrutura completa de fabricação, permitindo controle total sobre prazos e acabamentos, desde a escolha das ligas de alumínio até a certificação dos vidros temperados e laminados.</p>
+            <p>Atendemos bairros estratégicos como <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, além de expandirmos nossa atuação para todo o Vale do Paraíba, sempre focados em entregar durabilidade e estética contemporânea.</p>
+          </div>
+        </div>
+        <div class="about-image-frame" style="box-shadow: -20px 20px 0px rgba(14, 165, 233, 0.05);">
+          <img src="/img/foto/fachada-w7m.webp" alt="Fachada da W7M Designer em SJC" width="600" height="450">
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSÃO, VISÃO E VALORES -->
+    <section style="background: var(--gray-50);">
+      <div class="section-header">
+        <div class="section-tag">Fundamentos</div>
+        <h2>Nossos Pilares</h2>
+      </div>
+      <div class="values-grid">
+        <article class="value-card">
+          <h3>Missão</h3>
+          <p>Proporcionar segurança, conforto e sofisticação através de soluções personalizadas em vidro e alumínio que valorizam o patrimônio dos nossos clientes.</p>
+        </article>
+        <article class="value-card">
+          <h3>Visão</h3>
+          <p>Ser a empresa número um em indicação técnica e estética por arquitetos e construtoras em todo o Vale do Paraíba até 2026.</p>
+        </article>
+        <article class="value-card">
+          <h3>Valores</h3>
+          <p>Transparência total no orçamento, pontualidade rigorosa na entrega e obsessão pelo acabamento impecável em cada detalhe da obra.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAL TÉCNICO -->
+    <section>
+      <div class="section-header">
+        <div class="section-tag">O Padrão W7M</div>
+        <h2>Por que escolher a W7M Designer?</h2>
+      </div>
+      <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div style="padding: 20px; border-left: 2px solid var(--accent);">
+          <h4 style="color: var(--blue-900); margin-bottom: 10px;">Fabricação Própria</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-600);">Não dependemos de terceiros. Produzimos suas esquadrias com maquinário de alta precisão.</p>
+        </div>
+        <div style="padding: 20px; border-left: 2px solid var(--accent);">
+          <h4 style="color: var(--blue-900); margin-bottom: 10px;">Linhas Premium</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-600);">Especialistas em Linha Gold e Suprema, as melhores opções para vedação e acústica.</p>
+        </div>
+        <div style="padding: 20px; border-left: 2px solid var(--accent);">
+          <h4 style="color: var(--blue-900); margin-bottom: 10px;">Atendimento em SJC</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-600);">Equipe local pronta para realizar medições técnicas rápidas e suporte pós-venda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" style="text-align: center; padding: 100px 5%; background: var(--blue-900); color: white;">
+      <h2 style="color: white; margin-bottom: 20px;">Confie sua obra em mãos especialistas</h2>
+      <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
+        Agende uma visita ao nosso showroom ou solicite um orçamento detalhado agora mesmo.
+      </p>
+      <a href="https://wa.me/5512981325798?text=Olá,%20vi%20a%20história%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Falar com a Equipe</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo" style="margin-bottom:20px;">
-          <div class="nav-logo-icon"></div>
-          <span class="nav-logo-text">W<span>7</span>M Vidros</span>
+          <img src="/img/logo.webp" alt="W7M Designer" style="height: 40px; border-radius: 8px;">
         </a>
-        <p>A <strong>W7M Vidros</strong> é referência em esquadrias de alumínio em São José dos Campos. Especialistas em transformar espaços com elegância e durabilidade.</p>
-        <div style="margin-top: 20px;">
-          <p style="font-size: 0.8rem; color: var(--accent);">Atendemos: Urbanova | Aquarius | Vila Ema | Satélite | Vale do Paraíba</p>
-        </div>
+        <p>Referência em esquadrias de alumínio e vidraçaria em São José dos Campos desde 2008.</p>
       </div>
       <div class="footer-col">
-        <h5>Explorar</h5>
+        <h5>Links</h5>
         <ul>
-          <li><a href="/sobre/">Quem Somos</a></li>
-          <li><a href="/servicos/">Nossos Serviços</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/galeria/">Portfólio de Obras</a></li>
-          <li><a href="/depoimentos/">Depoimentos de Clientes</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/sobre/">Sobre</a></li>
+          <li><a href="/servicos/">Serviços</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Serviços SJC</h5>
         <ul>
-          <li><a href="/cortina-de-vidro/">Cortina de Vidro SJC</a></li>
-          <li><a href="/fachada-acm/">Fachada ACM Comercial</a></li>
-          <li><a href="/esquadrias-aluminio/">Esquadrias de Alumínio</a></li>
-          <li><a href="/box-de-vidro/">Box e Espelhos</a></li>
+          <li><a href="/cortina-de-vidro/">Cortina de Vidro</a></li>
+          <li><a href="/esquadrias-aluminio/">Esquadrias</a></li>
+          <li><a href="/fachada-acm/">Fachada ACM</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Atendimento</h5>
-        <div class="footer-contact-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
-          <a href="tel:+5512981325798">(12) 98132-5798</a>
-        </div>
-        <div class="footer-contact-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>R. Conceição Aparecida Lima Pereira, 118 - Portal de Minas, SJC – SP</span>
-        </div>
+        <div class="footer-contact-item"><span>(12) 98132-5798</span></div>
+        <div class="footer-contact-item"><span>São José dos Campos – SP</span></div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 W7M Vidros - Fabricação e Instalação em São José dos Campos</span>
-      <span>CNPJ: 00.000.000/0000-00</span>
+      <span>© 2024 W7M Designer | CNPJ: 32.501.716/0001-69</span>
     </div>
   </footer>
 
-
   <script src="/js/main.js"></script>
+
 </body>
 </html>
