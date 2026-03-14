@@ -3,18 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços de Vidraçaria e Esquadrias em SJC | W7M Designer</title>
-  <meta name="description" content="Conheça a gama completa da W7M Designer: Esquadrias de Alumínio Linha Gold e Suprema, Fachada ACM, Cortina de Vidro, Guarda-corpo e muito mais em São José dos Campos.">
+  <title>Catálogo de Serviços | W7M Designer - SJC</title>
+  <meta name="description" content="Gama completa de serviços W7M Designer: Esquadrias de Alumínio Gold e Suprema, Fachadas ACM, Vidraçaria Premium e Cortina de Vidro em São José dos Campos.">
   <link rel="canonical" href="https://w7mvidros.com.br/servicos/">
   <meta name="robots" content="index, follow">
 
-  <!-- CSS Global -->
+  <!-- CSS Global Reutilizado + Ajustes de Página -->
   <link rel="stylesheet" href="/css/style.css">
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Estilos específicos para turbinar o layout da página de serviços */
+    .service-card-modern {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: 8px;
+      padding: 40px 30px;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card-modern:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(10, 22, 40, 0.08);
+    }
+
+    .service-card-modern::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--accent);
+      transition: 0.4s;
+    }
+
+    .service-card-modern:hover::before {
+      height: 100%;
+    }
+
+    .icon-box {
+      width: 50px;
+      height: 50px;
+      background: var(--gray-50);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      color: var(--blue-900);
+      transition: 0.3s;
+    }
+
+    .service-card-modern:hover .icon-box {
+      background: var(--blue-900);
+      color: var(--white);
+    }
+
+    .service-card-modern h3 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .service-card-modern p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 30px 0;
+    }
+
+    .line-gold { border-left: 4px solid #d4af37 !important; }
+    .line-suprema { border-left: 4px solid var(--accent) !important; }
+
+    /* Estilo para cartões em destaque (ACM) */
+    .featured-card {
+      background: var(--blue-900);
+      color: var(--white);
+      border: none;
+    }
+    .featured-card h3 { color: var(--white); }
+    .featured-card p { color: var(--silver); }
+    .featured-card .icon-box { background: rgba(255,255,255,0.1); color: var(--accent-bright); }
+  </style>
 </head>
 
 <body>
@@ -22,7 +116,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias" style="height: 50px; border-radius: 10px;">
+      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias" style="height: 55px; border-radius: 10px;">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
@@ -40,137 +134,179 @@
     <header class="hero">
       <div class="hero-grid-bg"></div>
       <div class="hero-content">
-        <div class="hero-badge">Catálogo Completo</div>
-        <h1>Soluções Premium em Alumínio e Vidro</h1>
+        <div class="hero-badge">Catálogo 2024</div>
+        <h1>Soluções em Vidro e Alumínio</h1>
         <p class="hero-desc">
-          Da fabricação própria de esquadrias de alto padrão ao fechamento de varandas e fachadas comerciais. A W7M Designer entrega excelência técnica para sua obra em SJC.
+          Do projeto à instalação. Oferecemos a mais completa linha de esquadrias de alto padrão e vidraçaria técnica de São José dos Campos.
         </p>
         <div class="hero-actions">
-          <a href="https://wa.me/5512981325798" target="_blank" class="btn-primary">Consultar Projeto</a>
+          <a href="#esquadrias" class="btn-primary">Ver Esquadrias</a>
+          <a href="#vidros" class="btn-outline">Ver Vidros</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="hero-img-frame">
-          <img src="/img/foto/esquadrias-aluminio-sjc-hero.webp" alt="Projetos executados pela W7M Designer" width="600" height="450">
+          <img src="/img/foto/esquadrias-aluminio-sjc-hero.webp" alt="W7M Designer Projetos Premium" width="600" height="450">
         </div>
       </div>
     </header>
 
-    <!-- CATEGORIA: ESQUADRIAS -->
-    <section id="esquadrias-lista">
+    <!-- CATEGORIA 1: ESQUADRIAS -->
+    <section id="esquadrias">
       <div class="section-header">
-        <div class="section-tag">Fabricante e Fornecedor</div>
+        <div class="section-tag">Fabricação Própria</div>
         <h2>Esquadrias de Alumínio Sob Medida</h2>
+        <div class="section-divider"></div>
       </div>
-      <div class="section-content-text">
-        <p>Somos especialistas na fabricação e instalação de esquadrias para residências de alto padrão e projetos comerciais.</p>
-      </div>
-      <div class="services-grid" style="margin-top: 40px;">
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Portas e Portões</h3>
-            <p>Portas pivotantes de entrada e portões externos sob medida com design contemporâneo.</p>
+      
+      <div class="category-grid">
+        <!-- Portas e Portão -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM9 3v18m4-18v18"/></svg>
           </div>
+          <h3>Portas e Portões Externos</h3>
+          <p>Fabricação sob medida de portas pivotantes e portões de garagem com ligas de alta resistência e design exclusivo.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Janelas de Alumínio</h3>
-            <p>Modelos de correr, maxim-ar e integradas com persiana automatizada.</p>
+
+        <!-- Janelas -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18M12 3v18"/></svg>
           </div>
+          <h3>Janelas de Alumínio</h3>
+          <p>Modelos de correr, integradas e maxim-ar com vedação acústica de alto desempenho para o clima de SJC.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body" style="border-left: 2px solid var(--accent);">
-            <h3>Linha Gold</h3>
-            <p>Perfis robustos para grandes vãos, garantindo o máximo em vedação e luxo.</p>
+
+        <!-- Linha Gold -->
+        <article class="service-card-modern line-gold">
+          <div class="icon-box" style="color:#d4af37;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
+          <h3>Esquadria Linha Gold</h3>
+          <p>O padrão luxo para grandes vãos. Máxima robustez, deslizamento ultra-suave e estética imponente.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body" style="border-left: 2px solid var(--accent);">
-            <h3>Linha Suprema</h3>
-            <p>A solução ideal para projetos que buscam o melhor custo-benefício e qualidade estrutural.</p>
+
+        <!-- Linha Suprema -->
+        <article class="service-card-modern line-suprema">
+          <div class="icon-box" style="color:var(--accent);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9m3 3h-3m6 6h-6m5 3h-5M3 3h18v18H3V3z"/></svg>
           </div>
+          <h3>Esquadria Linha Suprema</h3>
+          <p>O melhor custo-benefício para obras residenciais, mantendo o padrão de qualidade e estanqueidade W7M.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Áreas Gourmet</h3>
-            <p>Esquadrias planejadas para integrar churrasqueiras e varandas com deslizamento suave.</p>
+
+        <!-- Gourmet -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9zm0 0l9-6 9 6M9 21v-6h6v6"/></svg>
           </div>
+          <h3>Áreas Gourmet</h3>
+          <p>Esquadrias planejadas para integração total entre cozinha, churrasqueira e varanda gourmet.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Ambientes Internos</h3>
-            <p>Divisórias de vidro e alumínio para escritórios, closets e áreas de serviço.</p>
+
+        <!-- Internos -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3V3zm6 0v18m6-18v18M3 9h18M3 15h18"/></svg>
           </div>
+          <h3>Ambientes Internos</h3>
+          <p>Divisórias de ambientes, portas de closet e soluções minimalistas para o interior do seu imóvel.</p>
         </article>
       </div>
     </section>
 
-    <!-- CATEGORIA: VIDRAÇARIA -->
-    <section id="vidracaria-lista" style="background: var(--gray-50);">
+    <!-- CATEGORIA 2: VIDRAÇARIA -->
+    <section id="vidros" style="background: var(--gray-50);">
       <div class="section-header">
-        <div class="section-tag">Vidros Técnicos</div>
-        <h2>Soluções em Vidraçaria</h2>
+        <div class="section-tag">Vidraçaria Técnica</div>
+        <h2>Soluções em Vidros de Alta Performance</h2>
+        <div class="section-divider"></div>
       </div>
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Cortina de Vidro Deslizante</h3>
-            <p>Fechamento retrátil de sacadas com tecnologia de ponta e estanqueidade total.</p>
+      
+      <div class="category-grid">
+        <!-- Cortina Deslizante -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 3v18m6-18v18"/></svg>
           </div>
+          <h3>Cortina de Vidro Deslizante</h3>
+          <p>Sistema retrátil para sacadas. Proteção contra chuva e vento com abertura total do vão.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Vidros para Fachada</h3>
-            <p>Vidros temperados e laminados de alta resistência para fachadas de prédios e lojas.</p>
+
+        <!-- Fachadas -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2M3 7h18M3 7v14m18-14v14"/></svg>
           </div>
+          <h3>Vidros para Fachada</h3>
+          <p>Vidros temperados e laminados para prédios comerciais e residenciais com segurança certificada.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Guarda-corpo e Corrimão</h3>
-            <p>Segurança impecável com vidros laminados e fixação em alumínio ou inox.</p>
+
+        <!-- Guarda-corpo -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20V4m6 16V4m6 16V4m6 16V4M3 10h18M3 16h18"/></svg>
           </div>
+          <h3>Laminados para Guarda-corpo</h3>
+          <p>Vidros duplos com película de proteção, garantindo segurança máxima em escadas e sacadas.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Vidros Reflexivos</h3>
-            <p>Efeito espelhado para maior privacidade e controle solar em residências.</p>
+
+        <!-- Reflexivos -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
+          <h3>Vidros Reflexivos</h3>
+          <p>Tecnologia que reduz a entrada de calor e garante privacidade total durante o dia.</p>
         </article>
       </div>
     </section>
 
-    <!-- CATEGORIA: ESPECIALIDADES -->
-    <section id="especialidades-lista">
+    <!-- CATEGORIA 3: ESPECIALIDADES -->
+    <section id="especialidades">
       <div class="section-header">
-        <div class="section-tag">Especialidades</div>
-        <h2>Revestimentos e Acabamentos</h2>
+        <div class="section-tag">Acabamento e Design</div>
+        <h2>Revestimentos e Especialidades</h2>
+        <div class="section-divider"></div>
       </div>
-      <div class="services-grid">
-        <article class="service-card" style="background: var(--blue-900); color: white;">
-          <div class="service-body">
-            <h3 style="color: white;">Fachada de ACM</h3>
-            <p style="color: var(--silver);">Revestimento em Alumínio Composto para modernização total de fachadas comerciais em SJC.</p>
+      
+      <div class="category-grid">
+        <!-- ACM -->
+        <article class="service-card-modern featured-card">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
+          <h3>Fachada de ACM</h3>
+          <p>Revestimento em Alumínio Composto para modernização total de empresas e lojas em SJC.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Corrimão de Inox</h3>
-            <p>Acabamento nobre e livre de oxidação para escadas internas e áreas de piscina.</p>
+
+        <!-- Guarda-corpo/Corrimão -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
           </div>
+          <h3>Corrimão de Alumínio e Inox</h3>
+          <p>Acabamento impecável em inox 304 ou alumínio pintado, livre de manutenção e ferrugem.</p>
         </article>
-        <article class="service-card">
-          <div class="service-body">
-            <h3>Box de Vidro</h3>
-            <p>Instalação de boxes padrão e personalizados com as melhores roldanas do mercado.</p>
+
+        <!-- Box -->
+        <article class="service-card-modern">
+          <div class="icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4V4zm0 8h16M12 4v16"/></svg>
           </div>
+          <h3>Box de Vidro Premium</h3>
+          <p>Instalação de boxes padrão, Elegance ou sob medida com roldanas aparentes e vedação total.</p>
         </article>
       </div>
     </section>
 
     <!-- CTA FINAL -->
-    <section class="cta-final" style="text-align: center; padding: 100px 5%;">
-      <h2>Qual o seu próximo projeto?</h2>
-      <p style="margin-bottom: 40px; font-size: 1.2rem; color: var(--gray-600);">Nossa equipe está pronta para realizar o orçamento detalhado da sua obra.</p>
+    <section class="cta-final" style="text-align: center; padding: 100px 5%; background: var(--blue-900); color: white;">
+      <h2 style="color: white; margin-bottom: 20px;">Pronto para transformar seu projeto?</h2>
+      <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
+        Solicite agora um orçamento detalhado. Nossa equipe técnica está pronta para realizar a medição no seu local em SJC e região.
+      </p>
       <a href="https://wa.me/5512981325798" class="btn-primary">Solicitar Orçamento Geral</a>
     </section>
   </main>
@@ -182,10 +318,10 @@
         <a href="/" class="nav-logo" style="margin-bottom:20px;">
           <img src="/img/logo.webp" alt="W7M Designer" style="height: 40px; border-radius: 8px;">
         </a>
-        <p>16 anos transformando vãos em molduras de elegância em São José dos Campos.</p>
+        <p>A maior autoridade em esquadrias e vidraçaria de São José dos Campos. 16 anos de tradição.</p>
       </div>
       <div class="footer-col">
-        <h5>Menu</h5>
+        <h5>Links</h5>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/sobre/">Sobre</a></li>
@@ -195,7 +331,7 @@
       <div class="footer-col">
         <h5>Serviços SJC</h5>
         <ul>
-          <li><a href="/cortina-de-vidro/">Cortina de Vidro</a></li>
+          <li><a href="/cortina-de-vidro/">Sacadas</a></li>
           <li><a href="/esquadrias-aluminio/">Esquadrias</a></li>
           <li><a href="/fachada-acm/">ACM</a></li>
         </ul>
