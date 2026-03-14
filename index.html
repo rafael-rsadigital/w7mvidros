@@ -79,10 +79,18 @@
       height: 100%;
     }
     .nav-logo img { 
-      height: 45px; /* Altura fixa para elegância */
+      height: 42px; /* Reduzido levemente para acomodar a borda */
       width: auto; 
       display: block;
       transition: 0.3s ease;
+      /* Ajuste de borda minimalista solicitado */
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+    nav.scrolled .nav-logo img {
+      border-color: rgba(14, 165, 233, 0.3); /* Borda ganha cor de destaque ao rolar */
+      height: 38px;
     }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
@@ -328,7 +336,7 @@
 
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <!-- O contentor da imagem agora é limpo de fundos ou bordas indesejadas -->
+      <!-- Moldura subtil adicionada ao logótipo via CSS -->
       <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias em São José dos Campos">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -384,7 +392,7 @@
     </div>
     <div class="section-content-text">
       <p>Se você procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação técnica para o seu projeto. Aliamos o design funcional à máxima segurança.</p>
-      <p>A nossa equipa técnica actua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
+      <p>A nossa equipe técnica atua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
     </div>
   </section>
 
@@ -452,7 +460,7 @@
       </div>
       <div class="faq-item">
         <h3>A W7M Designer atende Jacareí?</h3>
-        <p>Sim! Atendemos Jacareí, Caçapava, Taubaté e todo o Vale do Paraíba com equipa própria de instalação e medição técnica.</p>
+        <p>Sim! Atendemos Jacareí, Caçapava, Taubaté e todo o Vale do Paraíba com equipe própria de instalação e medição técnica.</p>
       </div>
     </div>
   </section>
