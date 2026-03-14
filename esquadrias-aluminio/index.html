@@ -6,9 +6,9 @@
   <title>Esquadrias de Alumínio em São José dos Campos | W7M Vidros</title>
   <meta name="description" content="Fabricamos e instalamos esquadrias de alumínio sob medida em São José dos Campos. Portas, janelas, linha Gold e Suprema com alto padrão de acabamento.">
   <link rel="canonical" href="https://w7mvidros.com.br/esquadrias-aluminio/">
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow">
 
-  <!-- Preload da Imagem Principal do Serviço (LCP) -->
+  <!-- Preload da Imagem Principal do Serviço (LCP Otimizado) -->
   <link rel="preload" as="image" href="/img/esquadrias/esquadrias-aluminio-sjc.webp" type="image/webp">
 
   <!-- CSS Global -->
@@ -18,6 +18,89 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Schema Avançado Nível Máximo -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://w7mvidros.com.br/#organization",
+      "name": "W7M Vidros",
+      "url": "https://w7mvidros.com.br",
+      "logo": "https://w7mvidros.com.br/img/logo.png",
+      "sameAs": [
+        "https://www.instagram.com/w7m_esquadrias/"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://w7mvidros.com.br/#website",
+      "name": "W7M Vidros",
+      "url": "https://w7mvidros.com.br/",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://w7mvidros.com.br/#organization" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://w7mvidros.com.br/#business",
+      "mainEntityOfPage": "https://w7mvidros.com.br/esquadrias-aluminio/",
+      "parentOrganization": { "@id": "https://w7mvidros.com.br/#organization" },
+      "name": "W7M Vidros",
+      "image": "https://w7mvidros.com.br/img/fachada-w7m.jpg",
+      "telephone": "+5512981325798",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Conceição Aparecida Lima Pereira, 118",
+        "addressLocality": "São José dos Campos",
+        "addressRegion": "SP",
+        "postalCode": "12211-144",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.1791,
+        "longitude": -45.8872
+      },
+      "areaServed": [
+        { "@type": "City", "name": "São José dos Campos" },
+        { "@type": "Place", "name": "Urbanova" },
+        { "@type": "Place", "name": "Jardim Aquarius" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catálogo de Esquadrias",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://w7mvidros.com.br/#service-esquadrias",
+              "name": "Esquadrias de Alumínio Premium",
+              "serviceType": "Fabricação e Instalação de Linha Gold e Suprema"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais as vantagens das esquadrias de alumínio Linha Gold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Linha Gold oferece maior robustez, permitindo vãos maiores com deslizamento suave e vedação acústica superior, ideal para residências de alto padrão em SJC."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
 </head>
 
 <body>
@@ -34,178 +117,168 @@
       <li><a href="/servicos/">Serviços</a></li>
       <li><a href="/galeria/">Galeria</a></li>
       <li><a href="/depoimentos/">Depoimentos</a></li>
-      <li><a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20e%20quero%20orçamento%20de%20esquadrias" target="_blank" class="nav-cta">Orçamento</a></li>
+      <li><a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Vidros" target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </nav>
 
-  <!-- HERO SERVIÇO (Estilos Inline Removidos para Priorizar o CSS Responsivo) -->
-  <header class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-content">
-      <div class="hero-badge">Linha Gold e Suprema</div>
-      <h1>Esquadrias de Alumínio em São José dos Campos</h1>
-      <p class="hero-desc">
-        A <strong>W7M Vidros</strong> é especialista em fabricação e instalação de 
-        <strong>esquadrias de alumínio sob medida em São José dos Campos</strong>. 
-        Trabalhamos com linhas premium para garantir estética, vedação e durabilidade superiores.
-      </p>
-      <div class="hero-actions">
-        <a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20e%20quero%20orçamento%20de%20esquadrias" target="_blank" class="btn-primary" rel="noopener">Solicitar Orçamento</a>
+  <main>
+    <!-- HERO SERVIÇO -->
+    <header class="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-content">
+        <div class="hero-badge">Linha Gold e Suprema</div>
+        <h1>Esquadrias de Alumínio em São José dos Campos</h1>
+        <p class="hero-desc">
+          A <strong>W7M Vidros</strong> é especialista em fabricação e instalação de 
+          <strong>esquadrias de alumínio sob medida em São José dos Campos</strong>. 
+          Garantimos estética, vedação e durabilidade superiores para sua obra.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5512981325798?text=Olá%20quero%20orçamento%20de%20esquadrias%20de%20alumínio" target="_blank" class="btn-primary" rel="noopener">Solicitar Orçamento</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-img-frame">
-        <img src="/img/esquadrias/esquadrias-aluminio-sjc.webp" alt="Esquadrias de alumínio instaladas em residência de alto padrão em São José dos Campos" width="600" height="450">
+      <div class="hero-visual">
+        <div class="hero-img-frame">
+          <img src="/img/esquadrias/esquadrias-aluminio-sjc.webp" alt="Esquadrias de alumínio instaladas em residência de alto padrão em São José dos Campos" width="600" height="450">
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- INTRO SEO -->
-  <section class="seo-intro">
-    <div class="section-header">
-      <div class="section-tag">Fabricação Própria</div>
-      <h2>Especialistas em Esquadrias de Alumínio Sob Medida</h2>
-    </div>
-    <div class="section-content-text" style="max-width: 900px; line-height: 1.8; color: var(--gray-600);">
-      <p>
-        Se procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a 
-        <strong>W7M Vidros</strong> oferece soluções completas para residências, 
-        condomínios e projetos comerciais. Fabricamos portas e janelas em alumínio com alto padrão de acabamento, 
-        utilizando perfis resistentes e vidros certificados para garantir segurança, durabilidade e isolamento acústico.
+    <!-- INTRO SEO -->
+    <section class="seo-intro">
+      <div class="section-header">
+        <div class="section-tag">Fabricação Própria</div>
+        <h2>Especialistas em Esquadrias de Alumínio Sob Medida</h2>
+      </div>
+      <div class="section-content-text" style="max-width: 900px; line-height: 1.8; color: var(--gray-600);">
+        <p>
+          Se procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a 
+          <strong>W7M Vidros</strong> oferece soluções completas para residências, 
+          condomínios e projetos comerciais. Fabricamos portas e janelas com alto padrão de acabamento, 
+          utilizando perfis resistentes e vidros certificados para garantir segurança e isolamento acústico.
+        </p>
+        <ul style="margin-top: 20px; padding-left: 20px; list-style-type: square; color: var(--blue-600);">
+          <li>Janelas de correr em alumínio premium</li>
+          <li>Portas de correr em vidro e alumínio</li>
+          <li>Portas pivotantes de alto padrão</li>
+          <li>Janelas maxim-ar para banheiros e cozinhas</li>
+          <li>Portas balcão integradas para varanda</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TIPOS DE ESQUADRIA -->
+    <section class="servicos-detalhes" style="background: var(--gray-50);">
+      <div class="section-header center">
+        <div class="section-tag">Nossas Linhas</div>
+        <h2>Tipos de Esquadrias que Instalamos</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-body">
+            <h3>Portas de Alumínio</h3>
+            <p>Ideais para áreas internas e externas. Oferecem alta resistência à umidade e excelente acabamento estético em SJC.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-body">
+            <h3>Janelas de Alumínio</h3>
+            <p>Instalamos janelas com sistemas modernos de vedação, garantindo conforto térmico e acústico para sua residência.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-body">
+            <h3>Portas Balcão</h3>
+            <p>Muito utilizadas em varandas e sacadas, as portas balcão permitem entrada de luz natural e integração total entre ambientes.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-body">
+            <h3>Linhas Suprema e Gold</h3>
+            <p>Trabalhamos com as linhas premium que oferecem maior robustez e o melhor desempenho estrutural do mercado.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SEO LOCAL -->
+    <section class="seo-local">
+      <div class="section-header">
+        <div class="section-tag">Atendimento Local</div>
+        <h2>Esquadrias de Alumínio em SJC e Região</h2>
+      </div>
+      <p style="max-width: 800px; font-size: 1.1rem; color: var(--gray-600);">
+        Atendemos toda a cidade de <strong>São José dos Campos</strong>, com foco em <strong>Urbanova, Jardim Aquarius, Vila Ema e Jardim Satélite</strong>, além de <strong>Jacareí, Caçapava e Taubaté</strong>.
       </p>
-      <ul style="margin-top: 20px; padding-left: 20px; list-style-type: square; color: var(--blue-600);">
-        <li>Janelas de correr em alumínio</li>
-        <li>Portas de correr em vidro e alumínio</li>
-        <li>Portas pivotantes de alto padrão</li>
-        <li>Janelas maxim-ar</li>
-        <li>Portas balcão para varanda</li>
-      </ul>
-    </div>
-  </section>
+    </section>
 
-  <!-- TIPOS DE ESQUADRIA -->
-  <section class="servicos-detalhes" style="background: var(--gray-50);">
-    <div class="section-header center">
-      <div class="section-tag">Nossas Linhas</div>
-      <h2>Tipos de Esquadrias que Instalamos</h2>
-    </div>
-    <div class="services-grid">
-      <article class="service-card">
-        <h3>Portas de Alumínio</h3>
-        <p>Ideais para áreas internas e externas. Oferecem alta resistência à umidade e excelente acabamento estético em SJC.</p>
-      </article>
+    <!-- CTA FINAL -->
+    <section class="cta-final" style="text-align: center; padding: 80px 5%;">
+      <h2>Solicite um Orçamento de Esquadrias</h2>
+      <p style="margin-bottom: 30px; font-size: 1.2rem; color: var(--gray-600);">Fale com a equipa da W7M Vidros e receba um orçamento gratuito para o seu projeto em SJC.</p>
+      <a href="https://wa.me/5512981325798?text=Olá%20quero%20orçamento%20de%20esquadrias%20de%20alumínio" class="btn-primary">Falar no WhatsApp</a>
+    </section>
+  </main>
 
-      <article class="service-card">
-        <h3>Janelas de Alumínio</h3>
-        <p>Instalamos janelas com sistemas modernos de vedação, garantindo conforto térmico e acústico para sua residência.</p>
-      </article>
-
-      <article class="service-card">
-        <h3>Portas Balcão</h3>
-        <p>Muito utilizadas em varandas e sacadas, as portas balcão permitem entrada de luz natural e integração total entre ambientes.</p>
-      </article>
-
-      <article class="service-card">
-        <h3>Linhas Suprema e Gold</h3>
-        <p>Trabalhamos com as linhas premium do mercado que oferecem maior robustez e melhor desempenho estrutural.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- DIFERENCIAIS -->
-  <section class="diferenciais">
-    <div class="section-header">
-      <div class="section-tag">Por que a W7M?</div>
-      <h2>Diferenciais da Nossa Fabricação</h2>
-    </div>
-    <div class="section-content-text">
-      <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; list-style: none;">
-        <li style="padding: 20px; background: var(--white); border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: var(--shadow);">
-          <strong>16+ Anos</strong> de experiência comprovada.
-        </li>
-        <li style="padding: 20px; background: var(--white); border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: var(--shadow);">
-          <strong>Fabricação Própria</strong> em São José dos Campos.
-        </li>
-        <li style="padding: 20px; background: var(--white); border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: var(--shadow);">
-          <strong>Projetos Sob Medida</strong> para sua obra.
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- SEO LOCAL -->
-  <section class="seo-local" style="background: var(--blue-900); color: var(--white);">
-    <div class="section-header">
-      <h2 style="color: var(--white);">Esquadrias de Alumínio em São José dos Campos</h2>
-    </div>
-    <p style="font-size: 1.1rem; color: var(--silver); max-width: 800px;">
-      Atendemos <strong>Urbanova, Jardim Aquarius, Vila Ema e Jardim Satélite</strong>, além de <strong>Jacareí, Caçapava e Taubaté</strong>.
-    </p>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="cta-final" style="text-align: center; padding: 60px 5%;">
-    <h2>Solicite um Orçamento de Esquadrias</h2>
-    <p style="margin-bottom: 30px;">Receba um orçamento gratuito para o seu projeto em SJC.</p>
-    <a href="https://wa.me/5512981325798?text=Olá%20quero%20orçamento%20de%20esquadrias%20de%20alumínio" class="btn-primary">Falar no WhatsApp</a>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- FOOTER PADRONIZADO (REPLICADO DA HOME) -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="nav-logo">
+        <a href="/" class="nav-logo" style="margin-bottom:20px;">
           <div class="nav-logo-icon"></div>
           <span class="nav-logo-text">W<span>7</span>M Vidros</span>
         </a>
-        <p>Especialistas em alumínio e vidraçaria em SJC desde 2008.</p>
+        <p>A <strong>W7M Vidros</strong> é referência em esquadrias de alumínio em São José dos Campos. Especialistas em transformar espaços com elegância e durabilidade.</p>
+        <div style="margin-top: 20px;">
+          <p style="font-size: 0.8rem; color: var(--accent);">Atendemos: Urbanova | Aquarius | Vila Ema | Satélite | Vale do Paraíba</p>
+        </div>
       </div>
       <div class="footer-col">
-        <h5>Serviços</h5>
+        <h5>Explorar</h5>
         <ul>
-          <li><a href="/cortina-de-vidro/">Cortina de Vidro</a></li>
-          <li><a href="/fachada-acm/">Fachada ACM</a></li>
-          <li><a href="/esquadrias-aluminio/">Esquadrias</a></li>
+          <li><a href="/sobre/">Quem Somos</a></li>
+          <li><a href="/servicos/">Nossos Serviços</a></li>
+          <li><a href="/galeria/">Portfólio de Obras</a></li>
+          <li><a href="/depoimentos/">Depoimentos de Clientes</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h5>Serviços SJC</h5>
+        <ul>
+          <li><a href="/cortina-de-vidro/">Cortina de Vidro SJC</a></li>
+          <li><a href="/fachada-acm/">Fachada ACM Comercial</a></li>
+          <li><a href="/esquadrias-aluminio/">Esquadrias de Alumínio</a></li>
+          <li><a href="/box-de-vidro/">Box e Espelhos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Atendimento</h5>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+          <a href="tel:+5512981325798">(12) 98132-5798</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>R. Conceição Aparecida Lima Pereira, 118 - Portal de Minas, SJC – SP</span>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom" style="margin-top: 30px; text-align: center; font-size: 0.8rem; color: var(--gray-600);">
-      <span>© 2024 W7M Vidros. Todos os direitos reservados.</span>
+    <div class="footer-bottom">
+      <span>© 2024 W7M Vidros - Fabricação e Instalação em São José dos Campos</span>
+      <span>CNPJ: 00.000.000/0000-00</span>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20e%20quero%20orçamento%20de%20esquadrias" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Vidros" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
   <!-- JS Externo -->
   <script src="/js/main.js"></script>
 
-  <!-- SCHEMA SERVICE -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://w7mvidros.com.br/#service-esquadrias",
-    "name": "Esquadrias de Alumínio",
-    "provider": {
-      "@type": "HomeAndConstructionBusiness",
-      "@id": "https://w7mvidros.com.br/#business",
-      "name": "W7M Vidros",
-      "url": "https://w7mvidros.com.br"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "São José dos Campos"
-    },
-    "description": "Fabricação e instalação de esquadrias de alumínio sob medida em São José dos Campos. Linhas Gold e Suprema.",
-    "url": "https://w7mvidros.com.br/esquadrias-aluminio/",
-    "serviceType": "Instalação de portas e janelas de alumínio"
-  }
-  </script>
 </body>
 </html>
