@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://w7mvidros.com.br/blog/" />
   <meta name="robots" content="index, follow" />
   
-  <!-- CSS Global + Ajustes de Estilo -->
+  <!-- CSS Global -->
   <link rel="stylesheet" href="/css/style.css" />
 
   <!-- Fontes -->
@@ -17,7 +17,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* Estilos específicos para a legibilidade do Blog */
+    /* Estilos específicos para a legibilidade do Blog e Menu Mobile */
+    
+    /* --- AJUSTES NAVBAR & HAMBURGER (Sincronizado com Home/Serviços) --- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 8%; height: 90px; transition: 0.4s ease;
+      background: transparent;
+    }
+    nav.scrolled { 
+      background: rgba(10, 22, 40, 0.98); 
+      height: 75px; 
+      backdrop-filter: blur(15px); 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+    }
+
+    .nav-logo img { 
+      height: 50px; width: auto; display: block; 
+      transition: 0.3s ease; border-radius: 10px;
+    }
+
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links a { 
+      color: var(--silver); text-decoration: none; 
+      font-size: 0.8rem; font-weight: 500; transition: 0.3s; 
+      text-transform: uppercase; letter-spacing: 0.1em; 
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    
+    .nav-cta { 
+      background: var(--accent); color: white !important; 
+      padding: 10px 22px; border-radius: var(--radius); 
+      font-weight: 600; transition: 0.3s;
+    }
+
+    .hamburger { 
+      display: none; flex-direction: column; gap: 6px; 
+      cursor: pointer; z-index: 1001; padding: 10px;
+    }
+    .hamburger span { 
+      width: 28px; height: 2px; background: var(--white); 
+      transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      transform-origin: center; 
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
+
+    @media (max-width: 992px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+        background: var(--blue-900); flex-direction: column; justify-content: center;
+        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); z-index: 1000; gap: 40px;
+        padding: 10%;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1.3rem; color: var(--white); letter-spacing: 0.15em; }
+    }
+
+    /* --- CONTEÚDO DO BLOG --- */
     .blog-content {
       max-width: 850px;
       margin: 0 auto;
@@ -92,7 +152,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias" style="height: 55px; border-radius: 10px;">
+      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
@@ -102,7 +162,9 @@
       <li><a href="/galeria/">Galeria</a></li>
       <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20Blog%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
   </nav>
 
   <main>
@@ -229,7 +291,7 @@
       <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
         Nossos especialistas estão prontos para te ajudar a escolher a melhor solução técnica para sua obra em São José dos Campos.
       </p>
-      <a href="https://wa.me/5512981325798?text=Olá,%20vi%20o%20Blog%20da%20W7M%20Designer%20e%20gostaria%20de%20tirar%20algumas%20dúvidas." target="_blank" class="btn-primary">Conversar no WhatsApp</a>
+      <a href="https://wa.me/5512981325798?text=Olá,%20vim%20o%20Blog%20da%20W7M%20Designer%20e%20gostaria%20de%20tirar%20algumas%20dúvidas." target="_blank" class="btn-primary">Conversar no WhatsApp</a>
     </section>
   </main>
 
@@ -269,7 +331,30 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="/js/main.js"></script>
+  <script>
+    // Garantindo o funcionamento do hambúrguer especificamente nesta página
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
