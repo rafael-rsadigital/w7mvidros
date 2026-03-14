@@ -7,15 +7,19 @@
   <meta name="description" content="W7M Designer: Especialistas em esquadrias de alumínio, cortina de vidro e fachadas ACM em São José dos Campos. Fabricação própria e instalação em SJC e região. Peça orçamento!" />
   <meta name="robots" content="index, follow" />
   
+  <!-- Preload da Imagem Principal (LCP) -->
   <link rel="preload" as="image" href="/img/esquadrias-aluminio-sjc-hero.webp" type="image/webp" />
   <link rel="canonical" href="https://w7mvidros.com.br/" />
   
+  <!-- Fontes Profissionais -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ESTILOS CONSOLIDADOS PARA REFINAMENTO MINIMALISTA */
+    /* DESIGN SYSTEM - W7M DESIGNER 
+       Focado em Minimalismo, Alinhamento e Performance
+    */
     :root {
       --blue-900: #0a1628;
       --blue-800: #0d1f3c;
@@ -32,137 +36,263 @@
       --font-display: 'Barlow Condensed', sans-serif;
       --font-body: 'Barlow', sans-serif;
       --radius: 2px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.05);
-      --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-lg: 0 15px 40px rgba(0,0,0,0.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: var(--font-body); background: var(--white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { 
+      font-family: var(--font-body); 
+      background: var(--white); 
+      color: var(--text); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased; 
+    }
 
-    h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
+    h1, h2, h3, h4, h5 { 
+      font-family: var(--font-display); 
+      text-transform: uppercase; 
+      letter-spacing: 0.04em; 
+      font-weight: 700; 
+      color: var(--blue-900); 
+    }
 
-    /* NAVBAR & HAMBURGER SYSTEM */
+    /* --- NAVEGAÇÃO & LOGOTIPO --- */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 90px; transition: 0.4s;
+      padding: 0 8%; height: 90px; transition: 0.4s ease;
+      background: transparent;
     }
-    nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 75px; backdrop-filter: blur(12px); box-shadow: var(--shadow); }
+    nav.scrolled { 
+      background: rgba(10, 22, 40, 0.98); 
+      height: 75px; 
+      backdrop-filter: blur(15px); 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+    }
 
-    .nav-logo { display: flex; align-items: center; text-decoration: none; z-index: 1001; background: transparent; }
-    .nav-logo img { height: 50px; width: auto; object-fit: contain; } /* Ajuste para evitar o "quadrado" */
+    .nav-logo { 
+      display: flex; 
+      align-items: center; 
+      text-decoration: none; 
+      z-index: 1001;
+      height: 100%;
+    }
+    .nav-logo img { 
+      height: 45px; /* Altura fixa para elegância */
+      width: auto; 
+      display: block;
+      transition: 0.3s ease;
+    }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-    .nav-links a { color: var(--silver); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.08em; }
+    .nav-links a { 
+      color: var(--silver); 
+      text-decoration: none; 
+      font-size: 0.8rem; 
+      font-weight: 500; 
+      transition: 0.3s; 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em; 
+    }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-cta { background: var(--accent); color: white !important; padding: 10px 22px; border-radius: var(--radius); font-weight: 600; }
+    
+    .nav-cta { 
+      background: var(--accent); 
+      color: white !important; 
+      padding: 10px 22px; 
+      border-radius: var(--radius); 
+      font-weight: 600; 
+      font-size: 0.75rem !important;
+    }
 
-    /* MENU MOBILE (DRAWER) */
-    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; padding: 10px; }
-    .hamburger span { width: 26px; height: 2px; background: var(--white); transition: 0.3s; transform-origin: center; }
+    /* --- MENU HAMBÚRGUER (ROBUSTO) --- */
+    .hamburger { 
+      display: none; 
+      flex-direction: column; 
+      gap: 6px; 
+      cursor: pointer; 
+      z-index: 1001; 
+      padding: 10px;
+    }
+    .hamburger span { 
+      width: 28px; 
+      height: 2px; 
+      background: var(--white); 
+      transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      transform-origin: center; 
+    }
     .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
     .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
 
     @media (max-width: 992px) {
       .hamburger { display: flex; }
       .nav-links {
-        position: fixed; top: 0; right: -100%; width: 85%; height: 100vh;
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
         background: var(--blue-900); flex-direction: column; justify-content: center;
-        transition: 0.4s cubic-bezier(0.77,0.2,0.05,1.0); z-index: 1000; gap: 35px;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); z-index: 1000; gap: 40px;
+        padding: 10%;
       }
       .nav-links.open { right: 0; }
-      .nav-links a { font-size: 1.2rem; color: var(--white); }
+      .nav-links a { font-size: 1.3rem; color: var(--white); letter-spacing: 0.15em; }
     }
 
-    /* HERO REFINADO */
+    /* --- HERO SECTION (ALINHAMENTO E MINIMALISMO) --- */
     .hero {
-      min-height: 85vh; background: var(--blue-900);
+      min-height: 90vh; background: var(--blue-900);
       display: grid; grid-template-columns: 1.1fr 1fr;
-      align-items: center; padding: 120px 8% 60px;
-      position: relative; overflow: hidden; gap: 60px;
+      align-items: center; padding: 120px 8% 80px;
+      position: relative; overflow: hidden; gap: 70px;
     }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 30px 30px; pointer-events: none; }
+    .hero-grid-bg { 
+      position: absolute; inset: 0; 
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); 
+      background-size: 40px 40px; pointer-events: none; 
+    }
 
-    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; }
-    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; color: var(--white); margin-bottom: 25px; font-weight: 700; max-width: 15ch; }
-    .hero-badge { display: inline-block; background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.2); color: var(--accent-bright); font-size: 0.7rem; padding: 6px 14px; border-radius: var(--radius); margin-bottom: 25px; letter-spacing: 0.15em; font-weight: 600; text-transform: uppercase; }
-    .hero-desc { font-size: 1.05rem; color: var(--silver); margin-bottom: 40px; max-width: 500px; font-weight: 300; opacity: 0.85; }
-    .hero-actions { display: flex; gap: 15px; }
+    .hero-content { 
+      position: relative; z-index: 2; 
+      display: flex; flex-direction: column; 
+      align-items: flex-start; /* Eixo de alinhamento vertical */
+      text-align: left;
+    }
+    .hero h1 { 
+      font-size: clamp(2rem, 5vw, 2.6rem); 
+      line-height: 1.1; 
+      color: var(--white); 
+      margin-bottom: 25px; 
+      font-weight: 700;
+      max-width: 16ch;
+    }
+    .hero-badge { 
+      display: inline-block; 
+      background: rgba(14,165,233,0.1); 
+      border: 1px solid rgba(14,165,233,0.2); 
+      color: var(--accent-bright); 
+      font-size: 0.7rem; 
+      padding: 6px 14px; 
+      margin-bottom: 25px; 
+      letter-spacing: 0.2em; 
+      font-weight: 600;
+    }
+    .hero-desc { 
+      font-size: 1.05rem; 
+      color: var(--silver); 
+      margin-bottom: 45px; 
+      max-width: 500px; 
+      font-weight: 300; 
+      opacity: 0.9;
+    }
+    .hero-actions { display: flex; gap: 20px; width: 100%; justify-content: flex-start; }
 
     .hero-visual { position: relative; z-index: 2; display: flex; justify-content: flex-end; }
-    .hero-img-frame { width: 100%; max-width: 520px; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 15px 15px 0px rgba(14,165,233,0.03); }
+    .hero-img-frame { 
+      width: 100%; max-width: 520px; aspect-ratio: 4/3; 
+      border-radius: 4px; overflow: hidden; 
+      border: 1px solid rgba(255,255,255,0.05); 
+      box-shadow: 20px 20px 0px rgba(14,165,233,0.05); 
+    }
     .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; width: 100%; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
+    /* --- STATS --- */
+    .hero-stats { 
+      display: grid; grid-template-columns: repeat(3, 1fr); 
+      gap: 50px; margin-top: 60px; 
+      width: 100%; border-top: 1px solid rgba(255,255,255,0.05); 
+      padding-top: 35px;
+    }
     .stat-card { text-align: left; }
-    .stat-number { font-size: 1.6rem; color: var(--white); font-family: var(--font-display); }
-    .stat-label { font-size: 0.65rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-number { font-size: 1.8rem; color: var(--white); font-family: var(--font-display); font-weight: 700; }
+    .stat-label { font-size: 0.65rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 5px; }
 
-    /* SEÇÕES & ALINHAMENTO */
+    /* --- SEÇÕES GERAIS --- */
     section { padding: 120px 8%; }
-    .section-header { margin-bottom: 60px; text-align: left; border-left: 2px solid var(--accent); padding-left: 25px; }
-    .section-tag { font-size: 0.7rem; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.2em; font-weight: 700; text-transform: uppercase; }
-    .section-header h2 { font-size: 1.8rem; line-height: 1.2; color: var(--blue-900); max-width: 600px; }
+    .section-header { 
+      margin-bottom: 60px; text-align: left; 
+      border-left: 3px solid var(--accent); padding-left: 25px; 
+    }
+    .section-tag { 
+      font-size: 0.7rem; color: var(--accent); 
+      margin-bottom: 10px; letter-spacing: 0.25em; 
+      font-weight: 700; text-transform: uppercase; 
+    }
+    .section-header h2 { font-size: 1.9rem; line-height: 1.2; color: var(--blue-900); max-width: 600px; }
 
-    .section-content-text { max-width: 780px; color: var(--gray-600); font-size: 1rem; }
+    .section-content-text { max-width: 800px; color: var(--gray-600); font-size: 1.05rem; }
     .section-content-text p { margin-bottom: 25px; }
 
-    /* GRID SERVIÇOS (DESIGN RESTAURADO) */
+    /* --- GRID DE SERVIÇOS (DESIGN PREMIUM) --- */
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-    .service-card { background: white; border: 1px solid var(--gray-100); border-radius: var(--radius); overflow: hidden; transition: 0.4s; }
-    .service-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .service-card { 
+      background: white; border: 1px solid var(--gray-100); 
+      border-radius: 4px; overflow: hidden; transition: 0.4s ease; 
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: var(--shadow-lg); }
     .service-img { width: 100%; height: 220px; overflow: hidden; }
-    .service-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-    .service-card:hover .service-img img { transform: scale(1.08); }
-    .service-body { padding: 30px; }
-    .service-body h3 { font-size: 1.1rem; margin-bottom: 12px; color: var(--blue-900); }
-    .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.5; }
-    .service-link { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; }
+    .service-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+    .service-card:hover .service-img img { transform: scale(1.1); }
+    .service-body { padding: 35px; }
+    .service-body h3 { font-size: 1.15rem; margin-bottom: 15px; color: var(--blue-900); }
+    .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 25px; line-height: 1.6; }
+    .service-link { 
+      font-size: 0.75rem; font-weight: 700; color: var(--accent); 
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; 
+    }
 
-    /* FAQ & BLOG PREVIEW */
+    /* --- FAQ --- */
     .faq-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
-    .faq-item { border-bottom: 1px solid var(--gray-100); padding-bottom: 25px; }
-    .faq-item h3 { font-size: 1rem; margin-bottom: 12px; color: var(--blue-800); }
-    .faq-item p { font-size: 0.85rem; color: var(--gray-600); }
+    .faq-item { border-bottom: 1px solid var(--gray-100); padding-bottom: 30px; }
+    .faq-item h3 { font-size: 1rem; margin-bottom: 15px; color: var(--blue-800); }
+    .faq-item p { font-size: 0.9rem; color: var(--gray-600); }
 
-    /* BOTÕES */
-    .btn-primary { background: var(--accent); color: white; padding: 15px 30px; border-radius: var(--radius); font-family: var(--font-display); font-weight: 600; text-transform: uppercase; text-decoration: none; font-size: 0.85rem; border: none; transition: 0.3s; letter-spacing: 0.05em; text-align: center; }
-    .btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); }
-    .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: var(--white); padding: 15px 30px; border-radius: var(--radius); text-decoration: none; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+    /* --- BOTÕES --- */
+    .btn-primary { 
+      background: var(--accent); color: white; padding: 16px 32px; 
+      border-radius: var(--radius); font-family: var(--font-display); 
+      font-weight: 600; text-transform: uppercase; text-decoration: none; 
+      font-size: 0.85rem; border: none; transition: 0.3s; letter-spacing: 0.08em; 
+    }
+    .btn-primary:hover { background: var(--accent-bright); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(14,165,233,0.2); }
+    
+    .btn-outline { 
+      border: 1px solid rgba(255,255,255,0.2); color: var(--white); 
+      padding: 16px 32px; border-radius: var(--radius); text-decoration: none; 
+      font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.08em; 
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--white); }
 
-    /* FOOTER */
-    footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
+    /* --- FOOTER --- */
+    footer { background: var(--blue-900); padding: 120px 8% 40px; color: var(--silver); }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 80px; }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.6; max-width: 320px; margin-top: 20px; }
-    .footer-col h5 { color: var(--white); margin-bottom: 30px; font-size: 0.85rem; letter-spacing: 0.1em; opacity: 0.6; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 320px; margin-top: 25px; }
+    .footer-col h5 { color: var(--white); margin-bottom: 35px; font-size: 0.85rem; letter-spacing: 0.15em; opacity: 0.6; }
     .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 15px; }
+    .footer-col li { margin-bottom: 18px; }
     .footer-col a { color: var(--silver); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
     .footer-col a:hover { color: var(--accent); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); margin-top: 80px; padding-top: 30px; font-size: 0.75rem; opacity: 0.6; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); margin-top: 100px; padding-top: 40px; font-size: 0.75rem; opacity: 0.5; text-align: left; }
 
-    /* RESPONSIVE */
+    /* --- RESPONSIVIDADE --- */
     @media (max-width: 992px) {
-      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 140px; min-height: auto; gap: 50px; }
+      nav { padding: 0 5%; height: 80px; }
+      .hero { grid-template-columns: 1fr; text-align: left; padding-top: 140px; min-height: auto; gap: 60px; }
       .hero-content { align-items: flex-start; }
       .hero-visual { justify-content: flex-start; order: -1; }
-      .hero-actions { flex-direction: column; width: 100%; max-width: 280px; }
-      .hero-stats { grid-template-columns: 1fr; gap: 20px; }
-      .faq-container { grid-template-columns: 1fr; gap: 30px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .hero-actions { flex-direction: column; width: 100%; max-width: 320px; }
+      .hero-stats { grid-template-columns: 1fr; gap: 30px; }
+      .faq-container { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
     }
     @media (max-width: 600px) {
-      section { padding: 80px 8%; }
+      section { padding: 80px 5%; }
       .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
-      .section-header h2 { font-size: 1.6rem; }
+      .hero h1 { font-size: 2.1rem; }
+      .section-header h2 { font-size: 1.7rem; }
     }
   </style>
 
-  <!-- Schema JSON-LD -->
+  <!-- Schema JSON-LD (SEO) -->
   <script type="application/ld+json">
   [
     {
@@ -198,6 +328,7 @@
 
   <nav id="navbar">
     <a href="/" class="nav-logo">
+      <!-- O contentor da imagem agora é limpo de fundos ou bordas indesejadas -->
       <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias em São José dos Campos">
     </a>
     <ul class="nav-links" id="navLinks">
@@ -221,27 +352,27 @@
       <h1>Esquadrias de Alumínio em São José dos Campos</h1>
       <p class="hero-desc">Fabricação própria e instalação profissional de alto padrão. Soluções sob medida em esquadrias, cortinas de vidro e fachadas ACM para o seu imóvel.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Designer" target="_blank" class="btn-primary" rel="noopener">Falar com Consultor</a>
+        <a href="https://wa.me/5512981325798?text=Olá%20vim%20do%20site%20da%20W7M%20Designer" target="_blank" class="btn-primary" rel="noopener">Falar no WhatsApp</a>
         <a href="/servicos/" class="btn-outline">Nossos Serviços</a>
       </div>
       <div class="hero-stats">
         <div class="stat-card">
           <span class="stat-number">16+</span>
-          <span class="stat-label">Anos no Mercado</span>
+          <span class="stat-label">Anos de Mercado</span>
         </div>
         <div class="stat-card">
           <span class="stat-number">1000+</span>
-          <span class="stat-label">Projetos</span>
+          <span class="stat-label">Obras Entregues</span>
         </div>
         <div class="stat-card">
           <span class="stat-number">SJC</span>
-          <span class="stat-label">Atendimento Local</span>
+          <span class="stat-label">Showroom Próprio</span>
         </div>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-img-frame">
-        <img src="/img/esquadrias-aluminio-sjc-hero.webp" alt="Instalação de esquadrias de alumínio premium em São José dos Campos - W7M Designer" width="600" height="450">
+        <img src="/img/esquadrias-aluminio-sjc-hero.webp" alt="Instalação de esquadrias de alumínio premium em São José dos Campos pela W7M Designer" width="600" height="450">
       </div>
     </div>
   </header>
@@ -252,8 +383,8 @@
       <h2 id="seo-title">Especialistas em Esquadrias em São José dos Campos</h2>
     </div>
     <div class="section-content-text">
-      <p>Se você procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação profissional para o seu projeto. Aliamos design funcional à segurança total.</p>
-      <p>Nossa equipe atua em bairros como <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, levando o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências e empresas no Vale do Paraíba.</p>
+      <p>Se você procura <strong>esquadrias de alumínio em São José dos Campos</strong>, a <strong>W7M Designer</strong> oferece fabricação própria e instalação técnica para o seu projeto. Aliamos o design funcional à máxima segurança.</p>
+      <p>A nossa equipa técnica actua em bairros estratégicos como o <strong>Urbanova, Jardim Aquarius e Vila Ema</strong>, trazendo o que há de melhor em <strong>cortina de vidro</strong> e <strong>fachadas ACM</strong> para residências de alto padrão e comércios no Vale do Paraíba.</p>
     </div>
   </section>
 
@@ -269,18 +400,18 @@
         </div>
         <div class="service-body">
           <h3>Cortina de Vidro</h3>
-          <p>Fechamento de sacada com vidro temperado e sistema deslizante moderno para sua varanda gourmet.</p>
+          <p>Fechamento de sacada com vidro temperado e sistema deslizante moderno para a sua varanda gourmet em SJC.</p>
           <a href="/cortina-de-vidro/" class="service-link">Ver detalhes →</a>
         </div>
       </article>
 
       <article class="service-card">
         <div class="service-img">
-          <img src="/img/servicos/fachada-acm-sjc.webp" alt="Fachada ACM comercial em SJC">
+          <img src="/img/servicos/fachada-acm-sjc.webp" alt="Fachada ACM comercial em São José dos Campos">
         </div>
         <div class="service-body">
           <h3>Fachada ACM</h3>
-          <p>Revestimento comercial durável e moderno com painéis de alumínio composto de alta resistência.</p>
+          <p>Revestimento comercial durável e contemporâneo com painéis de alumínio composto de alta resistência.</p>
           <a href="/fachada-acm/" class="service-link">Ver detalhes →</a>
         </div>
       </article>
@@ -291,18 +422,18 @@
         </div>
         <div class="service-body">
           <h3>Esquadrias de Alumínio</h3>
-          <p>Fabricação de janelas e portas sob medida nas linhas Gold e Suprema para residências de alto padrão.</p>
+          <p>Fabricação de janelas e portas sob medida nas linhas Gold e Suprema para residências e empresas.</p>
           <a href="/esquadrias-aluminio/" class="service-link">Ver detalhes →</a>
         </div>
       </article>
 
       <article class="service-card">
         <div class="service-img">
-          <img src="/img/servicos/box-vidro-sjc.webp" alt="Instalação de box de vidro em SJC">
+          <img src="/img/servicos/box-vidro-sjc.webp" alt="Instalação de box de vidro em São José dos Campos">
         </div>
         <div class="service-body">
           <h3>Box de Vidro</h3>
-          <p>Instalação de box para banheiro, espelhos e vidros decorativos com acabamento impecável em SJC.</p>
+          <p>Instalação de box para casas de banho, espelhos e vidros decorativos com acabamento impecável.</p>
           <a href="/box-de-vidro/" class="service-link">Ver detalhes →</a>
         </div>
       </article>
@@ -311,17 +442,17 @@
 
   <section class="faq-section">
     <div class="section-header">
-      <div class="section-tag">Perguntas Frequentes</div>
-      <h2>Dúvidas Comuns</h2>
+      <div class="section-tag">Dúvidas Frequentes</div>
+      <h2>Perguntas Comuns</h2>
     </div>
     <div class="faq-container">
       <div class="faq-item">
         <h3>Qual o valor da cortina de vidro em SJC?</h3>
-        <p>O valor depende da metragem da sacada. Oferecemos orçamento gratuito em São José dos Campos para avaliar seu projeto com precisão.</p>
+        <p>O valor depende da metragem total da sacada. Oferecemos orçamento gratuito em São José dos Campos para avaliar o seu projeto com precisão técnica.</p>
       </div>
       <div class="faq-item">
         <h3>A W7M Designer atende Jacareí?</h3>
-        <p>Sim! Atendemos Jacareí, Caçapava, Taubaté e todo o Vale do Paraíba com equipe própria de instalação.</p>
+        <p>Sim! Atendemos Jacareí, Caçapava, Taubaté e todo o Vale do Paraíba com equipa própria de instalação e medição técnica.</p>
       </div>
     </div>
   </section>
@@ -332,8 +463,8 @@
         <a href="/" class="nav-logo">
           <img src="/img/logo.webp" alt="W7M Designer">
         </a>
-        <p>Especialistas em transformar arquitetura em realidade com elegância e durabilidade em São José dos Campos.</p>
-        <p style="font-size: 0.75rem; color: var(--accent); margin-top: 15px;">Urbanova | Aquarius | Vila Ema | Satélite | Vale do Paraíba</p>
+        <p>Referência técnica em esquadrias de alumínio e vidraçaria em São José dos Campos. Elegância e durabilidade em cada detalhe.</p>
+        <p style="font-size: 0.75rem; color: var(--accent); margin-top: 20px;">Urbanova | Aquarius | Vila Ema | Satélite | Vale do Paraíba</p>
       </div>
       <div class="footer-col">
         <h5>Institucional</h5>
@@ -366,13 +497,15 @@
   </footer>
 
   <script>
-    // CONTROLE NAVBAR E MENU MOBILE
+    // CONTROLO NAVBAR E MENU MOBILE (CONTAINER DRAWER)
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
+      // Impede o scroll do corpo quando o menu está aberto
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
     });
 
     window.addEventListener('scroll', () => {
@@ -384,11 +517,12 @@
       }
     });
 
-    // Fechar menu ao clicar em um link
+    // Fechar menu ao clicar em qualquer link
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        document.body.style.overflow = 'auto';
       });
     });
   </script>
