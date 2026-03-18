@@ -155,7 +155,11 @@
     /* Footer Design */
     footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; }
+    
+    /* Tamanho do Logotipo no Desktop */
+    .footer-brand img { height: 65px; width: auto; transition: 0.3s; }
     .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 20px; max-width: 320px; }
+    
     .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 12px; }
@@ -187,11 +191,15 @@
         text-align: center;
         gap: 50px;
       }
-      .footer-brand img { height: 80px; margin: 0 auto; } /* Logotipo grande no mobile */
+      /* Logotipo GRANDE e Centralizado no Mobile */
+      .footer-brand img { height: 100px; margin: 0 auto; } 
       .footer-brand p { margin: 20px auto 0; max-width: 100%; }
       
       .footer-col h5 { margin-bottom: 15px; }
       
+      .footer-col.institucional { text-align: center; }
+      .footer-col.social { text-align: center; }
+
       .footer-bottom { 
         flex-direction: column; 
         text-align: center; 
@@ -350,7 +358,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
-          <img src="/img/logo.webp" alt="W7M Designer" style="height: 40px;">
+          <img src="/img/logo.webp" alt="W7M Designer">
         </a>
         <p>Expertise técnica e design em esquadrias de alumínio e vidraçaria. Líderes em qualidade no Vale do Paraíba.</p>
       </div>
@@ -419,4 +427,4 @@
     });
   </script>
 </body>
-</html>
+</html>eof
