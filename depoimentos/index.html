@@ -167,7 +167,7 @@
       padding-top: 30px; 
       display: flex; 
       justify-content: space-between; 
-      align-items: flex-end;
+      align-items: center;
       font-size: 0.75rem; 
       opacity: 0.6; 
     }
@@ -179,11 +179,29 @@
 
     @media (max-width: 992px) {
       .footer-grid { 
-        grid-template-columns: repeat(2, 1fr); /* Footer em colunas no celular */
+        grid-template-columns: 1fr 1fr;
         gap: 40px;
       }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .developer-credit { text-align: left; }
+      .footer-brand { 
+        grid-column: 1 / -1; 
+        text-align: center; 
+      }
+      .footer-brand p { margin: 20px auto 0; }
+      
+      .footer-col.institucional { text-align: left; }
+      .footer-col.social { text-align: right; }
+      
+      .footer-col.atendimento { 
+        grid-column: 1 / -1; 
+        text-align: center; 
+      }
+
+      .footer-bottom { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 20px; 
+      }
+      .developer-credit { text-align: center; }
     }
 
     @media (max-width: 600px) {
@@ -326,7 +344,7 @@
       <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
         Solicite uma medição técnica e descubra por que somos referência em SJC.
       </p>
-      <a href="https://wa.me/5512981325798?text=Olá,%20vi%20os%20depoimentos%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Pedir Orçamento Agora</a>
+      <a href="https://wa.me/5512981325798?text=Olá,%20vim%20dos%20depoimentos%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Pedir Orçamento Agora</a>
     </section>
   </main>
 
@@ -340,7 +358,7 @@
         <p>Expertise técnica e design em esquadrias de alumínio e vidraçaria. Líderes em qualidade no Vale do Paraíba.</p>
       </div>
       
-      <div class="footer-col">
+      <div class="footer-col institucional">
         <h5>Institucional</h5>
         <ul>
           <li><a href="/">Início</a></li>
@@ -350,7 +368,7 @@
         </ul>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-col social">
         <h5>Social</h5>
         <ul>
           <li><a href="https://www.instagram.com/w7m_esquadrias/" target="_blank" rel="noopener">Instagram</a></li>
@@ -359,7 +377,7 @@
         </ul>
       </div>
 
-      <div class="footer-col">
+      <div class="footer-col atendimento">
         <h5>Atendimento</h5>
         <div class="footer-contact-item">
           <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700;">(12) 98132-5798</a>
@@ -374,8 +392,7 @@
       </div>
       <div class="developer-credit">
         <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener">
-          Desenvolvido por <span class="rsa-brand">RSA Digital</span><br>
-          <small>Soluções Digitais e Google Meu Negócio</small>
+          Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais e Google Meu Negócio</small>
         </a>
       </div>
     </div>
