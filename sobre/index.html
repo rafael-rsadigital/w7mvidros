@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://w7mvidros.com.br/sobre/" />
   <meta name="robots" content="index, follow" />
   
-  <!-- CSS Global + Ajustes de Estilo -->
+  <!-- CSS Global -->
   <link rel="stylesheet" href="/css/style.css" />
 
   <!-- Fontes -->
@@ -71,9 +71,86 @@
       color: var(--gray-600);
     }
 
+    /* Ajustes de Navegação Mobile (Padronizado) */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 8%; height: 90px; transition: 0.4s ease;
+      background: transparent;
+    }
+    nav.scrolled { 
+      background: rgba(10, 22, 40, 0.98); 
+      height: 75px; 
+      backdrop-filter: blur(15px); 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+    }
+
+    .nav-logo img { height: 55px; border-radius: 10px; transition: 0.3s; }
+
+    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+    .nav-links a { 
+      color: var(--silver); text-decoration: none; 
+      font-size: 0.8rem; font-weight: 500; transition: 0.3s; 
+      text-transform: uppercase; letter-spacing: 0.1em; 
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    
+    .nav-cta { 
+      background: var(--accent); color: white !important; 
+      padding: 10px 22px; border-radius: var(--radius); 
+      font-weight: 600; transition: 0.3s;
+    }
+
+    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; padding: 10px; }
+    .hamburger span { width: 28px; height: 2px; background: var(--white); transition: 0.4s; transform-origin: center; }
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
+
+    /* Footer Design Centralizado Mobile */
+    footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; }
+    .footer-brand img { height: 65px; width: auto; transition: 0.3s; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 20px; max-width: 320px; }
+    .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; opacity: 0.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { color: var(--silver); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+    .footer-col a:hover { color: var(--accent); }
+    
+    .footer-bottom { 
+      border-top: 1px solid rgba(255,255,255,0.03); 
+      margin-top: 80px; padding-top: 30px; 
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; opacity: 0.6; 
+    }
+    .developer-credit { text-align: right; line-height: 1.6; }
+    .developer-credit a { text-decoration: none; color: inherit; }
+    .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
+
     @media (max-width: 992px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+        background: var(--blue-900); flex-direction: column; justify-content: center;
+        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); z-index: 1000; gap: 40px;
+        padding: 10%;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 1.3rem; color: var(--white); }
+
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .about-image-frame { order: -1; }
+
+      /* Footer Mobile Centralizado */
+      .footer-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 50px; }
+      .footer-brand img { height: 100px; margin: 0 auto; }
+      .footer-brand p { margin: 20px auto 0; max-width: 100%; }
+      .footer-col { text-align: center; }
+      .footer-contact-item { justify-content: center; display: flex; width: 100%; margin-bottom: 10px; }
+      .footer-contact-item a { text-align: center; width: 100%; display: block; font-weight: 700; color: var(--accent); text-decoration: none; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 25px; }
+      .developer-credit { text-align: center; }
     }
   </style>
 </head>
@@ -82,7 +159,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias" style="height: 55px; border-radius: 10px;">
+      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
@@ -90,6 +167,7 @@
       <li><a href="/servicos/">Serviços</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/galeria/">Galeria</a></li>
+      <li><a href="/depoimentos/">Depoimentos</a></li>
       <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20do%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -190,43 +268,78 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER CENTRALIZADO NO MOBILE (PADRONIZADO 2026) -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="nav-logo" style="margin-bottom:20px;">
-          <img src="/img/logo.webp" alt="W7M Designer" style="height: 40px; border-radius: 8px;">
+        <a href="/" class="nav-logo">
+          <img src="/img/logo.webp" alt="W7M Designer">
         </a>
         <p>Referência em esquadrias de alumínio e vidraçaria em São José dos Campos desde 2008.</p>
       </div>
-      <div class="footer-col">
-        <h5>Links</h5>
+      
+      <div class="footer-col institucional">
+        <h5>Institucional</h5>
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><a href="/">Início</a></li>
           <li><a href="/sobre/">Sobre</a></li>
           <li><a href="/servicos/">Serviços</a></li>
+          <li><a href="/galeria/">Portfólio</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Serviços SJC</h5>
+
+      <div class="footer-col social">
+        <h5>Social</h5>
         <ul>
-          <li><a href="/cortina-de-vidro/">Cortina de Vidro</a></li>
-          <li><a href="/esquadrias-aluminio/">Esquadrias</a></li>
-          <li><a href="/fachada-acm/">Fachada ACM</a></li>
+          <li><a href="https://www.instagram.com/w7m_esquadrias/" target="_blank">Instagram</a></li>
+          <li><a href="/blog/">Blog e Notícias</a></li>
+          <li><a href="/depoimentos/">Avaliações</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+
+      <div class="footer-col atendimento">
         <h5>Atendimento</h5>
-        <div class="footer-contact-item"><span>(12) 98132-5798</span></div>
-        <div class="footer-contact-item"><span>São José dos Campos – SP</span></div>
+        <div class="footer-contact-item">
+          <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700; text-decoration: none;">(12) 98132-5798</a>
+        </div>
+        <p style="font-size: 0.8rem; line-height: 1.4; text-align: center;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
       </div>
     </div>
+    
     <div class="footer-bottom">
-      <span>© 2024 W7M Designer | CNPJ: 32.501.716/0001-69</span>
+      <div>
+        <span>© 2026 W7M Designer | CNPJ: 32.501.716/0001-69</span>
+      </div>
+      <div class="developer-credit">
+        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20digitais." target="_blank" rel="noopener">
+          Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais e Google Meu Negócio</small>
+        </a>
+      </div>
     </div>
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
