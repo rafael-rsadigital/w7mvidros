@@ -37,7 +37,7 @@
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: var(--font-body); background: var(--white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    /* EFEITO DE SURGIMENTO */
+    /* REVEAL ANIMATION */
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -77,24 +77,24 @@
       .nav-links a { font-size: 1.3rem; color: var(--white); }
     }
 
-    /* HERO */
+    /* HERO SECTION */
     .hero {
       min-height: 90vh; background: var(--blue-900);
       display: grid; grid-template-columns: 1.1fr 1fr;
       align-items: center; padding: 140px 8% 80px;
       position: relative; overflow: hidden; gap: 70px;
     }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; }
+    .hero-grid-bg { position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0); background-size: 40px 40px; pointer-events: none; }
     .hero-content { position: relative; z-index: 2; text-align: left; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; color: var(--white); margin-bottom: 25px; font-weight: 800; }
     .hero-badge { display: inline-block; background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.2); color: var(--accent-bright); font-size: 0.75rem; padding: 6px 14px; margin-bottom: 25px; letter-spacing: 0.2em; font-weight: 600; }
     .hero-desc { font-size: 1.1rem; color: var(--silver); margin-bottom: 45px; max-width: 500px; font-weight: 300; }
 
-    /* TICKER INFINITO */
+    /* STATS TICKER */
     .ticker-container {
       width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; margin-top: 20px;
     }
-    .ticker-wrapper { display: flex; width: max-content; animation: ticker 25s linear infinite; gap: 60px; }
+    .ticker-wrapper { display: flex; width: max-content; animation: ticker 30s linear infinite; gap: 80px; }
     .stat-item { display: flex; align-items: center; gap: 15px; white-space: nowrap; }
     .stat-number { font-size: 1.8rem; color: var(--white); font-family: var(--font-display); font-weight: 800; }
     .stat-label { font-size: 0.75rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.15em; }
@@ -109,40 +109,40 @@
       width: 100%; max-width: 520px; aspect-ratio: 4/3; 
       border-radius: 4px; overflow: hidden; 
       border: 1px solid rgba(255,255,255,0.05);
-      box-shadow: 20px 20px 0px rgba(14, 165, 233, 0.1); /* A FORMA/MOLDURA SOLICITADA */
+      box-shadow: 20px 20px 0px rgba(14, 165, 233, 0.1); 
     }
     .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* SEÇÕES */
+    /* SECTIONS */
     section { padding: 120px 8%; }
     .section-header { margin-bottom: 60px; border-left: 4px solid var(--accent); padding-left: 25px; }
     .section-tag { font-size: 0.75rem; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.3em; font-weight: 700; text-transform: uppercase; }
     .section-header h2 { font-size: 2.2rem; line-height: 1.1; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
     .service-card { background: white; border: 1px solid var(--gray-100); border-radius: 4px; overflow: hidden; transition: 0.4s ease; }
     .service-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
     .service-img { width: 100%; height: 220px; overflow: hidden; }
     .service-img img { width: 100%; height: 100%; object-fit: cover; }
     .service-body { padding: 35px; }
     .service-body h3 { font-size: 1.2rem; margin-bottom: 15px; }
-    .service-body p { font-size: 0.95rem; color: var(--gray-600); margin-bottom: 25px; }
+    .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 25px; }
     .service-link { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* SLIDER DE DEPOIMENTOS */
+    /* SLIDER DEPOIMENTOS */
     .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
     .testimonial-track { 
       display: flex; gap: 30px; 
       overflow-x: auto; scroll-snap-type: x mandatory; 
       scrollbar-width: none; -ms-overflow-style: none;
-      padding: 20px 0 40px; cursor: grab;
+      padding: 20px 0 40px;
     }
     .testimonial-track::-webkit-scrollbar { display: none; }
     .testimonial-card { 
       min-width: 350px; background: var(--gray-50); padding: 40px; 
       border-radius: 8px; scroll-snap-align: start; flex-shrink: 0;
       border-left: 4px solid var(--gray-200); transition: 0.3s;
-      white-space: normal; /* Garante a quebra de linha do texto */
+      white-space: normal; 
     }
     .testimonial-card:hover { border-left-color: var(--accent); background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
     .stars { color: #ffb400; margin-bottom: 15px; }
@@ -159,7 +159,7 @@
     .btn-outline { border: 2px solid rgba(255,255,255,0.3); color: var(--white); padding: 16px 34px; border-radius: var(--radius); text-decoration: none; font-size: 0.85rem; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; transition: 0.3s; display: inline-block; }
     .btn-outline:hover { background: var(--white); color: var(--blue-900); transform: translateY(-3px); }
 
-    /* FOOTER CENTRALIZADO NO MOBILE */
+    /* FOOTER RESPONSIVO */
     footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; }
     .footer-brand img { height: 65px; width: auto; transition: 0.3s; }
@@ -174,23 +174,27 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
-      .hero { grid-template-columns: 1fr; padding-top: 140px; padding-bottom: 60px; gap: 40px; min-height: auto; }
-      .hero-visual { order: -1; justify-content: center; }
-      .hero-img-frame { max-width: 100%; aspect-ratio: 4/3; }
-      .hero h1 { font-size: 2.6rem; text-align: left; }
-      
-      .services-grid { grid-template-columns: 1fr; } /* Evita ultrapassar a tela */
+      /* AJUSTE HERO MOBILE - PROPORÇÕES CORRIGIDAS */
+      .hero { grid-template-columns: 1fr; padding-top: 130px; padding-bottom: 60px; min-height: auto; gap: 30px; }
+      .hero-visual { order: -1; justify-content: center; width: 100%; }
+      .hero-img-frame { max-width: 320px; aspect-ratio: 4/3; margin: 0 auto; box-shadow: 10px 10px 0px rgba(14, 165, 233, 0.1); }
+      .hero h1 { font-size: 2.3rem; text-align: left; }
+      .hero-desc { font-size: 1rem; margin-bottom: 30px; }
+      .hero-actions { flex-direction: column; width: 100%; max-width: 300px; gap: 15px; }
 
-      .testimonial-card { min-width: calc(100vw - 60px); padding: 25px; } /* Ajuste para largura mobile */
+      .services-grid { grid-template-columns: 1fr; } /* CORRIGE OVERFLOW LATERAL */
 
+      .testimonial-card { min-width: 280px; padding: 25px; } /* CABE NA TELA */
+
+      /* FOOTER MOBILE - CENTRALIZADO ÚNICA COLUNA */
       footer { padding: 80px 5% 40px; }
       .footer-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 50px; }
       .footer-brand img { height: 100px; margin: 0 auto; }
       .footer-brand p { margin: 20px auto 0; max-width: 100%; }
       .footer-col { text-align: center; }
       .footer-contact-item { text-align: center; width: 100%; display: block; margin-bottom: 10px; }
-      .footer-contact-item a { text-align: center; width: 100%; display: block; font-weight: 700; color: var(--accent); }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 25px; }
+      .footer-contact-item a { text-align: center; width: 100%; display: block; font-weight: 700; color: var(--accent); text-decoration: none; font-size: 1.2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 25px; margin-top: 60px; }
     }
   </style>
 </head>
@@ -231,7 +235,7 @@
           <div class="stat-item"><span class="stat-number">16+</span><span class="stat-label">Anos no mercado</span></div>
           <div class="stat-item"><span class="stat-number">1.000+</span><span class="stat-label">Projetos entregues</span></div>
           <div class="stat-item"><span class="stat-number">Atendimento</span><span class="stat-label">Vale do Paraíba</span></div>
-          <!-- Repetição para Loop -->
+          <!-- Repetição para Loop Infinito -->
           <div class="stat-item"><span class="stat-number">16+</span><span class="stat-label">Anos no mercado</span></div>
           <div class="stat-item"><span class="stat-number">1.000+</span><span class="stat-label">Projetos entregues</span></div>
           <div class="stat-item"><span class="stat-number">Atendimento</span><span class="stat-label">Vale do Paraíba</span></div>
@@ -341,7 +345,7 @@
     </div>
   </section>
 
-  <!-- FOOTER CENTRALIZADO NO MOBILE -->
+  <!-- FOOTER CENTRALIZADO NO MOBILE (ESTILO DEPOIMENTOS) -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -370,7 +374,7 @@
       <div class="footer-col atendimento">
         <h5>Atendimento</h5>
         <div class="footer-contact-item">
-          <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700; text-decoration: none; display: block; text-align: center;">(12) 98132-5798</a>
+          <a href="tel:+5512981325798">(12) 98132-5798</a>
         </div>
         <p style="font-size: 0.8rem; line-height: 1.4; text-align: center;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
       </div>
@@ -379,7 +383,7 @@
     <div class="footer-bottom">
       <div><span>© 2026 W7M Designer | CNPJ: 32.501.716/0001-69</span></div>
       <div class="developer-credit">
-        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20marketing." target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
           Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais e Google Meu Negócio</small>
         </a>
       </div>
@@ -396,7 +400,7 @@
       document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
     });
 
-    // Scroll Reveal
+    // Scroll Reveal (Observer)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
@@ -413,7 +417,7 @@
     // Testimonial Slider
     function slideTestimonials(direction) {
       const track = document.getElementById('testimonialTrack');
-      const scrollAmount = 380;
+      const scrollAmount = 300;
       track.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   </script>
