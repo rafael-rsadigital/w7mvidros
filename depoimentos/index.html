@@ -200,6 +200,20 @@
       .footer-col.institucional { text-align: center; }
       .footer-col.social { text-align: center; }
 
+      .footer-col.atendimento { 
+        grid-column: 1 / -1; 
+        text-align: center; 
+        width: 100%;
+      }
+
+      /* Centralizando o telefone e itens de contato no mobile */
+      .footer-contact-item {
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
       .footer-bottom { 
         flex-direction: column; 
         text-align: center; 
@@ -385,9 +399,9 @@
       <div class="footer-col atendimento">
         <h5>Atendimento</h5>
         <div class="footer-contact-item">
-          <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700;">(12) 98132-5798</a>
+          <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700; text-align: center; width: 100%; display: block;">(12) 98132-5798</a>
         </div>
-        <p style="font-size: 0.8rem; line-height: 1.4;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
+        <p style="font-size: 0.8rem; line-height: 1.4; text-align: center;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
       </div>
     </div>
     
