@@ -168,14 +168,19 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
-      .hero { grid-template-columns: 1fr; padding-top: 140px; gap: 40px; }
+      /* Ajuste para evitar corte no Mobile */
+      .hero { grid-template-columns: 1fr; padding-top: 130px; padding-bottom: 60px; gap: 40px; min-height: auto; }
       .hero-visual { order: -1; justify-content: center; }
+      .hero-img-frame { max-width: 100%; aspect-ratio: 4/3; }
+      .hero h1 { font-size: 2.4rem; text-align: left; }
+      
       .footer-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 50px; }
       .footer-brand img { height: 100px; margin: 0 auto; }
       .footer-brand p { margin: 20px auto 0; }
-      .footer-col.institucional, .footer-col.social { text-align: center; }
+      .footer-col { text-align: center; }
       .footer-contact-item { text-align: center; width: 100%; display: block; margin-bottom: 10px; }
-      .footer-bottom { flex-direction: column; text-align: center; gap: 20px; }
+      .footer-contact-item a { text-align: center; width: 100%; display: block; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 25px; }
       .testimonial-card { min-width: 290px; padding: 25px; }
     }
   </style>
@@ -185,7 +190,7 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/servicos/logo.webp" alt="W7M Designer | Esquadrias SJC">
+      <img src="/img/logo.webp" alt="W7M Designer | Esquadrias SJC">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/" class="active">Home</a></li>
@@ -208,7 +213,7 @@
       
       <div class="hero-actions" style="margin-bottom: 40px;">
         <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer" target="_blank" class="btn-primary">Solicitar Orçamento</a>
-        <a href="/servicos/" class="btn-outline">Ver Catálogo</a>
+        <a href="/servicos/" class="btn-outline">Ver Serviços</a>
       </div>
 
       <!-- TICKER INFINITO -->
@@ -273,6 +278,14 @@
           <a href="/esquadrias-aluminio/" class="service-link">Ver detalhes →</a>
         </div>
       </article>
+      <article class="service-card">
+        <div class="service-img"><img src="/img/servicos/box-vidro-sjc.webp" alt="Box de Vidro SJC"></div>
+        <div class="service-body">
+          <h3>Box de Vidro</h3>
+          <p>Instalação de box para banheiros e vidros temperados sob medida.</p>
+          <a href="/box-de-vidro/" class="service-link">Ver detalhes →</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -324,7 +337,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
-          <img src="/img/servicos/logo.webp" alt="W7M Designer">
+          <img src="/img/logo.webp" alt="W7M Designer">
         </a>
         <p>Expertise técnica e design em esquadrias de alumínio e vidraçaria. Líderes em qualidade no Vale do Paraíba.</p>
       </div>
@@ -345,7 +358,7 @@
           <li><a href="/depoimentos/">Avaliações</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="footer-col atendimento">
         <h5>Atendimento</h5>
         <div class="footer-contact-item">
           <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700; text-decoration: none;">(12) 98132-5798</a>
@@ -356,9 +369,9 @@
     
     <div class="footer-bottom">
       <div><span>© 2026 W7M Designer | CNPJ: 32.501.716/0001-69</span></div>
-      <div style="text-align: right;">
-        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20marketing." target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-          Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais</small>
+      <div class="developer-credit">
+        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento%20de%20serviços%20digitais." target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+          Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais e Google Meu Negócio</small>
         </a>
       </div>
     </div>
