@@ -23,14 +23,21 @@
     }
 
     /* --- EFEITO DE SURGIMENTO (SCROLL REVEAL) --- */
+    /* Iniciamos com opacidade 1 por segurança, o JS tratará de esconder se carregar corretamente */
     .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-    .reveal.active {
       opacity: 1;
       transform: translateY(0);
+      transition: all 0.8s ease-out;
+    }
+    
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .reveal.active {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
 
     /* Navbar e Menu Mobile (Padronizado) */
@@ -485,6 +492,9 @@
 
   <script src="/js/main.js"></script>
   <script>
+    // Adicionamos uma classe ao body para indicar que o JS está ativo
+    document.body.classList.add('js-enabled');
+
     // 1. Menu Mobile
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
