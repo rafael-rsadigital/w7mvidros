@@ -48,7 +48,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 100px; transition: 0.4s ease;
+      padding: 0 8%; height: 90px; transition: 0.4s ease;
       background: transparent;
     }
     nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 75px; backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
@@ -68,7 +68,8 @@
     /* HERO COM EFEITO DE MOVIMENTO */
     .hero {
       height: 60vh; min-height: 450px; background: var(--blue-900);
-      display: flex; align-items: center; padding: 0 8%;
+      display: flex; align-items: center; 
+      padding: 120px 8% 60px; /* Ajustado padding-top para desgrudar do logotipo na versão web */
       position: relative; overflow: hidden;
     }
     .hero-bg-wrapper { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
@@ -280,7 +281,7 @@
       </div>
     </section>
 
-    <!-- INSTAGRAM MINIMALISTA -->
+    <!-- INSTAGRAM MINIMAL -->
     <section class="instagram-minimal reveal">
       <a href="https://www.instagram.com/w7m_vidros/" target="_blank" rel="noopener" class="btn-insta-text">
         Veja mais trabalhos em nosso Instagram
