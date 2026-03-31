@@ -80,9 +80,9 @@
     /* HERO SECTION WITH VIDEO */
     .hero {
       min-height: 100vh; background: var(--blue-900);
-      display: grid; grid-template-columns: 1.1fr 1fr;
+      display: flex;
       align-items: center; padding: 100px 8% 80px;
-      position: relative; overflow: hidden; gap: 70px;
+      position: relative; overflow: hidden;
     }
     
     .hero-video-bg {
@@ -98,7 +98,7 @@
       z-index: 1;
     }
 
-    .hero-content { position: relative; z-index: 2; text-align: left; }
+    .hero-content { position: relative; z-index: 2; text-align: left; max-width: 800px; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; color: var(--white); margin-bottom: 25px; font-weight: 800; }
     .hero-badge { display: inline-block; background: rgba(14,165,233,0.2); border: 1px solid rgba(14,165,233,0.3); color: var(--accent-bright); font-size: 0.75rem; padding: 6px 14px; margin-bottom: 25px; letter-spacing: 0.2em; font-weight: 600; }
     .hero-desc { font-size: 1.1rem; color: var(--silver); margin-bottom: 45px; max-width: 500px; font-weight: 300; }
@@ -117,15 +117,6 @@
       100% { transform: translateX(-50%); }
     }
 
-    .hero-visual { position: relative; z-index: 2; display: flex; justify-content: flex-end; }
-    .hero-img-frame { 
-      width: 100%; max-width: 520px; aspect-ratio: 4/3; 
-      border-radius: 4px; overflow: hidden; 
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 20px 20px 0px rgba(14, 165, 233, 0.2); 
-    }
-    .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; }
-
     /* SECTIONS */
     section { padding: 120px 8%; }
     .section-header { margin-bottom: 60px; border-left: 4px solid var(--accent); padding-left: 25px; }
@@ -142,7 +133,7 @@
     .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 25px; }
     .service-link { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* SLIDER DEPOIMENTOS */
+    /* SLIDER DE DEPOIMENTOS */
     .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
     .testimonial-track { 
       display: flex; gap: 20px; 
@@ -189,8 +180,6 @@
     @media (max-width: 992px) {
       .hero { display: flex; flex-direction: column; padding: 130px 5% 60px; min-height: auto; gap: 40px; }
       .hero-content { order: 2; width: 100%; text-align: left; }
-      .hero-visual { order: 1; width: 100%; justify-content: center; }
-      .hero-img-frame { max-width: 280px; box-shadow: 12px 12px 0px rgba(14, 165, 233, 0.2); }
       .hero-overlay { background: rgba(10, 22, 40, 0.8); }
       
       .hero h1 { font-size: 2.3rem; margin-bottom: 20px; }
@@ -224,7 +213,6 @@
       <li><a href="/servicos/">Serviços</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/galeria/">Galeria</a></li>
-      <li><a href="/depoimentos/">Depoimentos</a></li>
       <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -261,18 +249,11 @@
         </div>
       </div>
     </div>
-
-    <div class="hero-visual reveal">
-      <div class="hero-img-frame">
-        <img src="/img/esquadrias-aluminio-sjc-hero.webp" alt="W7M Designer Esquadrias SJC">
-      </div>
-    </div>
   </header>
 
   <!-- INTRO SEO -->
   <section class="reveal">
     <div class="section-header">
-      <div class="section-tag">Excelência Técnica</div>
       <h2>Especialistas em Esquadrias em São José dos Campos</h2>
     </div>
     <p style="max-width: 800px; color: var(--gray-600); font-size: 1.1rem;">
