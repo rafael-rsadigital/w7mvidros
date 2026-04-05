@@ -20,6 +20,7 @@
     :root {
       --blue-900: #0a1628;
       --blue-800: #0d1f3c;
+      --blue-navy: #051122; /* Azul escuro elegante para botões */
       --accent: #0ea5e9;
       --accent-bright: #38bdf8;
       --silver: #cbd5e1;
@@ -31,9 +32,9 @@
       --gray-600: #475569;
       --text: #334155;
       --font-display: 'Barlow Condensed', sans-serif;
-      --font-body: 'Montserrat', sans-serif; /* Alterado para Montserrat conforme pedido */
+      --font-body: 'Montserrat', sans-serif;
       --radius: 4px;
-      --shadow-btn: 0 4px 14px 0 rgba(14, 165, 233, 0.39);
+      --shadow-btn: 0 4px 14px 0 rgba(5, 17, 34, 0.3);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +56,6 @@
     }
     nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 80px; backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
     
-    /* Lógica do Logotipo no Menu Superior */
     .nav-logo { opacity: 0; visibility: hidden; transition: 0.4s ease; }
     nav.scrolled .nav-logo { opacity: 1; visibility: visible; }
     
@@ -91,7 +91,7 @@
       display: flex;
       align-items: center; 
       justify-content: center;
-      padding: 0px 8% 80px; /* Padding superior zerado para subir o logo */
+      padding: 0px 8% 80px; 
       position: relative; overflow: hidden;
     }
     
@@ -116,11 +116,10 @@
       margin: 0 auto;
     }
     
-    /* Logotipo Aproximado (Margem negativa acentuada para colar o texto) */
     .hero-logo-main {
       height: 360px; 
       width: auto;
-      margin: 0 auto -90px; /* Margem negativa alta para compensar o respiro do PNG e colar o H1 */
+      margin: 0 auto -90px; 
       display: block;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     }
@@ -129,7 +128,7 @@
       font-size: clamp(2.2rem, 5vw, 3.5rem); 
       line-height: 1.1; 
       color: var(--white); 
-      margin-top: 0; /* Zera margem superior para colar no logo */
+      margin-top: 0;
       margin-bottom: 20px; 
       font-weight: 800; 
     }
@@ -137,48 +136,62 @@
 
     .hero-actions { 
       display: flex; 
-      gap: 20px; 
+      gap: 15px; 
       justify-content: center;
       margin-bottom: 50px;
       flex-wrap: wrap;
     }
 
-    /* BOTÕES DESIGN PREMIUM RESTAURADO */
-    .btn-primary { 
-      background: var(--accent); 
-      color: white !important; 
-      padding: 16px 32px; 
+    /* BOTÕES DESIGN NAVY COM EFEITO FLASH */
+    .btn-primary, .btn-outline {
+      position: relative;
+      overflow: hidden;
       border-radius: var(--radius); 
-      font-family: var(--font-body); /* Montserrat para ficar clean */
+      font-family: var(--font-body);
       font-weight: 700; 
       text-transform: uppercase; 
       text-decoration: none; 
-      font-size: 0.85rem; 
-      border: none; 
-      transition: 0.3s; 
+      font-size: 0.8rem; 
+      transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       letter-spacing: 0.1em; 
-      box-shadow: var(--shadow-btn); 
       display: inline-block;
       cursor: pointer;
     }
-    .btn-primary:hover { background: var(--accent-bright); transform: translateY(-3px); }
+
+    /* Flash Effect Keyframes */
+    .btn-primary::after, .btn-outline::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      transition: 0s;
+    }
+
+    .btn-primary:hover::after, .btn-outline:hover::after {
+      left: 150%;
+      transition: 0.6s ease-in-out;
+    }
+
+    .btn-primary { 
+      background: var(--blue-navy); 
+      color: white !important; 
+      padding: 12px 24px; 
+      border: 1px solid var(--blue-navy);
+      box-shadow: var(--shadow-btn); 
+    }
+    .btn-primary:hover { background: var(--blue-800); transform: translateY(-3px); border-color: var(--blue-800); }
 
     .btn-outline { 
-      border: 2px solid rgba(255,255,255,0.4); 
+      border: 1px solid rgba(255,255,255,0.4); 
       color: var(--white) !important; 
-      padding: 14px 30px; 
-      border-radius: var(--radius); 
-      text-decoration: none; 
-      font-size: 0.85rem; 
-      font-family: var(--font-body); /* Montserrat */
-      font-weight: 700; 
-      text-transform: uppercase; 
-      transition: 0.3s; 
-      display: inline-block;
-      background: transparent;
-      cursor: pointer;
+      padding: 12px 24px; 
+      background: rgba(5, 17, 34, 0.4);
     }
-    .btn-outline:hover { background: var(--white); color: var(--blue-900) !important; transform: translateY(-3px); }
+    .btn-outline:hover { background: var(--blue-navy); color: var(--white) !important; transform: translateY(-3px); border-color: var(--white); }
 
     /* STATS TICKER */
     .ticker-container {
@@ -210,21 +223,37 @@
     .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 25px; }
     .service-link { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* DEPOIMENTOS DESIGN FIX */
-    .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 20px 0; }
-    .testimonial-track { 
-      display: flex; gap: 20px; 
-      overflow-x: auto; scroll-snap-type: x mandatory; 
-      scrollbar-width: none; -ms-overflow-style: none;
-      padding: 20px 5px 40px;
+    /* DEPOIMENTOS EM LOOP INFINITO */
+    .testimonial-slider-container { 
+      position: relative; 
+      width: 100%; 
+      overflow: hidden; 
+      padding: 40px 0; 
     }
-    .testimonial-track::-webkit-scrollbar { display: none; }
+    .testimonial-track { 
+      display: flex; 
+      gap: 30px; 
+      width: max-content;
+      animation: testimonialLoop 40s linear infinite;
+    }
+    .testimonial-track:hover { animation-play-state: paused; }
+
+    @keyframes testimonialLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
     .testimonial-card { 
-      min-width: 320px; width: 320px; background: var(--gray-50); padding: 40px; 
-      border-radius: 8px; scroll-snap-align: center; flex-shrink: 0;
-      border-left: 4px solid var(--gray-200); transition: 0.3s ease;
-      white-space: normal; word-wrap: break-word;
-      display: flex; flex-direction: column;
+      width: 320px; 
+      background: var(--gray-50); 
+      padding: 40px; 
+      border-radius: 8px; 
+      flex-shrink: 0;
+      border-left: 4px solid var(--gray-200); 
+      transition: 0.3s ease;
+      white-space: normal; 
+      display: flex; 
+      flex-direction: column;
     }
     .testimonial-card:hover { border-left-color: var(--accent); background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
     .stars { color: #ffb400; margin-bottom: 15px; font-size: 0.9rem; }
@@ -260,14 +289,13 @@
       .hero { display: flex; flex-direction: column; padding: 110px 5% 60px; min-height: auto; gap: 0; }
       .hero-content { width: 100%; text-align: center; }
       .hero-overlay { background: rgba(10, 22, 40, 0.8); }
-      .hero-logo-main { height: 180px; margin-bottom: -40px; } /* Ajuste mobile */
+      .hero-logo-main { height: 180px; margin-bottom: -40px; } 
       
       .hero h1 { font-size: 2.3rem; margin-top: 0; margin-bottom: 15px; }
       .hero-desc { font-size: 1rem; margin-bottom: 30px; }
       .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 15px; margin: 0 auto 40px; }
 
       .services-grid { grid-template-columns: 1fr; gap: 30px; }
-      .testimonial-card { min-width: 280px; width: 280px; padding: 25px; }
 
       /* FOOTER MOBILE REORGANIZADO */
       footer { padding: 80px 5% 40px; }
@@ -293,6 +321,7 @@
       }
       .footer-contact-item { text-align: center; width: 100%; display: block; margin-bottom: 10px; }
       .footer-contact-item a { text-align: center; width: 100%; display: block; font-weight: 700; color: var(--accent); text-decoration: none; font-size: 1.2rem; }
+      
       .footer-bottom { flex-direction: column; text-align: center; gap: 25px; margin-top: 60px; }
     }
   </style>
@@ -401,7 +430,7 @@
     </div>
   </section>
 
-  <!-- DEPOIMENTOS SLIDER -->
+  <!-- DEPOIMENTOS SLIDER LOOP INFINITO -->
   <section class="reveal">
     <div class="section-header">
       <div class="section-tag">Opinião Real</div>
@@ -410,6 +439,7 @@
     
     <div class="testimonial-slider-container">
       <div class="testimonial-track" id="testimonialTrack">
+        <!-- Primeiro Grupo -->
         <article class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">"Willson é um ótimo profissional, atencioso, tirou todas as minhas dúvidas e forneceu soluções para cobertura e portas de vidros. Recomendo!"</p>
@@ -435,11 +465,32 @@
           <p class="testimonial-text">"Se você procura excelência e qualidade, entre em contato com a W7M. Simplesmente impecável!"</p>
           <span class="author-name">Camila Oliveira</span>
         </article>
-      </div>
-      
-      <div class="slider-nav">
-        <button class="slider-btn" onclick="slideTestimonials('left')">←</button>
-        <button class="slider-btn" onclick="slideTestimonials('right')">→</button>
+        <!-- Clone para o Loop Infinito -->
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Willson é um ótimo profissional, atencioso, tirou todas as minhas dúvidas e forneceu soluções para cobertura e portas de vidros. Recomendo!"</p>
+          <span class="author-name">Carolina Sasaki</span>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Sempre excelente serviço com agilidade e dentro do prazo. Já somos clientes por aqui."</p>
+          <span class="author-name">Nathalie Sattler</span>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Trabalho realizado pelo Wilson é muito bom. Ele é de confiança, honesto e pratica preços justos. RECOMENDO!"</p>
+          <span class="author-name">Silvério</span>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Excelente profissional. Recomendo! Wilson sabe do assunto e deixou minha sacada 100%."</p>
+          <span class="author-name">Roger DeJota</span>
+        </article>
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Se você procura excelência e qualidade, entre em contato com a W7M. Simplesmente impecável!"</p>
+          <span class="author-name">Camila Oliveira</span>
+        </article>
       </div>
     </div>
   </section>
@@ -521,13 +572,6 @@
         nav.classList.remove('scrolled');
       }
     });
-
-    // Testimonial Slider
-    function slideTestimonials(direction) {
-      const track = document.getElementById('testimonialTrack');
-      const scrollAmount = 300;
-      track.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-    }
   </script>
 </body>
 </html>
