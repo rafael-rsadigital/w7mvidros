@@ -50,19 +50,34 @@
 
     h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
 
-    /* NAVBAR */
+    /* NAVBAR AJUSTADA PARA LOGO MAIOR */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 100px; transition: 0.4s ease;
+      padding: 0 8%; 
+      height: 180px; /* Aumentado para comportar logo de 150px */
+      transition: 0.4s ease;
       background: transparent;
     }
-    nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 80px; backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+    nav.scrolled { 
+      background: rgba(10, 22, 40, 0.98); 
+      height: 130px; /* Aumentado de 80px para comportar logo de 120px */
+      backdrop-filter: blur(15px); 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
+    }
     
-    /* Logotipo no Menu Superior sempre visível */
     .nav-logo { opacity: 1; visibility: visible; transition: 0.4s ease; }
-    .nav-logo img { height: 75px; width: auto; border-radius: 10px; transition: 0.3s; }
-    nav.scrolled .nav-logo img { height: 60px; }
+    
+    /* Tamanho do Logotipo Dobrado */
+    .nav-logo img { 
+      height: 150px; /* Dobrado de 75px */
+      width: auto; 
+      border-radius: 10px; 
+      transition: 0.3s; 
+    }
+    nav.scrolled .nav-logo img { 
+      height: 110px; /* Ajustado para o estado scrolled */
+    }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
     .nav-links a { color: var(--silver); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -76,6 +91,11 @@
     .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
 
     @media (max-width: 992px) {
+      nav { height: 100px; }
+      nav.scrolled { height: 90px; }
+      .nav-logo img { height: 80px; }
+      nav.scrolled .nav-logo img { height: 70px; }
+      
       .hamburger { display: flex; }
       .nav-links {
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
@@ -93,7 +113,7 @@
       display: flex;
       align-items: center; 
       justify-content: flex-start; /* Alinhamento à esquerda */
-      padding: 120px 8% 80px; 
+      padding: 180px 8% 80px; /* Aumentado padding-top para não colar no menu novo */
       position: relative; overflow: hidden;
     }
     
@@ -282,7 +302,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR COM LOGO GIGANTE -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
       <img src="img/logotipo-fundo-transparente.png" alt="W7M Designer | Esquadrias SJC">
