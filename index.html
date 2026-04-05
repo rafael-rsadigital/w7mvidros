@@ -59,12 +59,10 @@
     }
     nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 80px; backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
     
-    /* Lógica do Logotipo no Menu Superior */
-    .nav-logo { opacity: 0; visibility: hidden; transition: 0.4s ease; }
-    nav.scrolled .nav-logo { opacity: 1; visibility: visible; }
-    
-    .nav-logo img { height: 80px; width: auto; border-radius: 10px; transition: 0.3s; }
-    nav.scrolled .nav-logo img { height: 65px; }
+    /* Logotipo no Menu Superior sempre visível */
+    .nav-logo { opacity: 1; visibility: visible; transition: 0.4s ease; }
+    .nav-logo img { height: 75px; width: auto; border-radius: 10px; transition: 0.3s; }
+    nav.scrolled .nav-logo img { height: 60px; }
 
     .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
     .nav-links a { color: var(--silver); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -89,13 +87,13 @@
       .nav-links a { font-size: 1.3rem; color: var(--white); }
     }
 
-    /* HERO SECTION WITH VIDEO */
+    /* HERO SECTION WITH VIDEO - ALINHADA À ESQUERDA */
     .hero {
       min-height: 100vh; background: var(--blue-900);
       display: flex;
       align-items: center; 
-      justify-content: center;
-      padding: 0px 8% 80px; 
+      justify-content: flex-start; /* Alinhamento à esquerda */
+      padding: 120px 8% 80px; 
       position: relative; overflow: hidden;
     }
     
@@ -108,45 +106,35 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.5) 100%);
+      background: linear-gradient(90deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.4) 100%);
       z-index: 1;
     }
 
     .hero-content { 
       position: relative; 
       z-index: 2; 
-      text-align: center;
-      max-width: 900px; 
-      margin: 0 auto;
-    }
-    
-    .hero-logo-main {
-      height: 360px; 
-      width: auto;
-      margin: 0 auto -90px; 
-      display: block;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      text-align: left; /* Texto à esquerda */
+      max-width: 800px; 
     }
 
     .hero h1 { 
       font-size: clamp(2.2rem, 5vw, 3.5rem); 
       line-height: 1.1; 
       color: var(--white); 
-      margin-top: 0;
-      margin-bottom: 20px; 
+      margin-bottom: 25px; 
       font-weight: 800; 
     }
-    .hero-desc { font-size: 1.1rem; color: var(--silver); margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300; }
+    .hero-desc { font-size: 1.1rem; color: var(--silver); margin-bottom: 40px; max-width: 600px; font-weight: 300; }
 
     .hero-actions { 
       display: flex; 
       gap: 15px; 
-      justify-content: center;
-      margin-bottom: 50px;
+      justify-content: flex-start; /* Botões à esquerda */
+      margin-bottom: 60px;
       flex-wrap: wrap;
     }
 
-    /* BOTÕES DESIGN PREMIUM RESTAURADO */
+    /* BOTÕES DESIGN PREMIUM */
     .btn-primary, .btn-outline {
       position: relative;
       overflow: hidden;
@@ -162,7 +150,6 @@
       cursor: pointer;
     }
 
-    /* Flash Effect Keyframes */
     .btn-primary::after, .btn-outline::after {
       content: '';
       position: absolute;
@@ -183,7 +170,7 @@
     .btn-primary { 
       background: var(--blue-navy); 
       color: white !important; 
-      padding: 12px 24px; 
+      padding: 14px 28px; 
       border: 1px solid var(--blue-navy);
       box-shadow: var(--shadow-btn); 
     }
@@ -192,7 +179,7 @@
     .btn-outline { 
       border: 1px solid rgba(255,255,255,0.4); 
       color: var(--white) !important; 
-      padding: 12px 24px; 
+      padding: 14px 28px; 
       background: rgba(5, 17, 34, 0.4);
     }
     .btn-outline:hover { background: var(--blue-navy); color: var(--white) !important; transform: translateY(-3px); border-color: var(--white); }
@@ -211,7 +198,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* SEÇÕES */
+    /* SEÇÕES GERAIS */
     section { padding: 120px 8%; }
     .section-header { margin-bottom: 60px; border-left: 4px solid var(--accent); padding-left: 25px; }
     .section-tag { font-size: 0.75rem; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.3em; font-weight: 700; text-transform: uppercase; }
@@ -227,19 +214,9 @@
     .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 25px; }
     .service-link { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* DEPOIMENTOS EM LOOP INFINITO */
-    .testimonial-slider-container { 
-      position: relative; 
-      width: 100%; 
-      overflow: hidden; 
-      padding: 40px 0; 
-    }
-    .testimonial-track { 
-      display: flex; 
-      gap: 30px; 
-      width: max-content;
-      animation: testimonialLoop 40s linear infinite;
-    }
+    /* DEPOIMENTOS LOOP */
+    .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 40px 0; }
+    .testimonial-track { display: flex; gap: 30px; width: max-content; animation: testimonialLoop 40s linear infinite; }
     .testimonial-track:hover { animation-play-state: paused; }
 
     @keyframes testimonialLoop {
@@ -248,16 +225,8 @@
     }
 
     .testimonial-card { 
-      width: 320px; 
-      background: var(--gray-50); 
-      padding: 40px; 
-      border-radius: 8px; 
-      flex-shrink: 0;
-      border-left: 4px solid var(--gray-200); 
-      transition: 0.3s ease;
-      white-space: normal; 
-      display: flex; 
-      flex-direction: column;
+      width: 320px; background: var(--gray-50); padding: 40px; border-radius: 8px; flex-shrink: 0;
+      border-left: 4px solid var(--gray-200); transition: 0.3s ease; white-space: normal; display: flex; flex-direction: column;
     }
     .testimonial-card:hover { border-left-color: var(--accent); background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
     .stars { color: #ffb400; margin-bottom: 15px; font-size: 0.9rem; }
@@ -290,44 +259,23 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
-      .hero { display: flex; flex-direction: column; padding: 110px 5% 60px; min-height: auto; gap: 0; }
-      .hero-content { width: 100%; text-align: center; }
-      .hero-overlay { background: rgba(10, 22, 40, 0.8); }
-      .hero-logo-main { height: 180px; margin-bottom: -40px; } 
+      .hero { display: flex; flex-direction: column; padding: 140px 5% 60px; min-height: auto; gap: 20px; }
+      .hero-content { width: 100%; text-align: left; }
+      .hero-overlay { background: rgba(10, 22, 40, 0.85); }
       
-      .hero h1 { font-size: 2.3rem; margin-top: 0; margin-bottom: 15px; }
-      .hero-desc { font-size: 1rem; margin-bottom: 30px; }
-      .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 15px; margin: 0 auto 40px; }
+      .hero h1 { font-size: 2.4rem; margin-bottom: 20px; }
+      .hero-desc { font-size: 1rem; margin-bottom: 35px; }
+      .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 15px; margin: 0 0 40px; }
 
       .services-grid { grid-template-columns: 1fr; gap: 30px; }
-      .testimonial-card { min-width: 280px; width: 280px; padding: 25px; }
 
       /* FOOTER MOBILE REORGANIZADO */
       footer { padding: 80px 5% 40px; }
-      .footer-grid { 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        text-align: left;
-      }
-      .footer-brand { 
-        grid-column: 1 / -1; 
-        text-align: center; 
-        margin-bottom: 20px;
-      }
+      .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; }
+      .footer-brand { grid-column: 1 / -1; text-align: center; margin-bottom: 20px; }
       .footer-brand img { height: 100px; margin: 0 auto; }
-      .footer-brand p { margin: 20px auto 0; max-width: 100%; }
-      .footer-col.institucional { text-align: left; }
-      .footer-col.social { text-align: right; }
-      
-      .footer-col.atendimento { 
-        grid-column: 1 / -1; 
-        text-align: center; 
-        margin-top: 20px;
-      }
-      .footer-contact-item { text-align: center; width: 100%; display: block; margin-bottom: 10px; }
-      .footer-contact-item a { text-align: center; width: 100%; display: block; font-weight: 700; color: var(--accent); text-decoration: none; font-size: 1.2rem; }
-      
+      .footer-col.atendimento { grid-column: 1 / -1; text-align: center; margin-top: 20px; }
+      .footer-contact-item a { font-size: 1.2rem; }
       .footer-bottom { flex-direction: column; text-align: center; gap: 25px; margin-top: 60px; }
     }
   </style>
@@ -349,7 +297,7 @@
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <!-- HERO COM VÍDEO -->
+  <!-- HERO COM VÍDEO E CONTEÚDO À ESQUERDA -->
   <header class="hero">
     <div class="hero-video-bg">
       <video autoplay muted loop playsinline>
@@ -359,9 +307,6 @@
     <div class="hero-overlay"></div>
     
     <div class="hero-content reveal">
-      <!-- LOGOTIPO DUPLICADO E CENTRALIZADO COM MARGEM NEGATIVA PARA COLAR NO TEXTO -->
-      <img src="img/logotipo-fundo-transparente.png" alt="W7M Designer" class="hero-logo-main">
-      
       <h1>Esquadrias de Alumínio & Vidros Premium</h1>
       <p class="hero-desc">Fabricação própria e instalação de alto padrão em São José dos Campos. Soluções sob medida que unem segurança, durabilidade e design.</p>
       
@@ -445,7 +390,6 @@
     
     <div class="testimonial-slider-container">
       <div class="testimonial-track" id="testimonialTrack">
-        <!-- Primeiro Grupo -->
         <article class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">"Willson é um ótimo profissional, atencioso, tirou todas as minhas dúvidas e forneceu soluções para cobertura e portas de vidros. Recomendo!"</p>
@@ -546,6 +490,11 @@
     </div>
   </footer>
 
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener">
+    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-38.1-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+  </a>
+
   <script>
     // Menu Mobile
     const hamburger = document.getElementById('hamburger');
@@ -564,10 +513,10 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Navbar Scroll & Logo Toggle Logic
+    // Navbar Scroll Logic
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
-      if (window.scrollY > 80) {
+      if (window.scrollY > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
