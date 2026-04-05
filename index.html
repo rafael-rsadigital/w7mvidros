@@ -50,26 +50,51 @@
 
     h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
 
-    /* NAVBAR AJUSTADA (LOGO MAIOR + BOTÕES À DIREITA) */
+    /* NAVBAR REESTRUTURADA COM FLEXBOX */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 180px; transition: 0.4s ease;
+      padding: 0 8%; 
+      height: 160px; /* Altura para comportar logo de 150px centralizado */
+      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background: transparent;
     }
     nav.scrolled { 
       background: rgba(10, 22, 40, 0.98); 
-      height: 130px; 
+      height: 110px; /* Altura reduzida no scroll mantendo alinhamento */
       backdrop-filter: blur(15px); 
       box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
     }
     
-    .nav-logo { opacity: 1; visibility: visible; }
-    .nav-logo img { height: 150px; width: auto; transition: 0.3s; }
-    nav.scrolled .nav-logo img { height: 110px; }
+    .nav-logo { 
+      display: flex; 
+      align-items: center; 
+      text-decoration: none;
+    }
+    .nav-logo img { 
+      height: 150px; /* Mantido tamanho fixo solicitado */
+      width: auto; 
+      display: block;
+      transition: 0.3s ease; 
+    }
+    nav.scrolled .nav-logo img { 
+      height: 100px; /* Redução suave no scroll para não ocupar a tela toda */
+    }
 
-    .nav-right { display: flex; align-items: center; gap: 40px; }
-    .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+    .nav-right { 
+      display: flex; 
+      align-items: center; 
+      gap: 40px; 
+      height: 100%; /* Garante que o container use a altura do nav para centralizar */
+    }
+    .nav-links { 
+      display: flex; 
+      gap: 25px; 
+      list-style: none; 
+      align-items: center; 
+      margin: 0;
+      padding: 0;
+    }
     .nav-links a { 
       color: var(--silver); text-decoration: none; 
       font-size: 0.75rem; font-weight: 600; transition: 0.3s; 
@@ -77,14 +102,21 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
 
-    .nav-actions { display: flex; align-items: center; gap: 20px; }
+    .nav-actions { 
+      display: flex; 
+      align-items: center; 
+      gap: 20px; 
+    }
     .nav-cta { 
       background: var(--accent); color: white !important; 
-      padding: 8px 20px; border-radius: 2px; 
+      padding: 10px 22px; border-radius: 2px; 
       font-size: 0.75rem; font-weight: 700; 
       text-decoration: none; transition: 0.3s;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
-    .nav-social { display: flex; gap: 12px; }
+    .nav-social { display: flex; gap: 12px; align-items: center; }
     .nav-social a { color: var(--silver); transition: 0.3s; display: flex; align-items: center; }
     .nav-social a:hover { color: var(--accent-bright); }
     .nav-social svg { width: 18px; height: 18px; fill: currentColor; }
@@ -100,7 +132,7 @@
     @media (max-width: 992px) {
       nav { height: 100px; }
       nav.scrolled { height: 90px; }
-      .hamburger { display: flex; }
+      .hamburger { display: flex; align-self: center; }
       .nav-right { display: none; }
       .nav-logo img { height: 85px; }
       nav.scrolled .nav-logo img { height: 75px; }
@@ -118,13 +150,13 @@
       .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
     }
 
-    /* HERO SECTION WITH VIDEO & WAVES */
+    /* HERO SECTION */
     .hero {
       min-height: 100vh; background: var(--blue-900);
       display: flex;
       align-items: center; 
       justify-content: flex-start;
-      padding: 180px 8% 150px; /* Padding superior aumentado para respeitar header maior */
+      padding: 180px 8% 150px; 
       position: relative; overflow: hidden;
     }
     
@@ -281,13 +313,6 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
-      .hero { padding: 140px 5% 100px; text-align: left; }
-      .hero-content { width: 100%; }
-      .hero h1 { font-size: 2.6rem; }
-      .hero-desc { font-size: 1rem; }
-      .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 15px; }
-      .hero-waves svg { height: 40px; }
-
       .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: 1 / -1; text-align: center; }
       .footer-brand img { height: 80px; margin: 0 auto; }
