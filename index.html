@@ -11,10 +11,10 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://w7mvidros.com.br/" />
   
-  <!-- Fontes -->
+  <!-- Fontes (Barlow para Títulos, Montserrat para o Corpo/Hero) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -31,7 +31,7 @@
       --gray-600: #475569;
       --text: #334155;
       --font-display: 'Barlow Condensed', sans-serif;
-      --font-body: 'Barlow', sans-serif;
+      --font-body: 'Montserrat', sans-serif; /* Alterado para Montserrat conforme pedido */
       --radius: 4px;
       --shadow-btn: 0 4px 14px 0 rgba(14, 165, 233, 0.39);
     }
@@ -91,7 +91,7 @@
       display: flex;
       align-items: center; 
       justify-content: center;
-      padding: 20px 8% 80px; /* Subi o conjunto todo aqui */
+      padding: 0px 8% 80px; /* Padding superior zerado para subir o logo */
       position: relative; overflow: hidden;
     }
     
@@ -116,16 +116,23 @@
       margin: 0 auto;
     }
     
-    /* Logotipo Gigante e com margem negativa para aproximar o texto */
+    /* Logotipo Aproximado (Margem negativa acentuada para colar o texto) */
     .hero-logo-main {
       height: 360px; 
       width: auto;
-      margin: 0 auto -40px; /* Margem negativa para compensar espaço transparente do PNG */
+      margin: 0 auto -90px; /* Margem negativa alta para compensar o respiro do PNG e colar o H1 */
       display: block;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     }
 
-    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; color: var(--white); margin-bottom: 20px; font-weight: 800; }
+    .hero h1 { 
+      font-size: clamp(2.2rem, 5vw, 3.5rem); 
+      line-height: 1.1; 
+      color: var(--white); 
+      margin-top: 0; /* Zera margem superior para colar no logo */
+      margin-bottom: 20px; 
+      font-weight: 800; 
+    }
     .hero-desc { font-size: 1.1rem; color: var(--silver); margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300; }
 
     .hero-actions { 
@@ -142,7 +149,7 @@
       color: white !important; 
       padding: 16px 32px; 
       border-radius: var(--radius); 
-      font-family: var(--font-display); 
+      font-family: var(--font-body); /* Montserrat para ficar clean */
       font-weight: 700; 
       text-transform: uppercase; 
       text-decoration: none; 
@@ -163,7 +170,7 @@
       border-radius: var(--radius); 
       text-decoration: none; 
       font-size: 0.85rem; 
-      font-family: var(--font-display); 
+      font-family: var(--font-body); /* Montserrat */
       font-weight: 700; 
       text-transform: uppercase; 
       transition: 0.3s; 
@@ -250,12 +257,12 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
-      .hero { display: flex; flex-direction: column; padding: 110px 5% 60px; min-height: auto; gap: 10px; }
+      .hero { display: flex; flex-direction: column; padding: 110px 5% 60px; min-height: auto; gap: 0; }
       .hero-content { width: 100%; text-align: center; }
       .hero-overlay { background: rgba(10, 22, 40, 0.8); }
-      .hero-logo-main { height: 180px; margin-bottom: -10px; } /* Ajuste mobile */
+      .hero-logo-main { height: 180px; margin-bottom: -40px; } /* Ajuste mobile */
       
-      .hero h1 { font-size: 2.3rem; margin-bottom: 15px; }
+      .hero h1 { font-size: 2.3rem; margin-top: 0; margin-bottom: 15px; }
       .hero-desc { font-size: 1rem; margin-bottom: 30px; }
       .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 15px; margin: 0 auto 40px; }
 
@@ -317,7 +324,7 @@
     <div class="hero-overlay"></div>
     
     <div class="hero-content reveal">
-      <!-- LOGOTIPO DUPLICADO E CENTRALIZADO COM MARGEM NEGATIVA -->
+      <!-- LOGOTIPO DUPLICADO E CENTRALIZADO COM MARGEM NEGATIVA PARA COLAR NO TEXTO -->
       <img src="img/logotipo-fundo-transparente.png" alt="W7M Designer" class="hero-logo-main">
       
       <h1>Esquadrias de Alumínio & Vidros Premium</h1>
