@@ -50,18 +50,18 @@
 
     h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
 
-    /* NAVBAR REESTRUTURADA — FOCO NO LOGOTIPO E ALINHAMENTO CENTRAL */
+    /* NAVBAR REESTRUTURADA — LOGO AUMENTADO 20% SEM DESLOCAR MENU */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 8%; 
-      height: 110px; /* Altura aumentada para permitir logo maior */
+      height: 120px; /* Ajustado para acomodar logo de 108px com respiro */
       transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background: transparent;
     }
     nav.scrolled { 
       background: rgba(10, 22, 40, 0.98); 
-      height: 85px; /* Redução suave no scroll */
+      height: 85px; 
       backdrop-filter: blur(15px); 
       box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
     }
@@ -72,7 +72,7 @@
       text-decoration: none;
     }
     .nav-logo img { 
-      height: 90px; /* Logotipo 50% maior para destaque premium */
+      height: 108px; /* Aumentado em 20% de 90px */
       width: auto; 
       display: block;
       transition: 0.3s ease;
@@ -150,13 +150,14 @@
       .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
     }
 
-    /* HERO SECTION — ALINHADA PARA CABEÇALHO 110PX */
+    /* HERO SECTION — AJUSTADA PARA CABER NA TELA (100VH) */
     .hero {
-      min-height: 100vh; background: var(--blue-900);
+      height: 100vh; /* Seção ocupa exatamente a altura da tela */
+      background: var(--blue-900);
       display: flex;
       align-items: center; 
       justify-content: flex-start;
-      padding: 140px 8% 150px; 
+      padding: 120px 8% 100px; /* Reduzido paddings para compactar conteúdo */
       position: relative; overflow: hidden;
     }
     
@@ -173,13 +174,14 @@
       z-index: 1;
     }
 
+    /* Ondinha ocupando a base da seção */
     .hero-waves {
       position: absolute; bottom: 0; left: 0; width: 100%;
       overflow: hidden; line-height: 0; transform: rotate(180deg);
       z-index: 2;
     }
     .hero-waves svg {
-      position: relative; display: block; width: calc(130% + 1.3px); height: 80px;
+      position: relative; display: block; width: calc(130% + 1.3px); height: 60px; /* Altura reduzida da onda */
     }
     .hero-waves .shape-fill { fill: var(--white); }
 
@@ -187,26 +189,27 @@
       position: relative; 
       z-index: 3; 
       text-align: left;
-      max-width: 800px; 
+      max-width: 750px; 
     }
 
     .hero h1 { 
-      font-size: clamp(2.2rem, 5vw, 3.8rem); 
+      font-size: clamp(2rem, 4.5vw, 3.2rem); /* Fontes diminuídas conforme solicitado */
       line-height: 1.1; 
       color: var(--white); 
-      margin-bottom: 25px; 
+      margin-bottom: 20px; 
       font-weight: 800; 
       text-transform: uppercase;
     }
     .hero-desc { 
-      font-size: 1.15rem; color: var(--silver); 
-      margin-bottom: 45px; max-width: 600px; 
+      font-size: 1.05rem; /* Fonte da descrição diminuída */
+      color: var(--silver); 
+      margin-bottom: 35px; max-width: 550px; 
       font-weight: 300; 
     }
 
     .hero-actions { 
-      display: flex; gap: 20px; justify-content: flex-start;
-      margin-bottom: 60px; flex-wrap: wrap;
+      display: flex; gap: 15px; justify-content: flex-start;
+      margin-bottom: 40px; flex-wrap: wrap;
     }
 
     /* BOTÕES DESIGN PREMIUM */
@@ -214,7 +217,7 @@
       position: relative; overflow: hidden; border-radius: 2px; 
       font-family: var(--font-body); font-weight: 700; 
       text-transform: uppercase; text-decoration: none; 
-      font-size: 0.8rem; transition: 0.4s;
+      font-size: 0.75rem; transition: 0.4s;
       letter-spacing: 0.1em; display: inline-block; cursor: pointer;
     }
 
@@ -227,25 +230,25 @@
 
     .btn-primary { 
       background: var(--blue-navy); color: white !important; 
-      padding: 16px 32px; border: 1px solid var(--blue-navy);
+      padding: 14px 28px; border: 1px solid var(--blue-navy);
       box-shadow: var(--shadow-btn); 
     }
     .btn-primary:hover { background: var(--blue-800); transform: translateY(-3px); }
 
     .btn-outline { 
       border: 1px solid rgba(255,255,255,0.4); color: var(--white) !important; 
-      padding: 16px 32px; background: rgba(5, 17, 34, 0.4);
+      padding: 14px 28px; background: rgba(5, 17, 34, 0.4);
     }
     .btn-outline:hover { background: var(--white); color: var(--blue-900) !important; transform: translateY(-3px); }
 
-    /* STATS TICKER */
+    /* STATS TICKER COMPACTO */
     .ticker-container {
-      width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 35px;
+      width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 25px;
     }
-    .ticker-wrapper { display: flex; width: max-content; animation: ticker 40s linear infinite; gap: 80px; }
-    .stat-item { display: flex; align-items: center; gap: 15px; white-space: nowrap; }
-    .stat-number { font-size: 1.8rem; color: var(--white); font-family: var(--font-display); font-weight: 800; }
-    .stat-label { font-size: 0.75rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.15em; }
+    .ticker-wrapper { display: flex; width: max-content; animation: ticker 40s linear infinite; gap: 60px; }
+    .stat-item { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+    .stat-number { font-size: 1.5rem; color: var(--white); font-family: var(--font-display); font-weight: 800; }
+    .stat-label { font-size: 0.65rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.15em; }
     
     @keyframes ticker {
       0% { transform: translateX(0); }
@@ -253,23 +256,23 @@
     }
 
     /* SEÇÕES GERAIS */
-    section { padding: 120px 8%; }
-    .section-header { margin-bottom: 60px; border-left: 4px solid var(--accent); padding-left: 25px; }
-    .section-tag { font-size: 0.75rem; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.3em; font-weight: 700; text-transform: uppercase; }
-    .section-header h2 { font-size: 2.5rem; line-height: 1.1; }
+    section { padding: 100px 8%; }
+    .section-header { margin-bottom: 50px; border-left: 4px solid var(--accent); padding-left: 25px; }
+    .section-tag { font-size: 0.7rem; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.3em; font-weight: 700; text-transform: uppercase; }
+    .section-header h2 { font-size: 2.2rem; line-height: 1.1; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .service-card { background: white; border: 1px solid var(--gray-100); border-radius: 4px; overflow: hidden; transition: 0.4s ease; padding: 0; }
     .service-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .service-img { width: 100%; height: 240px; overflow: hidden; }
+    .service-img { width: 100%; height: 220px; overflow: hidden; }
     .service-img img { width: 100%; height: 100%; object-fit: cover; }
-    .service-body { padding: 35px; }
-    .service-body h3 { font-size: 1.3rem; margin-bottom: 15px; }
-    .service-body p { font-size: 0.95rem; color: var(--gray-600); margin-bottom: 25px; }
-    .service-link { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
+    .service-body { padding: 30px; }
+    .service-body h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    .service-body p { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 20px; }
+    .service-link { font-size: 0.75rem; font-weight: 700; color: var(--accent); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
 
     /* DEPOIMENTOS LOOP */
-    .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 40px 0; }
+    .testimonial-slider-container { position: relative; width: 100%; overflow: hidden; padding: 30px 0; }
     .testimonial-track { display: flex; gap: 30px; width: max-content; animation: testimonialLoop 50s linear infinite; }
     .testimonial-track:hover { animation-play-state: paused; }
 
@@ -279,13 +282,13 @@
     }
 
     .testimonial-card { 
-      width: 340px; background: var(--gray-50); padding: 40px; border-radius: 8px; flex-shrink: 0;
+      width: 320px; background: var(--gray-50); padding: 35px; border-radius: 8px; flex-shrink: 0;
       border-left: 4px solid var(--gray-200); transition: 0.3s ease; white-space: normal; display: flex; flex-direction: column;
     }
     .testimonial-card:hover { border-left-color: var(--accent); background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-    .stars { color: #ffb400; margin-bottom: 15px; font-size: 0.9rem; }
-    .testimonial-text { font-style: italic; font-size: 0.95rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; flex-grow: 1; }
-    .author-name { font-weight: 700; color: var(--blue-900); font-family: var(--font-display); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+    .stars { color: #ffb400; margin-bottom: 15px; font-size: 0.85rem; }
+    .testimonial-text { font-style: italic; font-size: 0.9rem; color: var(--gray-600); margin-bottom: 15px; line-height: 1.6; flex-grow: 1; }
+    .author-name { font-weight: 700; color: var(--blue-900); font-family: var(--font-display); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
 
     /* WHATSAPP FLOAT */
     .whatsapp-float {
@@ -313,6 +316,11 @@
     .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
+      .hero { padding: 120px 5% 80px; height: auto; min-height: 100vh; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-desc { font-size: 1rem; }
+      .hero-actions { flex-direction: column; width: 100%; max-width: 320px; gap: 12px; }
+      .hero-waves svg { height: 40px; }
       .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
       .footer-brand { grid-column: 1 / -1; text-align: center; }
       .footer-brand img { height: 80px; margin: 0 auto; }
@@ -350,7 +358,7 @@
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <!-- HERO COM VÍDEO E ONDAS -->
+  <!-- HERO COM VÍDEO E ONDAS — AJUSTADA PARA CABER NA TELA -->
   <header class="hero">
     <div class="hero-video-bg">
       <video autoplay muted loop playsinline>
@@ -381,7 +389,7 @@
       </div>
     </div>
 
-    <!-- Divisor de Ondas -->
+    <!-- Divisor de Ondas na base da Hero -->
     <div class="hero-waves">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
