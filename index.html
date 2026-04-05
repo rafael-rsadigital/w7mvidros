@@ -50,18 +50,18 @@
 
     h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
 
-    /* NAVBAR REESTRUTURADA — PROPORÇÃO PROFISSIONAL */
+    /* NAVBAR REESTRUTURADA — FOCO NO LOGOTIPO E ALINHAMENTO CENTRAL */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 8%; 
-      height: 90px; /* Altura padrão premium */
+      height: 110px; /* Altura aumentada para permitir logo maior */
       transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background: transparent;
     }
     nav.scrolled { 
       background: rgba(10, 22, 40, 0.98); 
-      height: 80px; /* Altura reduzida no scroll */
+      height: 85px; /* Redução suave no scroll */
       backdrop-filter: blur(15px); 
       box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
     }
@@ -70,23 +70,22 @@
       display: flex; 
       align-items: center; 
       text-decoration: none;
-      height: 100%;
     }
     .nav-logo img { 
-      height: 60px; /* Logo adaptado ao header */
+      height: 90px; /* Logotipo 50% maior para destaque premium */
       width: auto; 
       display: block;
-      transition: 0.3s ease; 
+      transition: 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
     nav.scrolled .nav-logo img { 
-      height: 50px; 
+      height: 65px; 
     }
 
     .nav-right { 
       display: flex; 
       align-items: center; 
-      gap: 40px; 
-      height: 100%;
+      gap: 35px; 
     }
     .nav-links { 
       display: flex; 
@@ -95,7 +94,6 @@
       align-items: center; 
       margin: 0;
       padding: 0;
-      height: 100%;
     }
     .nav-links a { 
       color: var(--silver); text-decoration: none; 
@@ -107,17 +105,16 @@
     .nav-actions { 
       display: flex; 
       align-items: center; 
-      gap: 20px; 
-      height: 100%;
+      gap: 15px; 
     }
     .nav-cta { 
       background: var(--accent); color: white !important; 
       padding: 10px 22px; border-radius: 2px; 
       font-size: 0.75rem; font-weight: 700; 
       text-decoration: none; transition: 0.3s;
-      line-height: 1;
       display: flex;
       align-items: center;
+      line-height: 1;
     }
     .nav-social { display: flex; gap: 12px; align-items: center; }
     .nav-social a { color: var(--silver); transition: 0.3s; display: flex; align-items: center; }
@@ -133,12 +130,12 @@
     }
 
     @media (max-width: 992px) {
-      nav { height: 80px; }
-      nav.scrolled { height: 70px; }
+      nav { height: 85px; }
+      nav.scrolled { height: 75px; }
       .hamburger { display: flex; align-self: center; }
       .nav-right { display: none; }
-      .nav-logo img { height: 50px; }
-      nav.scrolled .nav-logo img { height: 45px; }
+      .nav-logo img { height: 60px; }
+      nav.scrolled .nav-logo img { height: 55px; }
       
       .nav-links {
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
@@ -153,13 +150,13 @@
       .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
     }
 
-    /* HERO SECTION — AJUSTADO PARA HEADER 90PX */
+    /* HERO SECTION — ALINHADA PARA CABEÇALHO 110PX */
     .hero {
       min-height: 100vh; background: var(--blue-900);
       display: flex;
       align-items: center; 
       justify-content: flex-start;
-      padding: 130px 8% 150px; /* Reduzido padding de 180px para 130px */
+      padding: 140px 8% 150px; 
       position: relative; overflow: hidden;
     }
     
@@ -326,7 +323,7 @@
 </head>
 <body>
 
-  <!-- NAVBAR ESTILO PREMIUM PROPORCIONAL -->
+  <!-- NAVBAR ESTILO PREMIUM COM LOGO PROPORCIONAL -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
       <img src="img/logotipo-fundo-transparente.png" alt="W7M Designer | Esquadrias SJC">
