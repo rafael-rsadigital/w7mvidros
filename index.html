@@ -163,11 +163,9 @@
     .nav-social a:hover { color: var(--accent-bright); }
     .nav-social svg { width: 18px; height: 18px; fill: currentColor; }
 
+    /* HAMBURGER — ESTÁVEL SEM TRANSFORMAÇÃO */
     .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; padding: 10px; }
-    .hamburger span { width: 28px; height: 2px; background: var(--white); transition: 0.4s; transform-origin: center; }
-    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
+    .hamburger span { width: 28px; height: 2px; background: var(--white); transition: none; transform-origin: center; }
 
     @media (max-width: 1200px) {
       .nav-right { gap: 20px; }
@@ -179,9 +177,8 @@
       nav.scrolled { height: 75px; }
       .hamburger { display: flex; align-self: center; }
       
-      /* CORREÇÃO DO MENU LATERAL: Não ocultar o container pai nav-right se ele contém nav-links */
       .nav-right { display: flex; margin-top: 0; gap: 0; } 
-      .nav-right > *:not(.nav-links) { display: none; } /* Esconde o resto, mas mantém nav-links vivo */
+      .nav-right > *:not(.nav-links) { display: none; } 
       
       .nav-logo { margin-left: 0; }
       .nav-logo img { height: 70px; }
@@ -703,13 +700,12 @@
       }
     }
 
-    // Menu Hambúrguer - CORREÇÃO: Removendo o conflito com nav-right no mobile
+    // Menu Hambúrguer - Estável (sem animação nas barras)
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
-      // Impedir scroll quando menu aberto
       document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
     });
 
