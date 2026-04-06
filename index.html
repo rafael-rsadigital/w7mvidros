@@ -297,18 +297,73 @@
     .testimonial-text { font-style: italic; font-size: 0.9rem; color: var(--gray-600); margin-bottom: 15px; line-height: 1.6; flex-grow: 1; }
     .author-name { font-weight: 700; color: var(--blue-900); font-family: var(--font-display); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
 
+    /* FAQ ACORDEON — NOVO DESIGN */
+    .faq-container {
+      max-width: 850px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+      background: white;
+      transition: 0.3s;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 25px 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-900);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .faq-question:hover { color: var(--accent); }
+
+    .faq-question span {
+      font-size: 1.4rem;
+      color: var(--accent);
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      line-height: 1;
+      font-weight: 400;
+    }
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    }
+    .faq-item.active .faq-answer {
+      max-height: 1000px;
+      transition: max-height 1s ease-in-out;
+    }
+    .faq-answer p {
+      padding-bottom: 25px;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
     /* FOOTER COM ONDAS NO TOPO */
     footer { 
       position: relative;
       background: var(--blue-900); 
       padding: 100px 8% 40px; 
       color: var(--silver); 
-      margin-top: 50px; /* Espaço para a onda não cortar o conteúdo anterior */
+      margin-top: 50px; 
     }
     
     .footer-waves {
       position: absolute;
-      top: -49px; /* Ajuste para sobreposição perfeita no topo do footer */
+      top: -49px; 
       left: 0;
       width: 100%;
       overflow: hidden;
@@ -527,6 +582,66 @@
     </div>
   </section>
 
+  <!-- FAQ SECTION -->
+  <section class="reveal" style="background: var(--gray-50);">
+    <div class="section-header">
+      <div class="section-tag">Dúvidas Frequentes</div>
+      <h2>Perguntas comuns sobre esquadrias em São José dos Campos</h2>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          Vocês atendem em toda São José dos Campos?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim, atendemos toda São José dos Campos, incluindo bairros como Urbanova, Jardim Aquarius e região, além de todo o Vale do Paraíba.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Quanto custa uma cortina de vidro?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>O valor depende do tamanho da área, tipo de vidro e acabamento. Solicite um orçamento personalizado para receber o valor exato.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Vocês trabalham com fabricação própria?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Sim, trabalhamos com fabricação própria, garantindo maior controle de qualidade, acabamento superior e melhor custo-benefício.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          As esquadrias são resistentes?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Utilizamos materiais de alta qualidade e linhas premium como Gold e Suprema, garantindo durabilidade, segurança e excelente acabamento.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Como solicitar um orçamento?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Basta clicar no botão de WhatsApp no site e enviar sua solicitação. Nosso atendimento é rápido e direto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER COM ONDAS NO TOPO -->
   <footer>
     <div class="footer-waves">
@@ -548,7 +663,7 @@
           <li><a href="/">Início</a></li>
           <li><a href="/sobre/">Sobre</a></li>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/galeria/">Portfólio</a></li>
+          <li><a href="/galeria/">Galeria</a></li>
         </ul>
       </div>
       <div class="footer-col social">
@@ -583,6 +698,56 @@
     <svg viewBox="0 0 448 512" width="35" height="35" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-38.1-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
   </a>
 
+  <!-- SCHEMA FAQ PARA SEO GOOGLE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Vocês atendem em toda São José dos Campos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, atendemos toda São José dos Campos, incluindo bairros como Urbanova, Jardim Aquarius e região, além de todo o Vale do Paraíba."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto custa uma cortina de vidro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O valor depende do tamanho da área, tipo de vidro e acabamento. Solicite um orçamento personalizado para receber o valor exato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vocês trabalham com fabricação própria?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, trabalhamos com fabricação própria, garantindo maior controle de qualidade, acabamento superior e melhor custo-benefício."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "As esquadrias são resistentes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Utilizamos materiais de alta qualidade e linhas premium como Gold e Suprema, garantindo durabilidade, segurança e excelente acabamento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como solicitar um orçamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basta clicar no botão de WhatsApp no site e enviar sua solicitação. Nosso atendimento é rápido e direto."
+        }
+      }
+    ]
+  }
+  </script>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -606,6 +771,26 @@
       } else {
         nav.classList.remove('scrolled');
       }
+    });
+
+    // Lógica do Acordeon FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+
+        // Fecha outros itens se necessário (opcional)
+        // document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+        // document.querySelectorAll('.faq-answer').forEach(el => el.style.maxHeight = null);
+
+        item.classList.toggle('active');
+        if (!isActive) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = null;
+        }
+      });
     });
   </script>
 </body>
