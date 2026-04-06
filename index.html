@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Configuração de Favicon Profissional (Premium Setup) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   
   <title>Esquadrias de Alumínio em São José dos Campos | W7M Designer</title>
   <meta name="description" content="W7M Designer: Especialistas em esquadrias de alumínio, cortina de vidro e fachadas ACM em São José dos Campos. Fabricação própria e installation em SJC e região." />
@@ -54,7 +54,7 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; /* Margem de 8% igual à Hero */
+      padding: 0 8%; 
       height: 150px; 
       transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background: transparent;
@@ -71,7 +71,6 @@
       align-items: flex-start; 
       text-decoration: none;
       padding-top: 0;
-      /* Ajuste fino: puxa o logo levemente para a esquerda para alinhar visualmente com o h1 abaixo */
       margin-left: -15px; 
     }
     .nav-logo img { 
@@ -90,7 +89,7 @@
       display: flex; 
       align-items: center; 
       gap: 35px; 
-      margin-top: -35px; /* Sobe os botões para equilibrar com o logo no topo */
+      margin-top: -35px; 
       transition: margin 0.4s ease;
     }
     nav.scrolled .nav-right { margin-top: 0; }
@@ -298,6 +297,52 @@
     .testimonial-text { font-style: italic; font-size: 0.9rem; color: var(--gray-600); margin-bottom: 15px; line-height: 1.6; flex-grow: 1; }
     .author-name { font-weight: 700; color: var(--blue-900); font-family: var(--font-display); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; }
 
+    /* FOOTER COM ONDAS NO TOPO */
+    footer { 
+      position: relative;
+      background: var(--blue-900); 
+      padding: 100px 8% 40px; 
+      color: var(--silver); 
+      margin-top: 50px; /* Espaço para a onda não cortar o conteúdo anterior */
+    }
+    
+    .footer-waves {
+      position: absolute;
+      top: -49px; /* Ajuste para sobreposição perfeita no topo do footer */
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 1;
+    }
+    .footer-waves svg {
+      position: relative;
+      display: block;
+      width: calc(150% + 1.3px);
+      height: 50px;
+    }
+    .footer-waves .shape-fill {
+      fill: var(--blue-900);
+    }
+
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; position: relative; z-index: 2; }
+    .footer-brand img { height: 55px; width: auto; transition: 0.3s; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 20px; max-width: 320px; }
+    .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; opacity: 0.6; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { color: var(--silver); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+    .footer-col a:hover { color: var(--accent); }
+    
+    .footer-bottom { 
+      border-top: 1px solid rgba(255,255,255,0.03); 
+      margin-top: 80px; padding-top: 30px; 
+      display: flex; justify-content: space-between; align-items: center; 
+      font-size: 0.75rem; opacity: 0.6; 
+      position: relative; z-index: 2;
+    }
+    .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
+
     /* WHATSAPP FLOAT */
     .whatsapp-float {
       position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
@@ -308,20 +353,6 @@
     }
     .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
     .whatsapp-float svg { width: 35px; height: 35px; fill: white; }
-
-    /* FOOTER */
-    footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; }
-    .footer-brand img { height: 55px; width: auto; transition: 0.3s; }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 20px; max-width: 320px; }
-    .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; opacity: 0.6; }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 12px; }
-    .footer-col a { color: var(--silver); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-    .footer-col a:hover { color: var(--accent); }
-    
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); margin-top: 80px; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; opacity: 0.6; }
-    .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
     @media (max-width: 992px) {
       .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -400,7 +431,7 @@
     </div>
   </header>
 
-  <!-- SEÇÕES ABAIXO... -->
+  <!-- INTRO SEO -->
   <section class="reveal">
     <div class="section-header">
       <h2>Especialistas em Esquadrias em São José dos Campos</h2>
@@ -410,7 +441,7 @@
     </p>
   </section>
 
-  <!-- SERVIÇOS, DEPOIMENTOS E FOOTER MANTIDOS CONFORME ÚLTIMA VERSÃO -->
+  <!-- SERVIÇOS -->
   <section id="solucoes" style="background: var(--gray-50);" class="reveal">
     <div class="section-header">
       <div class="section-tag">O que fazemos</div>
@@ -452,11 +483,13 @@
     </div>
   </section>
 
+  <!-- DEPOIMENTOS SLIDER LOOP INFINITO -->
   <section class="reveal">
     <div class="section-header">
       <div class="section-tag">Opinião Real</div>
       <h2>O que dizem sobre nossos serviços no Vale do Paraíba</h2>
     </div>
+    
     <div class="testimonial-slider-container">
       <div class="testimonial-track" id="testimonialTrack">
         <article class="testimonial-card">
@@ -474,6 +507,7 @@
           <p class="testimonial-text">"Trabalho realizado pelo Wilson é muito bom. Ele é de confiança, honesto e pratica preços justos. RECOMENDO!"</p>
           <span class="author-name">Silvério</span>
         </article>
+        <!-- Clone para o Loop -->
         <article class="testimonial-card">
           <div class="stars">★★★★★</div>
           <p class="testimonial-text">"Willson é um ótimo profissional, atencioso, tirou todas as minhas dúvidas e forneceu soluções para cobertura e portas de vidros. Recomendo!"</p>
@@ -493,7 +527,14 @@
     </div>
   </section>
 
+  <!-- FOOTER COM ONDAS NO TOPO -->
   <footer>
+    <div class="footer-waves">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo-footer">
@@ -526,17 +567,19 @@
         <p style="font-size: 0.8rem; line-height: 1.4; text-align: center;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
       </div>
     </div>
+    
     <div class="footer-bottom">
       <div><span>© 2026 W7M Designer | CNPJ: 32.501.716/0001-69</span></div>
       <div class="developer-credit">
-        <a href="https://wa.me/5512988052097" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
           Desenvolvido por <span class="rsa-brand">RSA Digital</span>
         </a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/5512981325798" class="whatsapp-float" target="_blank" rel="noopener">
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener">
     <svg viewBox="0 0 448 512" width="35" height="35" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-38.1-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
   </a>
 
