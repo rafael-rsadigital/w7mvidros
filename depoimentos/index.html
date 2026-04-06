@@ -3,228 +3,189 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Configuração de Favicon Profissional (Premium Setup) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  
   <title>Depoimentos e Avaliações | W7M Designer SJC</title>
   <meta name="description" content="Veja o que os clientes de São José dos Campos dizem sobre a W7M Designer. Avaliações reais sobre esquadrias, cortina de vidro e atendimento." />
   <link rel="canonical" href="https://w7mvidros.com.br/depoimentos/" />
   <meta name="robots" content="index, follow" />
   
-  <!-- CSS Global -->
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <!-- Fontes -->
+  <!-- Fontes (Barlow para Títulos, Montserrat para o Corpo/Hero) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* DESIGN SYSTEM ESPECÍFICO - DEPOIMENTOS */
-    
-    /* Navbar e Menu Mobile */
+    :root {
+      --blue-900: #0a1628;
+      --blue-800: #0d1f3c;
+      --blue-navy: #051122;
+      --accent: #0ea5e9;
+      --accent-bright: #38bdf8;
+      --silver: #cbd5e1;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-600: #475569;
+      --text: #334155;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --radius: 4px;
+      --shadow-btn: 0 4px 14px 0 rgba(5, 17, 34, 0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* REVEAL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    h1, h2, h3, h4, h5 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; color: var(--blue-900); }
+
+    /* NAVBAR — PADRÃO PREMIUM W7M */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 8%; height: 90px; transition: 0.4s ease;
+      padding: 0 8%; height: 150px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       background: transparent;
     }
-    nav.scrolled { 
-      background: rgba(10, 22, 40, 0.98); 
-      height: 75px; 
-      backdrop-filter: blur(15px); 
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1); 
-    }
-
-    .nav-logo img { height: 50px; width: auto; border-radius: 10px; }
-
-    .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
-    .nav-links a { 
-      color: var(--silver); text-decoration: none; 
-      font-size: 0.8rem; font-weight: 500; transition: 0.3s; 
-      text-transform: uppercase; letter-spacing: 0.1em; 
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    nav.scrolled { background: rgba(10, 22, 40, 0.98); height: 85px; backdrop-filter: blur(15px); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
     
-    .nav-cta { 
-      background: var(--accent); color: white !important; 
-      padding: 10px 22px; border-radius: var(--radius); 
-      font-weight: 600; transition: 0.3s;
-    }
+    .nav-logo { display: flex; align-items: flex-start; text-decoration: none; padding-top: 0; margin-left: -15px; }
+    .nav-logo img { height: 143px; width: auto; display: block; transition: 0.3s ease; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2)); }
+    nav.scrolled .nav-logo { align-items: center; margin-left: 0; }
+    nav.scrolled .nav-logo img { height: 65px; }
 
-    .hamburger { 
-      display: none; flex-direction: column; gap: 6px; 
-      cursor: pointer; z-index: 1001; padding: 10px;
-    }
-    .hamburger span { 
-      width: 28px; height: 2px; background: var(--white); 
-      transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-      transform-origin: center; 
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-8deg) rotate(-45deg); }
+    .nav-right { display: flex; align-items: center; gap: 35px; margin-top: -35px; transition: margin 0.4s ease; }
+    nav.scrolled .nav-right { margin-top: 0; }
+
+    .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; margin: 0; padding: 0; }
+    .nav-links a { color: var(--silver); text-decoration: none; font-size: 0.75rem; font-weight: 600; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.1em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    .nav-actions { display: flex; align-items: center; gap: 15px; }
+    .dropdown-wrapper { position: relative; display: inline-block; }
+    .nav-cta { background: var(--accent); color: white !important; padding: 10px 22px; border-radius: 2px; font-size: 0.75rem; font-weight: 700; text-decoration: none; transition: 0.3s; display: flex; align-items: center; line-height: 1; border: none; cursor: pointer; }
+    
+    .dropdown-content { display: none; position: absolute; background-color: var(--blue-navy); min-width: 180px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); z-index: 1001; border-radius: 2px; top: 100%; left: 0; margin-top: 10px; overflow: hidden; }
+    .dropdown-content.right { left: auto; right: 0; }
+    .dropdown-content a { color: white !important; padding: 12px 16px; text-decoration: none; display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .dropdown-content a:hover { background-color: var(--accent); }
+    .dropdown-content.show { display: block; }
+
+    .nav-social { display: flex; gap: 12px; align-items: center; }
+    .nav-social a { color: var(--silver); transition: 0.3s; display: flex; align-items: center; }
+    .nav-social a:hover { color: var(--accent-bright); }
+    .nav-social svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .hamburger { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; padding: 10px; }
+    .hamburger span { width: 28px; height: 2px; background: var(--white); transition: none; transform-origin: center; }
 
     @media (max-width: 992px) {
-      .hamburger { display: flex; }
-      .nav-links {
-        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-        background: var(--blue-900); flex-direction: column; justify-content: center;
-        transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); z-index: 1000; gap: 40px;
-        padding: 10%;
-      }
+      nav { height: 90px; padding: 0 5%; }
+      nav.scrolled { height: 75px; }
+      .hamburger { display: flex; align-self: center; }
+      .nav-right { display: flex; margin-top: 0; gap: 0; } 
+      .nav-right > *:not(.nav-links) { display: none; } 
+      .nav-logo { margin-left: 0; }
+      .nav-logo img { height: 70px; }
+      nav.scrolled .nav-logo img { height: 55px; }
+      .nav-links { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: var(--blue-900); flex-direction: column; justify-content: center; transition: 0.5s; z-index: 1000; gap: 40px; padding: 10%; }
       .nav-links.open { right: 0; }
-      .nav-links a { font-size: 1.3rem; color: var(--white); letter-spacing: 0.15em; }
+      .nav-links a { font-size: 1.3rem; color: var(--white); }
     }
 
-    /* Branding Google */
-    .google-branding {
-      text-align: left;
-      margin-bottom: 60px;
-      padding-top: 40px;
+    /* HERO — REPETINDO VÍDEO E ONDINHA */
+    .hero {
+      height: 100vh; background: var(--blue-900);
+      display: flex; align-items: center; justify-content: flex-start;
+      padding: 150px 8% 80px; position: relative; overflow: hidden;
     }
+    .hero-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.2) 100%); z-index: 1; }
+    .hero-waves { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; transform: rotate(180deg); z-index: 2; }
+    .hero-waves svg { position: relative; display: block; width: calc(130% + 1.3px); height: 50px; }
+    .hero-waves .shape-fill { fill: var(--white); }
+    .hero-content { position: relative; z-index: 3; text-align: left; max-width: 700px; width: 100%; }
+    .hero-badge { display: inline-block; background: rgba(14,165,233,0.2); border: 1px solid rgba(14,165,233,0.3); color: var(--accent-bright); font-size: 0.75rem; padding: 5px 15px; margin-bottom: 20px; letter-spacing: 0.2em; font-weight: 700; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.1; color: var(--white); margin-bottom: 15px; font-weight: 800; text-transform: uppercase; }
+    .hero-desc { font-size: 1rem; color: var(--silver); margin-bottom: 30px; max-width: 500px; font-weight: 300; }
+    .hero-actions { display: flex; gap: 15px; justify-content: flex-start; margin-bottom: 35px; flex-wrap: wrap; }
 
-    .google-logo-img {
-      height: 55px;
-      width: auto;
-      margin-bottom: 15px;
-      mix-blend-mode: multiply; 
-    }
+    /* BOTÕES */
+    .btn-primary, .btn-outline { position: relative; overflow: hidden; border-radius: 2px; font-family: var(--font-body); font-weight: 700; text-transform: uppercase; text-decoration: none; font-size: 0.7rem; transition: 0.4s; letter-spacing: 0.1em; display: inline-block; cursor: pointer; }
+    .btn-primary::after, .btn-outline::after { content: ''; position: absolute; top: 0; left: -100%; width: 40px; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); transform: skewX(-25deg); }
+    .btn-primary:hover::after, .btn-outline:hover::after { left: 150%; transition: 0.6s ease-in-out; }
+    .btn-primary { background: var(--blue-navy); color: white !important; padding: 12px 24px; border: 1px solid var(--blue-navy); box-shadow: var(--shadow-btn); }
+    .btn-primary:hover { background: var(--blue-800); transform: translateY(-3px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: var(--white) !important; padding: 12px 24px; background: rgba(5, 17, 34, 0.4); }
+    .btn-outline:hover { background: var(--white); color: var(--blue-900) !important; transform: translateY(-3px); }
 
-    .google-branding h2 {
-      font-size: 1.8rem;
-      color: var(--blue-900);
-      text-transform: none;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-      line-height: 1.3;
-    }
+    /* CONTEÚDO DEPOIMENTOS */
+    section { padding: 100px 8%; }
+    .google-branding { text-align: left; margin-bottom: 60px; }
+    .google-logo-img { height: 55px; width: auto; margin-bottom: 15px; mix-blend-mode: multiply; }
+    .google-branding h2 { font-size: 2.2rem; color: var(--blue-900); text-transform: none; letter-spacing: -0.02em; font-weight: 700; line-height: 1.3; }
 
-    /* Testemunhos Grid */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 30px;
-    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+    .testimonial-card { background: var(--white); border: 1px solid var(--gray-100); padding: 40px; border-radius: 8px; transition: 0.3s ease; display: flex; flex-direction: column; border-left: 4px solid var(--gray-200); }
+    .testimonial-card:hover { border-left-color: var(--accent); transform: translateY(-8px); box-shadow: 0 15px 40px rgba(10, 22, 40, 0.06); }
+    .stars { color: #ffb400; margin-bottom: 20px; font-size: 1rem; }
+    .testimonial-text { font-size: 1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 25px; font-style: italic; flex-grow: 1; }
+    .author-name { display: block; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; color: var(--blue-900); font-size: 0.85rem; letter-spacing: 0.05em; }
+    .author-time { display: block; font-size: 0.75rem; color: var(--gray-400); margin-top: 5px; }
 
-    .testimonial-card {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      padding: 40px;
-      border-radius: 8px;
-      transition: 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      border-left: 4px solid var(--gray-200);
-    }
+    /* FAQ */
+    .faq-container { max-width: 850px; margin-top: 40px; }
+    .faq-item { border-bottom: 1px solid var(--gray-200); background: white; transition: 0.3s; }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    .faq-question { width: 100%; background: none; border: none; padding: 25px 0; text-align: left; font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--blue-900); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
+    .faq-question:hover { color: var(--accent); }
+    .faq-question span { font-size: 1.4rem; color: var(--accent); transition: 0.4s; font-weight: 400; }
+    .faq-item.active .faq-question span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
+    .faq-item.active .faq-answer { max-height: 1000px; transition: max-height 1s ease-in-out; }
+    .faq-answer p { padding-bottom: 25px; color: var(--gray-600); font-size: 0.95rem; line-height: 1.7; }
 
-    .testimonial-card:hover {
-      border-left-color: var(--accent);
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(10, 22, 40, 0.06);
-    }
-
-    .stars {
-      color: #ffb400;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-
-    .testimonial-text {
-      font-size: 1rem;
-      color: var(--gray-600);
-      line-height: 1.7;
-      margin-bottom: 25px;
-      font-style: italic;
-    }
-
-    .author-name {
-      display: block;
-      font-family: var(--font-display);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--blue-900);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-
-    .author-time {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--gray-400);
-      margin-top: 5px;
-    }
-
-    /* Footer Design */
-    footer { background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; }
-    
-    /* Tamanho do Logotipo no Desktop */
-    .footer-brand img { height: 65px; width: auto; transition: 0.3s; }
+    /* FOOTER — IDÊNTICO À HOME */
+    footer { position: relative; background: var(--blue-900); padding: 100px 8% 40px; color: var(--silver); margin-top: 50px; }
+    .footer-waves { position: absolute; top: -49px; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 1; }
+    .footer-waves svg { position: relative; display: block; width: calc(150% + 1.3px); height: 50px; }
+    .footer-waves .shape-fill { fill: var(--blue-900); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 60px; position: relative; z-index: 2; }
+    .footer-brand img { height: 55px; width: auto; transition: 0.3s; }
     .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 20px; max-width: 320px; }
-    
-    .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+    .footer-col h5 { color: var(--white); margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; opacity: 0.6; }
     .footer-col ul { list-style: none; }
     .footer-col li { margin-bottom: 12px; }
     .footer-col a { color: var(--silver); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
     .footer-col a:hover { color: var(--accent); }
-    
-    .footer-bottom { 
-      border-top: 1px solid rgba(255,255,255,0.03); 
-      margin-top: 80px; 
-      padding-top: 30px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-      font-size: 0.75rem; 
-      opacity: 0.6; 
-    }
+    .footer-contact-item { display: flex; flex-direction: column; gap: 5px; margin-top: 15px; }
+    .footer-contact-link { color: var(--accent); font-weight: 700; text-decoration: none; transition: 0.3s; }
+    .footer-address { font-size: 0.8rem; line-height: 1.6; color: var(--silver); margin-top: 10px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); margin-top: 80px; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; opacity: 0.6; position: relative; z-index: 2; }
+    .rsa-brand { color: var(--accent-bright); font-weight: 700; text-decoration: none; }
 
-    .developer-credit { text-align: right; line-height: 1.6; }
-    .developer-credit a { text-decoration: none; color: inherit; transition: 0.3s; }
-    .rsa-brand { color: var(--accent-bright); font-weight: 700; }
-    .developer-credit a:hover .rsa-brand { color: var(--white); }
+    /* WHATSAPP FLOAT */
+    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; }
+    .whatsapp-float:hover { background-color: #128c7e; transform: scale(1.1); }
+    .whatsapp-float svg { width: 35px; height: 35px; fill: white; }
 
     @media (max-width: 992px) {
-      footer { padding: 80px 5% 40px; }
-      .footer-grid { 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 50px;
-      }
-      /* Logotipo GRANDE e Centralizado no Mobile */
-      .footer-brand img { height: 100px; margin: 0 auto; } 
-      .footer-brand p { margin: 20px auto 0; max-width: 100%; }
-      
-      .footer-col h5 { margin-bottom: 15px; }
-      
-      .footer-col.institucional { text-align: center; }
-      .footer-col.social { text-align: center; }
-
-      .footer-col.atendimento { 
-        grid-column: 1 / -1; 
-        text-align: center; 
-        width: 100%;
-      }
-
-      /* Centralizando o telefone e itens de contato no mobile */
-      .footer-contact-item {
-        justify-content: center;
-        display: flex;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .footer-bottom { 
-        flex-direction: column; 
-        text-align: center; 
-        gap: 25px; 
-        margin-top: 60px;
-      }
-      .developer-credit { text-align: center; }
-    }
-
-    @media (max-width: 600px) {
-      .google-branding h2 { font-size: 1.5rem; }
+      .hero { padding: 120px 8% 80px; height: auto; min-height: 100vh; }
+      .footer-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+      .footer-brand img { height: 80px; margin: 0 auto; }
+      .footer-contact-item { align-items: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 25px; margin-top: 60px; }
     }
   </style>
 </head>
@@ -233,212 +194,264 @@
   <!-- NAVBAR -->
   <nav id="navbar">
     <a href="/" class="nav-logo">
-      <img src="/img/logo.webp" alt="W7M Designer | Vidraçaria e Esquadrias">
+      <img src="/img/logotipo-fundo-transparente.png" alt="W7M Designer | Esquadrias SJC">
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/">Home</a></li>
-      <li><a href="/sobre/">Sobre</a></li>
-      <li><a href="/servicos/">Serviços</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/galeria/">Galeria</a></li>
-      <li><a href="/depoimentos/" class="active">Depoimentos</a></li>
-      <li><a href="https://wa.me/5512981325798?text=Olá,%20vim%20pela%20página%20de%20Depoimentos%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+    
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/sobre/">Sobre</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/galeria/">Galeria</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <div class="nav-social">
+          <a href="https://www.instagram.com/w7m_vidros/" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+        
+        <div class="dropdown-wrapper">
+          <button class="nav-cta" id="btnNavOrcamento" onclick="toggleDropdown('dropdownNav')">Orçamento</button>
+          <div class="dropdown-content right" id="dropdownNav">
+            <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank">Enviar WhatsApp</a>
+            <a href="tel:1239419633">Ligar para a W7M</a>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <main>
-    <!-- HERO DEPOIMENTOS -->
-    <header class="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-content">
-        <div class="hero-badge">Prova Social</div>
-        <h1>Relatos de quem escolheu excelência</h1>
-        <p class="hero-desc">
-          Na W7M Designer, cada projeto é tratado com precisão técnica e compromisso. Confira as experiências reais de nossos clientes em São José dos Campos.
-        </p>
-      </div>
-    </header>
-
-    <!-- LISTA DE DEPOIMENTOS -->
-    <section>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content reveal">
+      <div class="hero-badge">Prova Social</div>
+      <h1>Relatos de quem escolheu excelência</h1>
+      <p class="hero-desc">Na W7M Designer, cada projeto é tratado com precisão técnica e compromisso. Confira as experiências reais de nossos clientes.</p>
       
-      <!-- Logo Google e Frase SEO -->
-      <div class="google-branding">
-        <img src="/img/google-depoimentos.PNG" alt="Google Avaliações" class="google-logo-img">
-        <h2>O que nossos clientes dizem sobre nossos serviços de vidraçaria e esquadria no Vale do Paraíba - SP</h2>
+      <div class="hero-actions">
+        <div class="dropdown-wrapper">
+          <button class="btn-primary" id="btnHeroOrcamento" onclick="toggleDropdown('dropdownHero')">Solicitar Orçamento</button>
+          <div class="dropdown-content" id="dropdownHero">
+            <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pelos%20Depoimentos%20e%20gostaria%20de%20um%20orçamento." target="_blank">Enviar WhatsApp</a>
+            <a href="tel:1239419633">Ligar para a W7M</a>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="testimonials-grid">
-        
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Willson é um ótimo profissional, foi muito atencioso, tirou todas as minhas dúvidas e forneceu soluções para algumas questões no projeto de cobertura e portas de vidros aqui na área externa de casa. Confio e recomendo os serviços da empresa W7M Designer."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Carolina Sasaki</span>
-            <span class="author-time">Há 9 semanas</span>
-          </div>
-        </article>
+    <div class="hero-waves">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </header>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Sempre excelente serviço com agilidade e dentro do prazo. Já somos clientes por aqui."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Nathalie Sattler</span>
-            <span class="author-time">Há 11 semanas</span>
-          </div>
-        </article>
+  <!-- LISTA DE DEPOIMENTOS -->
+  <section class="reveal">
+    <div class="google-branding">
+      <img src="/img/google-depoimentos.PNG" alt="Google Avaliações" class="google-logo-img">
+      <h2>O que nossos clientes dizem sobre nossos serviços no Vale do Paraíba - SP</h2>
+    </div>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"O trabalho realizado pelo Wilson é muito bom. Ele é de confiança, honesto, apresenta soluções criativas e pratica preços justos, além de ser uma pessoa simpática e de bom trato. RECOMENDO!"</p>
-          <div class="testimonial-author">
-            <span class="author-name">Silvério</span>
-            <span class="author-time">Há 21 semanas</span>
-          </div>
-        </article>
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Willson é um ótimo profissional, foi muito atencioso, tirou todas as minhas dúvidas e forneceu soluções para algumas questões no projeto de cobertura e portas de vidros aqui na área externa de casa. Confio e recomendo os serviços da empresa W7M Designer."</p>
+        <span class="author-name">Carolina Sasaki <small class="author-time">Há 9 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Excelente profissional. Recomendo! Wilson sabe do assunto e deixou minha sacada 100%."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Roger DeJota</span>
-            <span class="author-time">Há 21 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Sempre excelente serviço com agilidade e dentro do prazo. Já somos clientes por aqui."</p>
+        <span class="author-name">Nathalie Sattler <small class="author-time">Há 11 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Se você procura um atendimento de excelência e serviço de qualidade, não perca tempo e entre em contato com a W7M. Simplesmente impecável! Super recomendo!!!"</p>
-          <div class="testimonial-author">
-            <span class="author-name">Camila Oliveira</span>
-            <span class="author-time">Há 22 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"O trabalho realizado pelo Wilson é muito bom. Ele é de confiança, honesto, apresenta soluções criativas e pratica preços justos, além de ser uma pessoa simpática e de bom trato. RECOMENDO!"</p>
+        <span class="author-name">Silvério <small class="author-time">Há 21 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Ótimo profissional. Muito caprichoso, educado. Ele fez minha sacada. Amei o serviço. Super indico."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Darcilene Mendes</span>
-            <span class="author-time">Há 22 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Excelente profissional. Recomendo! Wilson sabe do assunto e deixou minha sacada 100%."</p>
+        <span class="author-name">Roger DeJota <small class="author-time">Há 21 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Ele fez no meu apartamento e amei recomendo !!!!"</p>
-          <div class="testimonial-author">
-            <span class="author-name">Iris Carvalho</span>
-            <span class="author-time">Há 21 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Se você procura um atendimento de excelência e serviço de qualidade, não perca tempo e entre em contato com a W7M. Simplesmente impecável! Super recomendo!!!"</p>
+        <span class="author-name">Camila Oliveira <small class="author-time">Há 22 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Ótimo Atendimento."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Iago Barbosa Lima</span>
-            <span class="author-time">Há 11 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Ótimo profissional. Muito caprichoso, educado. Ele fez minha sacada. Amei o serviço. Super indico."</p>
+        <span class="author-name">Darcilene Mendes <small class="author-time">Há 22 semanas</small></span>
+      </article>
 
-        <article class="testimonial-card">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Muito boa. Rápido. Atencioso."</p>
-          <div class="testimonial-author">
-            <span class="author-name">Livia Milani</span>
-            <span class="author-time">Há 14 semanas</span>
-          </div>
-        </article>
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Ele fez no meu apartamento e amei recomendo !!!!"</p>
+        <span class="author-name">Iris Carvalho <small class="author-time">Há 21 semanas</small></span>
+      </article>
 
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Ótimo Atendimento."</p>
+        <span class="author-name">Iago Barbosa Lima <small class="author-time">Há 11 semanas</small></span>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Muito boa. Rápido. Atencioso."</p>
+        <span class="author-name">Livia Milani <small class="author-time">Há 14 semanas</small></span>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ INTEGRADO -->
+  <section class="reveal" style="background: var(--gray-50);">
+    <div class="section-header">
+      <div class="section-tag">Dúvidas Frequentes</div>
+      <h2>Perguntas comuns sobre esquadrias em São José dos Campos</h2>
+    </div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">Vocês atendem em toda São José dos Campos? <span>+</span></button>
+        <div class="faq-answer"><p>Sim, atendemos toda São José dos Campos, incluindo bairros como Urbanova, Jardim Aquarius e região, além de todo o Vale do Paraíba.</p></div>
       </div>
-    </section>
+      <div class="faq-item">
+        <button class="faq-question">Quanto custa uma cortina de vidro? <span>+</span></button>
+        <div class="faq-answer"><p>O valor depende do tamanho da área, tipo de vidro e acabamento. Solicite um orçamento personalizado para receber o valor exato.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Vocês trabalham com fabricação própria? <span>+</span></button>
+        <div class="faq-answer"><p>Sim, trabalhamos com fabricação própria, garantindo maior controle de qualidade, acabamento superior e melhor custo-benefício.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">As esquadrias são resistentes? <span>+</span></button>
+        <div class="faq-answer"><p>Utilizamos materiais de alta qualidade e linhas premium como Gold e Suprema, garantindo durabilidade, segurança e excelente acabamento.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Como solicitar um orçamento? <span>+</span></button>
+        <div class="faq-answer"><p>Basta clicar no botão de WhatsApp no site e enviar sua solicitação. Nosso atendimento é rápido e direto.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA FINAL -->
-    <section class="cta-final" style="text-align: center; padding: 100px 5%; background: var(--blue-900); color: white;">
-      <h2 style="color: white; margin-bottom: 20px;">Junte-se aos nossos clientes satisfeitos</h2>
-      <p style="margin-bottom: 40px; font-size: 1.1rem; color: var(--silver); max-width: 700px; margin-left: auto; margin-right: auto;">
-        Solicite uma medição técnica e descubra por que somos referência em SJC.
-      </p>
-      <a href="https://wa.me/5512981325798?text=Olá,%20vim%20dos%20depoimentos%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Pedir Orçamento Agora</a>
-    </section>
-  </main>
-
-  <!-- FOOTER CENTRALIZADO NO MOBILE -->
+  <!-- FOOTER -->
   <footer>
+    <div class="footer-waves">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="nav-logo">
-          <img src="/img/logo.webp" alt="W7M Designer">
+        <a href="/" class="nav-logo-footer">
+          <img src="/img/logotipo-fundo-transparente.png" alt="W7M Designer">
         </a>
         <p>Expertise técnica e design em esquadrias de alumínio e vidraçaria. Líderes em qualidade no Vale do Paraíba.</p>
       </div>
-      
       <div class="footer-col institucional">
         <h5>Institucional</h5>
         <ul>
           <li><a href="/">Início</a></li>
           <li><a href="/sobre/">Sobre</a></li>
-          <li><a href="/servicos/">Serviços</a></li>
+          <li><a href="/blog/">Blog</a></li>
           <li><a href="/galeria/">Portfólio</a></li>
         </ul>
       </div>
-
       <div class="footer-col social">
         <h5>Social</h5>
         <ul>
-          <li><a href="https://www.instagram.com/w7m_esquadrias/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/w7m_vidros/" target="_blank">Instagram</a></li>
           <li><a href="/blog/">Blog e Notícias</a></li>
+          <li><a href="/depoimentos/">Avaliações</a></li>
         </ul>
       </div>
-
       <div class="footer-col atendimento">
         <h5>Atendimento</h5>
         <div class="footer-contact-item">
-          <a href="tel:+5512981325798" style="color: var(--accent); font-weight: 700; text-align: center; width: 100%; display: block;">(12) 98132-5798</a>
+          <a href="https://wa.me/5512981325798" class="footer-contact-link">(12) 98132-5798 (WhatsApp)</a>
+          <a href="tel:1239419633" class="footer-contact-link">(12) 3941-9633 (Fixo)</a>
         </div>
-        <p style="font-size: 0.8rem; line-height: 1.4; text-align: center;">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
+        <p class="footer-address">R. Conceição Aparecida Lima Pereira, 118, SJC – SP</p>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <div>
-        <span>© 2024 W7M Designer | CNPJ: 32.501.716/0001-69</span>
-      </div>
+      <div><span>© 2026 W7M Designer | CNPJ: 32.501.716/0001-69</span></div>
       <div class="developer-credit">
-        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." target="_blank" rel="noopener">
+        <a href="https://wa.me/5512988052097?text=Olá,%20vim%20pelo%20site%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
           Desenvolvido por <span class="rsa-brand">RSA Digital</span> | <small>Soluções Digitais e Google Meu Negócio</small>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="/js/main.js"></script>
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5512981325798?text=Olá,%20vim%20pela%20página%20de%20Depoimentos%20da%20W7M%20Designer%20e%20gostaria%20de%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener">
+    <svg viewBox="0 0 448 512" width="35" height="35" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.6-30.6-38.1-3.2-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.5-9.2 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+  </a>
+
   <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle('show');
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.nav-cta') && !event.target.matches('.btn-primary')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) openDropdown.classList.remove('show');
+        }
+      }
+    }
+
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
-
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('open');
-        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
-      });
-    }
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
+    });
 
     window.addEventListener('scroll', () => {
       const nav = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Acordeon FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+        item.classList.toggle('active');
+        answer.style.maxHeight = !isActive ? answer.scrollHeight + 'px' : null;
+      });
     });
   </script>
 </body>
-</html>eof
+</html>
