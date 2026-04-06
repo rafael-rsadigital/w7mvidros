@@ -178,7 +178,11 @@
       nav { height: 90px; padding: 0 5%; }
       nav.scrolled { height: 75px; }
       .hamburger { display: flex; align-self: center; }
-      .nav-right { display: none; }
+      
+      /* CORREÇÃO DO MENU LATERAL: Não ocultar o container pai nav-right se ele contém nav-links */
+      .nav-right { display: flex; margin-top: 0; gap: 0; } 
+      .nav-right > *:not(.nav-links) { display: none; } /* Esconde o resto, mas mantém nav-links vivo */
+      
       .nav-logo { margin-left: 0; }
       .nav-logo img { height: 70px; }
       nav.scrolled .nav-logo img { height: 55px; }
@@ -191,8 +195,6 @@
       }
       .nav-links.open { right: 0; }
       .nav-links a { font-size: 1.3rem; color: var(--white); }
-      .nav-cta { width: 100%; justify-content: center; margin-top: 20px; }
-      .dropdown-content { position: static; box-shadow: none; width: 100%; }
     }
 
     /* HERO SECTION — MOBILE ADJUSTED */
@@ -701,12 +703,14 @@
       }
     }
 
-    // Menu Hambúrguer
+    // Menu Hambúrguer - CORREÇÃO: Removendo o conflito com nav-right no mobile
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
+      // Impedir scroll quando menu aberto
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : 'auto';
     });
 
     // Navbar Scroll
