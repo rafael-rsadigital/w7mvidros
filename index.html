@@ -392,6 +392,22 @@
       .footer-address { text-align: center; }
       .footer-bottom { flex-direction: column; text-align: center; gap: 25px; margin-top: 60px; }
     }
+    /* --- ADICIONE ESTE BLOCO NO FINAL DO SEU <STYLE> --- */
+
+.nav-logo-footer img { 
+  height: 100px; /* Aumentado para 100px conforme sua necessidade */
+  width: auto; 
+  display: block;
+  transition: 0.3s ease;
+}
+
+/* Ajuste para o logotipo ficar centralizado e legível em telas pequenas */
+@media (max-width: 992px) {
+  .nav-logo-footer img { 
+    height: 90px; 
+    margin: 0 auto; 
+  }
+}
   </style>
 </head>
 <body>
