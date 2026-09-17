@@ -14,9 +14,10 @@ const breadcrumbs = [
 ];
 const localBusiness = {
   '@context': 'https://schema.org', '@type': 'LocalBusiness', '@id': 'https://www.w7mvidros.com.br/#localbusiness',
-  name: 'W7M Designer', url: canonical, image: `https://www.w7mvidros.com.br${service.image}`, telephone: '+55 12 98132-5798', priceRange: '$$$',
+  name: 'W7M Designer', url: 'https://www.w7mvidros.com.br/', image: `https://www.w7mvidros.com.br${service.image}`, telephone: '+55 12 98132-5798', priceRange: '$$$',
   address: { '@type': 'PostalAddress', streetAddress: 'R. Conceição Aparecida Lima Pereira, 118', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
-  areaServed: { '@type': 'City', name: 'São José dos Campos' }, sameAs: ['https://www.instagram.com/w7m_vidros/']
+  areaServed: { '@type': 'City', name: 'São José dos Campos' }, sameAs: ['https://www.instagram.com/w7m_vidros/', 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk'],
+  hasMap: 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk'
 };
 const serviceSchema = {
   '@context': 'https://schema.org', '@type': 'Service', '@id': `${canonical}#service`, name: service.name, serviceType: service.name,
@@ -38,16 +39,35 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     <SiteHeader active="servicos" />
     <main>
       <header class="hero service-hero">
-        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster={service.image}><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
+        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster={service.image} aria-hidden="true"><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
         <div class="hero-overlay"></div>
-        <div class="hero-content reveal"><div class="hero-badge">{service.eyebrow}</div><h1>{service.intro}</h1><p class="hero-desc">{service.description}</p><div class="hero-actions"><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a><a href="#sobre-o-servico" class="btn-outline">Conhecer solução</a></div></div>
+        <div class="hero-content reveal">
+          <div class="hero-badge">{service.eyebrow}</div>
+          <h1>{service.name} em São José dos Campos</h1>
+          <p class="hero-desc">{service.description}</p>
+          <div class="hero-actions"><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a><a href="#sobre-o-servico" class="btn-outline">Conhecer solução</a></div>
+        </div>
       </header>
-      <section id="sobre-o-servico" class="service-copy-section"><div class="service-page-shell"><Breadcrumbs items={breadcrumbs} /><div class="service-copy-grid"><div><div class="section-tag">{service.name} em São José dos Campos</div><h2>Uma solução pensada para o seu ambiente</h2></div><div class="service-copy">{service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div></div></div></section>
-      <section class="service-highlights"><div class="section-header"><div class="section-tag">Por que planejar</div><h2>Detalhes que fazem diferença no resultado</h2></div><div class="highlight-grid">{service.highlights.map((item) => <article><span class="highlight-number">{String(service.highlights.indexOf(item) + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>
-      <section class="service-applications"><div class="service-application-image"><img src={service.image} alt={service.imageAlt} loading="lazy" /></div><div><div class="section-tag">Aplicações</div><h2>Onde essa solução pode ser usada</h2><ul>{service.applications.map((application) => <li>{application}</li>)}</ul><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Falar sobre meu projeto</a></div></section>
-      <section class="service-regions"><div class="section-header"><div class="section-tag">Atendimento local</div><h2>Projetos em regiões estratégicas de São José dos Campos</h2></div><p>Conheça informações específicas sobre atendimento e soluções em cada região.</p><div class="service-region-links">{service.relatedRegions.map((region) => <a href={region.href}>{region.name} <span>→</span></a>)}</div></section>
-      <section class="service-faq"><div class="section-header"><div class="section-tag">Dúvidas frequentes</div><h2>Perguntas sobre {service.shortName.toLowerCase()}</h2></div><div class="faq-container">{service.faqs.map((faq) => <article class="faq-item"><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div></section>
-      <section class="cta-final service-cta"><div class="section-tag">W7M Designer</div><h2>Vamos conversar sobre o seu projeto?</h2><p>Envie fotos, medidas aproximadas, bairro e a etapa da obra para receber uma orientação inicial.</p><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a></section>
+      <section id="sobre-o-servico" class="service-copy-section">
+        <div class="service-page-shell">
+          <Breadcrumbs items={breadcrumbs} />
+          <div class="service-copy-grid">
+            <div><div class="section-tag">{service.name} em São José dos Campos</div><h2>Sobre {service.name.toLowerCase()} sob medida</h2></div>
+            <div class="service-copy">{service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+          </div>
+        </div>
+      </section>
+      <section class="service-highlights">
+        <div class="section-header"><div class="section-tag">Especificação e planejamento</div><h2>O que considerar em {service.name.toLowerCase()}</h2></div>
+        <div class="highlight-grid">{service.highlights.map((item) => <article><span class="highlight-number">{String(service.highlights.indexOf(item) + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      </section>
+      <section class="service-applications">
+        <div class="service-application-image"><img src={service.image} alt={service.imageAlt} loading="lazy" decoding="async" /></div>
+        <div><div class="section-tag">Aplicações</div><h2>Aplicações de {service.name.toLowerCase()}</h2><ul>{service.applications.map((application) => <li>{application}</li>)}</ul><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Falar sobre meu projeto</a></div>
+      </section>
+      <section class="service-regions"><div class="section-header"><div class="section-tag">Atendimento local</div><h2>{service.name} em bairros de São José dos Campos</h2></div><p>Veja informações específicas sobre atendimento e soluções nas regiões relacionadas a este serviço.</p><div class="service-region-links">{service.relatedRegions.map((region) => <a href={region.href}>{region.name} <span>→</span></a>)}</div></section>
+      <section class="service-faq"><div class="section-header"><div class="section-tag">Dúvidas frequentes</div><h2>Perguntas frequentes sobre {service.name.toLowerCase()}</h2></div><div class="faq-container">{service.faqs.map((faq) => <article class="faq-item"><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div></section>
+      <section class="cta-final service-cta"><div class="section-tag">W7M Designer</div><h2>Orçamento de {service.name.toLowerCase()} em São José dos Campos</h2><p>Envie fotos, medidas aproximadas, bairro e a etapa da obra para receber uma orientação inicial.</p><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a></section>
     </main>
     <SiteFooter />
     <script is:inline src="/js/main.js"></script>
