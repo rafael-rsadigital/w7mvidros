@@ -1,0 +1,59 @@
+---
+import SeoHead from '../../components/SeoHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { regions } from '../../data/regions';
+
+const title = 'Regiões Atendidas em São José dos Campos | W7M Designer';
+const description = 'Conheça as regiões de São José dos Campos atendidas pela W7M Designer em esquadrias de alumínio, vidros, box, cortina de vidro e fachadas.';
+const canonical = 'https://www.w7mvidros.com.br/regioes/';
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://www.w7mvidros.com.br/#localbusiness',
+  name: 'W7M Designer',
+  url: canonical,
+  telephone: '+55 12 98132-5798',
+  address: { '@type': 'PostalAddress', streetAddress: 'R. Conceição Aparecida Lima Pereira, 118', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
+  areaServed: { '@type': 'City', name: 'São José dos Campos' }
+};
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <SeoHead title={title} description={description} canonical={canonical} schemas={[localBusiness]} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <header class="hero regional-index-hero">
+        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster="/img/esquadrias-aluminio-sjc-hero.webp"><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <div class="hero-badge">São José dos Campos e região</div>
+          <h1>Esquadrias e vidraçaria perto do seu projeto</h1>
+          <p class="hero-desc">Atendimento para casas, apartamentos, condomínios e comércios com soluções sob medida em vidro e alumínio.</p>
+          <div class="hero-actions"><a href="https://wa.me/5512981325798?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20meu%20bairro%20em%20São%20José%20dos%20Campos." target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a><a href="#lista-regioes" class="btn-outline">Ver regiões</a></div>
+        </div>
+      </header>
+      <section id="lista-regioes">
+        <div class="section-header"><div class="section-tag">Atendimento local</div><h2>Escolha sua região e conheça as soluções</h2></div>
+        <p class="region-index-intro">Cada página apresenta informações específicas sobre o atendimento, os serviços mais adequados e o processo de orçamento para aquela região.</p>
+        <div class="region-index-grid">
+          {regions.map((region) => <article class="service-card"><div class="section-tag">{region.regionLabel}</div><h3>{region.name}</h3><p>{region.description}</p><a href={`/regioes/${region.slug}/`} class="service-link">Ver atendimento →</a></article>)}
+        </div>
+      </section>
+    </main>
+    <SiteFooter />
+    <script is:inline src="/js/main.js"></script>
+  </body>
+</html>
+<style>
+  .region-index-intro { max-width: 780px; color: var(--gray-600); line-height: 1.8; margin-bottom: 42px; }
+  .region-index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  @media (max-width: 800px) { .region-index-grid { grid-template-columns: 1fr; } }
+</style>
