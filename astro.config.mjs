@@ -1,17 +1,20 @@
 import { defineConfig } from 'astro/config';
 
 const homeSeoPlugin = {
-  name: 'w7m-home-seo-normalization',
+  name: 'w7m-seo-normalization',
   enforce: 'pre',
   transform(code, id) {
-    if (!id.endsWith('/src/pages/index.astro')) return code;
+    if (!id.endsWith('.astro')) return code;
 
-    return code
+    let transformed = code.replaceAll('https://w7mvidros.com.br/', 'https://www.w7mvidros.com.br/');
+
+    if (!id.endsWith('/src/pages/index.astro')) return transformed;
+
+    transformed = transformed
       .replace(
         'W7M Designer: Especialistas em esquadrias de alumínio, cortina de vidro e fachadas ACM em São José dos Campos. Fabricação própria e installation em SJC e região.',
         'W7M Designer: especialistas em esquadrias de alumínio, cortina de vidro e fachadas ACM em São José dos Campos. Fabricação própria e instalação em SJC e região.'
       )
-      .replace('https://w7mvidros.com.br/', 'https://www.w7mvidros.com.br/')
       .replace(
         '<meta name="robots" content="index, follow" />',
         '<meta name="robots" content="index, follow, max-image-preview:large" />'
@@ -43,6 +46,8 @@ const homeSeoPlugin = {
           inLanguage: 'pt-BR'
         })}</script>\n</head>`
       );
+
+    return transformed;
   }
 };
 
