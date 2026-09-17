@@ -28,10 +28,8 @@ const organization = {
     addressRegion: 'SP',
     addressCountry: 'BR'
   },
-  sameAs: [
-    'https://www.instagram.com/w7m_vidros/',
-    googleMapsUrl
-  ]
+  sameAs: ['https://www.instagram.com/w7m_vidros/'],
+  hasMap: googleMapsUrl
 };
 
 const website = {
@@ -49,10 +47,7 @@ const normalizedSchemas = schemaItems.map((schema) => {
   return {
     ...schema,
     '@id': 'https://www.w7mvidros.com.br/#localbusiness',
-    sameAs: [
-      'https://www.instagram.com/w7m_vidros/',
-      googleMapsUrl
-    ],
+    sameAs: ['https://www.instagram.com/w7m_vidros/'],
     hasMap: googleMapsUrl,
     parentOrganization: { '@id': 'https://www.w7mvidros.com.br/#organization' }
   };
