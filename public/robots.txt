@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://w7mvidros.com.br/sitemap.xml
+Sitemap: https://www.w7mvidros.com.br/sitemap.xml
