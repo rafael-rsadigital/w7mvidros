@@ -9,7 +9,56 @@ const {
 } = Astro.props;
 
 const absoluteImage = image.startsWith('http') ? image : `https://www.w7mvidros.com.br${image}`;
-const schemaGraph = Array.isArray(schemas) ? schemas : [schemas];
+const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk';
+const schemaItems = Array.isArray(schemas) ? schemas.filter(Boolean) : [schemas].filter(Boolean);
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://www.w7mvidros.com.br/#organization',
+  name: 'W7M Designer',
+  alternateName: 'W7M Vidros',
+  url: 'https://www.w7mvidros.com.br/',
+  logo: 'https://www.w7mvidros.com.br/img/logotipo-fundo-transparente.png',
+  telephone: '+55 12 98132-5798',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'R. Conceição Aparecida Lima Pereira, 118',
+    addressLocality: 'São José dos Campos',
+    addressRegion: 'SP',
+    addressCountry: 'BR'
+  },
+  sameAs: [
+    'https://www.instagram.com/w7m_vidros/',
+    googleMapsUrl
+  ]
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.w7mvidros.com.br/#website',
+  url: 'https://www.w7mvidros.com.br/',
+  name: 'W7M Designer',
+  publisher: { '@id': 'https://www.w7mvidros.com.br/#organization' },
+  inLanguage: 'pt-BR'
+};
+
+const normalizedSchemas = schemaItems.map((schema) => {
+  if (schema?.['@type'] !== 'LocalBusiness') return schema;
+  return {
+    ...schema,
+    '@id': 'https://www.w7mvidros.com.br/#localbusiness',
+    sameAs: [
+      'https://www.instagram.com/w7m_vidros/',
+      googleMapsUrl
+    ],
+    hasMap: googleMapsUrl,
+    parentOrganization: { '@id': 'https://www.w7mvidros.com.br/#organization' }
+  };
+});
+
+const allSchemas = [organization, website, ...normalizedSchemas];
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
@@ -27,6 +76,6 @@ const schemaGraph = Array.isArray(schemas) ? schemas : [schemas];
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={absoluteImage} />
-{schemaGraph.filter(Boolean).map((schema) => (
+{allSchemas.map((schema) => (
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ))}
