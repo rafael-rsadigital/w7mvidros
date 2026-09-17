@@ -23,14 +23,18 @@ const localBusiness = {
   name: 'W7M Designer', url: 'https://www.w7mvidros.com.br/', image: 'https://www.w7mvidros.com.br/img/logotipo-fundo-transparente.png', telephone: '+55 12 98132-5798', priceRange: '$$$',
   address: { '@type': 'PostalAddress', streetAddress: 'R. Conceição Aparecida Lima Pereira, 118', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
   areaServed: { '@type': 'Place', name: region.name },
-  sameAs: ['https://www.instagram.com/w7m_vidros/', googleMapsUrl], hasMap: googleMapsUrl
+  sameAs: ['https://www.instagram.com/w7m_vidros/'], hasMap: googleMapsUrl
 };
-const serviceSchemas = region.services.map((service) => ({
+const normalizedServices = region.services.map((service) => ({
+  ...service,
+  href: service.href === '/servicos/' && service.name.toLowerCase().includes('vidraçaria') ? '/servicos/vidracaria/' : service.href
+}));
+const serviceSchemas = normalizedServices.map((service) => ({
   '@context': 'https://schema.org', '@type': 'Service', name: `${service.name} no ${region.name}`, serviceType: service.name,
   provider: { '@id': 'https://www.w7mvidros.com.br/#localbusiness' }, areaServed: { '@type': 'Place', name: region.name }, url: `https://www.w7mvidros.com.br${service.href}`
 }));
 const faqSchema = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
+  '@context': 'https://schema.org', '@type': 'FAQPage', '@id': `${canonical}#faq`,
   mainEntity: region.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
 };
 ---
@@ -42,13 +46,13 @@ const faqSchema = {
     <link rel="icon" href="/img/favicon.ico" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/astro-pages.css" />
-    <SeoHead title={region.title} description={region.description} canonical={canonical} schemas={[localBusiness, ...serviceSchemas, faqSchema]} />
+    <SeoHead title={region.title} description={region.description} canonical={canonical} image="/img/imagem-background.jpg" schemas={[localBusiness, ...serviceSchemas, faqSchema]} />
   </head>
   <body class="astro-modern-page">
     <SiteHeader />
     <main>
-      <header class="hero regional-hero">
-        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster="/img/esquadrias-aluminio-sjc-hero.webp" aria-hidden="true"><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
+      <header class="hero regional-hero regional-static-hero">
+        <div class="hero-image-bg" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
           <div class="hero-badge">{region.eyebrow}</div>
@@ -63,7 +67,7 @@ const faqSchema = {
           <Breadcrumbs items={breadcrumbs} />
           <div class="section-header">
             <div class="section-tag">{region.regionLabel}</div>
-            <h2>{region.services.map((service) => service.name).slice(0, 2).join(' e ')} no {region.name}</h2>
+            <h2>{normalizedServices.map((service) => service.name).slice(0, 2).join(' e ')} no {region.name}</h2>
           </div>
           <div class="regional-copy">{region.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
         </div>
@@ -72,7 +76,7 @@ const faqSchema = {
       <section id="servicos-na-regiao" class="regional-services">
         <div class="section-header"><div class="section-tag">Soluções sob medida</div><h2>Serviços de {region.name}</h2></div>
         <div class="regional-service-grid">
-          {region.services.map((service) => (
+          {normalizedServices.map((service) => (
             <article class="service-card regional-service-card">
               <div class="regional-service-image"><img src={service.image} alt={`${service.name} no ${region.name}`} loading="lazy" decoding="async" /></div>
               <h3>{service.name} no {region.name}</h3>
@@ -104,6 +108,7 @@ const faqSchema = {
   </body>
 </html>
 <style>
+  .regional-static-hero .hero-image-bg { position: absolute; inset: 0; z-index: 0; background: url('/img/imagem-background.jpg') center/cover no-repeat; }
   .regional-content, .regional-process, .regional-faq { background: var(--white); }
   .regional-shell { max-width: 1100px; margin: 0 auto; }
   .breadcrumbs { max-width: 1100px; margin: 0 auto 42px; color: var(--gray-600); font-size: .82rem; }
