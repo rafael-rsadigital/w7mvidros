@@ -12,18 +12,18 @@ const breadcrumbs = [
   { name: 'Serviços', url: '/servicos/' },
   { name: service.name }
 ];
+const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk';
 const localBusiness = {
   '@context': 'https://schema.org', '@type': 'LocalBusiness', '@id': 'https://www.w7mvidros.com.br/#localbusiness',
   name: 'W7M Designer', url: 'https://www.w7mvidros.com.br/', image: `https://www.w7mvidros.com.br${service.image}`, telephone: '+55 12 98132-5798', priceRange: '$$$',
   address: { '@type': 'PostalAddress', streetAddress: 'R. Conceição Aparecida Lima Pereira, 118', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
-  areaServed: { '@type': 'City', name: 'São José dos Campos' }, sameAs: ['https://www.instagram.com/w7m_vidros/', 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk'],
-  hasMap: 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk'
+  areaServed: { '@type': 'City', name: 'São José dos Campos' }, sameAs: ['https://www.instagram.com/w7m_vidros/'], hasMap: googleMapsUrl
 };
 const serviceSchema = {
   '@context': 'https://schema.org', '@type': 'Service', '@id': `${canonical}#service`, name: service.name, serviceType: service.name,
   description: service.description, provider: { '@id': 'https://www.w7mvidros.com.br/#localbusiness' }, areaServed: { '@type': 'City', name: 'São José dos Campos' }, url: canonical, image: `https://www.w7mvidros.com.br${service.image}`
 };
-const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: service.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: service.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -38,8 +38,8 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
   <body class="astro-modern-page">
     <SiteHeader active="servicos" />
     <main>
-      <header class="hero service-hero">
-        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster={service.image} aria-hidden="true"><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
+      <header class="hero service-hero service-static-hero">
+        <div class="hero-image-bg" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
           <div class="hero-badge">{service.eyebrow}</div>
@@ -74,6 +74,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
   </body>
 </html>
 <style>
+  .service-static-hero .hero-image-bg { position: absolute; inset: 0; z-index: 0; background: url('/img/imagem-background.jpg') center/cover no-repeat; }
   .service-page-shell { max-width: 1100px; margin: 0 auto; }
   .breadcrumbs { margin-bottom: 45px; color: var(--gray-600); font-size: .82rem; }
   .breadcrumbs a { color: var(--accent); text-decoration: none; }
