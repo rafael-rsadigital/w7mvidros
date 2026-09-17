@@ -14,45 +14,24 @@ const canonical = `https://www.w7mvidros.com.br/regioes/${region.slug}/`;
 const whatsapp = `https://wa.me/5512981325798?text=${encodeURIComponent(`Olá, vim pela página de atendimento no ${region.name} e gostaria de solicitar um orçamento.`)}`;
 const breadcrumbs = [
   { name: 'Início', url: '/' },
-  { name: 'Regiões atendidas', url: '/#regioes-atendidas' },
+  { name: 'Regiões atendidas', url: '/regioes/' },
   { name: region.name }
 ];
+const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=W7M+Designer&query_place_id=ChIJv6r4315JzJQR7cN5PBC_aUk';
 const localBusiness = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://www.w7mvidros.com.br/#localbusiness',
-  name: 'W7M Designer',
-  url: canonical,
-  image: 'https://www.w7mvidros.com.br/img/logotipo-fundo-transparente.png',
-  telephone: '+55 12 98132-5798',
-  priceRange: '$$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'R. Conceição Aparecida Lima Pereira, 118',
-    addressLocality: 'São José dos Campos',
-    addressRegion: 'SP',
-    addressCountry: 'BR'
-  },
+  '@context': 'https://schema.org', '@type': 'LocalBusiness', '@id': 'https://www.w7mvidros.com.br/#localbusiness',
+  name: 'W7M Designer', url: 'https://www.w7mvidros.com.br/', image: 'https://www.w7mvidros.com.br/img/logotipo-fundo-transparente.png', telephone: '+55 12 98132-5798', priceRange: '$$$',
+  address: { '@type': 'PostalAddress', streetAddress: 'R. Conceição Aparecida Lima Pereira, 118', addressLocality: 'São José dos Campos', addressRegion: 'SP', addressCountry: 'BR' },
   areaServed: { '@type': 'Place', name: region.name },
-  sameAs: ['https://www.instagram.com/w7m_vidros/']
+  sameAs: ['https://www.instagram.com/w7m_vidros/', googleMapsUrl], hasMap: googleMapsUrl
 };
 const serviceSchemas = region.services.map((service) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: `${service.name} no ${region.name}`,
-  serviceType: service.name,
-  provider: { '@id': 'https://www.w7mvidros.com.br/#localbusiness' },
-  areaServed: { '@type': 'Place', name: region.name },
-  url: `https://www.w7mvidros.com.br${service.href}`
+  '@context': 'https://schema.org', '@type': 'Service', name: `${service.name} no ${region.name}`, serviceType: service.name,
+  provider: { '@id': 'https://www.w7mvidros.com.br/#localbusiness' }, areaServed: { '@type': 'Place', name: region.name }, url: `https://www.w7mvidros.com.br${service.href}`
 }));
 const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: region.faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: { '@type': 'Answer', text: faq.answer }
-  }))
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: region.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
 };
 ---
 <!doctype html>
@@ -69,20 +48,13 @@ const faqSchema = {
     <SiteHeader />
     <main>
       <header class="hero regional-hero">
-        <div class="hero-video-bg">
-          <video autoplay muted loop playsinline preload="metadata" poster="/img/esquadrias-aluminio-sjc-hero.webp">
-            <source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <div class="hero-video-bg"><video autoplay muted loop playsinline preload="metadata" poster="/img/esquadrias-aluminio-sjc-hero.webp" aria-hidden="true"><source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" /></video></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal">
           <div class="hero-badge">{region.eyebrow}</div>
           <h1>{region.intro}</h1>
           <p class="hero-desc">{region.description}</p>
-          <div class="hero-actions">
-            <a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a>
-            <a href="#servicos-na-regiao" class="btn-outline">Ver soluções</a>
-          </div>
+          <div class="hero-actions"><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a><a href="#servicos-na-regiao" class="btn-outline">Ver soluções</a></div>
         </div>
       </header>
 
@@ -91,24 +63,19 @@ const faqSchema = {
           <Breadcrumbs items={breadcrumbs} />
           <div class="section-header">
             <div class="section-tag">{region.regionLabel}</div>
-            <h2>Vidros e esquadrias para o seu projeto no {region.name}</h2>
+            <h2>{region.services.map((service) => service.name).slice(0, 2).join(' e ')} no {region.name}</h2>
           </div>
-          <div class="regional-copy">
-            {region.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          </div>
+          <div class="regional-copy">{region.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
         </div>
       </section>
 
       <section id="servicos-na-regiao" class="regional-services">
-        <div class="section-header">
-          <div class="section-tag">Soluções sob medida</div>
-          <h2>Serviços mais procurados no {region.name}</h2>
-        </div>
+        <div class="section-header"><div class="section-tag">Soluções sob medida</div><h2>Serviços de {region.name}</h2></div>
         <div class="regional-service-grid">
           {region.services.map((service) => (
             <article class="service-card regional-service-card">
-              <div class="regional-service-image"><img src={service.image} alt={`${service.name} no ${region.name}`} loading="lazy" /></div>
-              <h3>{service.name}</h3>
+              <div class="regional-service-image"><img src={service.image} alt={`${service.name} no ${region.name}`} loading="lazy" decoding="async" /></div>
+              <h3>{service.name} no {region.name}</h3>
               <p>{service.description}</p>
               <a href={service.href} class="service-link">Conhecer serviço →</a>
             </article>
@@ -117,10 +84,7 @@ const faqSchema = {
       </section>
 
       <section class="regional-process">
-        <div class="section-header">
-          <div class="section-tag">Como funciona</div>
-          <h2>Um orçamento baseado no projeto real</h2>
-        </div>
+        <div class="section-header"><div class="section-tag">Como funciona</div><h2>Como contratar um serviço no {region.name}</h2></div>
         <div class="process-grid">
           <article><span>01</span><h3>Conversa inicial</h3><p>Informe bairro, tipo de imóvel, serviço desejado e etapa do projeto pelo WhatsApp.</p></article>
           <article><span>02</span><h3>Avaliação</h3><p>Fotos, medidas e visita técnica ajudam a entender o vão e as condições de instalação.</p></article>
@@ -129,32 +93,16 @@ const faqSchema = {
       </section>
 
       <section class="regional-faq">
-        <div class="section-header">
-          <div class="section-tag">Dúvidas frequentes</div>
-          <h2>Perguntas sobre atendimento no {region.name}</h2>
-        </div>
-        <div class="faq-container">
-          {region.faqs.map((faq) => (
-            <article class="faq-item">
-              <h3>{faq.question}</h3>
-              <p>{faq.answer}</p>
-            </article>
-          ))}
-        </div>
+        <div class="section-header"><div class="section-tag">Dúvidas frequentes</div><h2>Perguntas frequentes sobre serviços no {region.name}</h2></div>
+        <div class="faq-container">{region.faqs.map((faq) => <article class="faq-item"><h3>{faq.question}</h3><p>{faq.answer}</p></article>)}</div>
       </section>
 
-      <section class="cta-final regional-cta">
-        <div class="section-tag">W7M Designer em São José dos Campos</div>
-        <h2>Seu projeto no {region.name} merece uma solução sob medida</h2>
-        <p>Envie os detalhes do imóvel e fale com a equipe sobre esquadrias, vidros e acabamentos.</p>
-        <a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Falar no WhatsApp</a>
-      </section>
+      <section class="cta-final regional-cta"><div class="section-tag">W7M Designer em São José dos Campos</div><h2>Orçamento para seu projeto no {region.name}</h2><p>Envie os detalhes do imóvel e fale com a equipe sobre esquadrias, vidros e acabamentos.</p><a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Falar no WhatsApp</a></section>
     </main>
     <SiteFooter />
     <script is:inline src="/js/main.js"></script>
   </body>
 </html>
-
 <style>
   .regional-content, .regional-process, .regional-faq { background: var(--white); }
   .regional-shell { max-width: 1100px; margin: 0 auto; }
@@ -178,7 +126,5 @@ const faqSchema = {
   .regional-faq .faq-item { background: var(--white); padding: 26px; border: 1px solid var(--gray-200); }
   .regional-faq .faq-item p { color: var(--gray-600); line-height: 1.7; }
   .regional-cta { text-align: center; background: var(--blue-900); color: var(--white); }
-  .regional-cta h2 { max-width: 760px; margin: 0 auto 20px; }
-  .regional-cta p { color: var(--silver); max-width: 680px; margin: 0 auto 36px; }
-  @media (max-width: 800px) { .regional-service-grid, .process-grid { grid-template-columns: 1fr; } .regional-service-image { height: 220px; } }
+  @media (max-width: 800px) { .regional-service-grid, .process-grid { grid-template-columns: 1fr; } }
 </style>
