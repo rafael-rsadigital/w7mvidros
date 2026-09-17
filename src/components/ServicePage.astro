@@ -31,9 +31,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/img/favicon.ico" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/astro-pages.css" />
     <SeoHead title={service.title} description={service.description} canonical={canonical} image={service.image} schemas={[localBusiness, serviceSchema, faqSchema]} />
   </head>
-  <body>
+  <body class="astro-modern-page">
     <SiteHeader active="servicos" />
     <main>
       <header class="hero service-hero">
