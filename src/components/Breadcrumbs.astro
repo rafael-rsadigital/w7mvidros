@@ -1,0 +1,18 @@
+---
+const { items = [] } = Astro.props;
+const schemaItems = items.map((item, index) => ({
+  '@type': 'ListItem',
+  position: index + 1,
+  name: item.name,
+  item: item.url ? `https://www.w7mvidros.com.br${item.url}` : undefined,
+}));
+---
+<nav class="breadcrumbs" aria-label="Trilha de navegação">
+  {items.map((item, index) => (
+    <span>
+      {item.url && index < items.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}
+      {index < items.length - 1 && <span class="breadcrumb-separator" aria-hidden="true">/</span>}
+    </span>
+  ))}
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: schemaItems })} />

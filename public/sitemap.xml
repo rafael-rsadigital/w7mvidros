@@ -40,4 +40,32 @@
     <loc>https://w7mvidros.com.br/depoimentos/</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/jardim-aquarius/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/vila-ema/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/jardim-sao-dimas/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/jardim-esplanada/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/regioes/vila-adyana/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/servicos/vidracaria/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>

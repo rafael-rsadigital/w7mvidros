@@ -1,0 +1,7 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { getService } from '../../data/services';
+const service = getService('fachada-acm');
+if (!service) throw new Error('Serviço de fachada ACM não encontrado');
+---
+<ServicePage service={service} />

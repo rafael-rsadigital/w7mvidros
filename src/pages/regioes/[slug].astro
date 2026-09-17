@@ -1,0 +1,183 @@
+---
+import SeoHead from '../../components/SeoHead.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { regions } from '../../data/regions';
+
+export function getStaticPaths() {
+  return regions.map((region) => ({ params: { slug: region.slug }, props: { region } }));
+}
+
+const { region } = Astro.props;
+const canonical = `https://www.w7mvidros.com.br/regioes/${region.slug}/`;
+const whatsapp = `https://wa.me/5512981325798?text=${encodeURIComponent(`Olá, vim pela página de atendimento no ${region.name} e gostaria de solicitar um orçamento.`)}`;
+const breadcrumbs = [
+  { name: 'Início', url: '/' },
+  { name: 'Regiões atendidas', url: '/#regioes-atendidas' },
+  { name: region.name }
+];
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://www.w7mvidros.com.br/#localbusiness',
+  name: 'W7M Designer',
+  url: canonical,
+  image: 'https://www.w7mvidros.com.br/img/logotipo-fundo-transparente.png',
+  telephone: '+55 12 98132-5798',
+  priceRange: '$$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'R. Conceição Aparecida Lima Pereira, 118',
+    addressLocality: 'São José dos Campos',
+    addressRegion: 'SP',
+    addressCountry: 'BR'
+  },
+  areaServed: { '@type': 'Place', name: region.name },
+  sameAs: ['https://www.instagram.com/w7m_vidros/']
+};
+const serviceSchemas = region.services.map((service) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${service.name} no ${region.name}`,
+  serviceType: service.name,
+  provider: { '@id': 'https://www.w7mvidros.com.br/#localbusiness' },
+  areaServed: { '@type': 'Place', name: region.name },
+  url: `https://www.w7mvidros.com.br${service.href}`
+}));
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: region.faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+  }))
+};
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <SeoHead title={region.title} description={region.description} canonical={canonical} schemas={[localBusiness, ...serviceSchemas, faqSchema]} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <header class="hero regional-hero">
+        <div class="hero-video-bg">
+          <video autoplay muted loop playsinline preload="metadata" poster="/img/esquadrias-aluminio-sjc-hero.webp">
+            <source src="/video/video-home-w7mvidros-esquadrias.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <div class="hero-badge">{region.eyebrow}</div>
+          <h1>{region.intro}</h1>
+          <p class="hero-desc">{region.description}</p>
+          <div class="hero-actions">
+            <a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Solicitar orçamento</a>
+            <a href="#servicos-na-regiao" class="btn-outline">Ver soluções</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="regional-content">
+        <div class="regional-shell">
+          <Breadcrumbs items={breadcrumbs} />
+          <div class="section-header">
+            <div class="section-tag">{region.regionLabel}</div>
+            <h2>Vidros e esquadrias para o seu projeto no {region.name}</h2>
+          </div>
+          <div class="regional-copy">
+            {region.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos-na-regiao" class="regional-services">
+        <div class="section-header">
+          <div class="section-tag">Soluções sob medida</div>
+          <h2>Serviços mais procurados no {region.name}</h2>
+        </div>
+        <div class="regional-service-grid">
+          {region.services.map((service) => (
+            <article class="service-card regional-service-card">
+              <div class="regional-service-image"><img src={service.image} alt={`${service.name} no ${region.name}`} loading="lazy" /></div>
+              <h3>{service.name}</h3>
+              <p>{service.description}</p>
+              <a href={service.href} class="service-link">Conhecer serviço →</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="regional-process">
+        <div class="section-header">
+          <div class="section-tag">Como funciona</div>
+          <h2>Um orçamento baseado no projeto real</h2>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><h3>Conversa inicial</h3><p>Informe bairro, tipo de imóvel, serviço desejado e etapa do projeto pelo WhatsApp.</p></article>
+          <article><span>02</span><h3>Avaliação</h3><p>Fotos, medidas e visita técnica ajudam a entender o vão e as condições de instalação.</p></article>
+          <article><span>03</span><h3>Proposta</h3><p>Você recebe uma orientação e um orçamento compatível com o escopo definido.</p></article>
+        </div>
+      </section>
+
+      <section class="regional-faq">
+        <div class="section-header">
+          <div class="section-tag">Dúvidas frequentes</div>
+          <h2>Perguntas sobre atendimento no {region.name}</h2>
+        </div>
+        <div class="faq-container">
+          {region.faqs.map((faq) => (
+            <article class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="cta-final regional-cta">
+        <div class="section-tag">W7M Designer em São José dos Campos</div>
+        <h2>Seu projeto no {region.name} merece uma solução sob medida</h2>
+        <p>Envie os detalhes do imóvel e fale com a equipe sobre esquadrias, vidros e acabamentos.</p>
+        <a href={whatsapp} target="_blank" rel="noopener" class="btn-primary">Falar no WhatsApp</a>
+      </section>
+    </main>
+    <SiteFooter />
+    <script is:inline src="/js/main.js"></script>
+  </body>
+</html>
+
+<style>
+  .regional-content, .regional-process, .regional-faq { background: var(--white); }
+  .regional-shell { max-width: 1100px; margin: 0 auto; }
+  .breadcrumbs { max-width: 1100px; margin: 0 auto 42px; color: var(--gray-600); font-size: .82rem; }
+  .breadcrumbs a { color: var(--accent); text-decoration: none; }
+  .breadcrumb-separator { padding: 0 10px; color: var(--gray-400); }
+  .regional-copy { max-width: 860px; color: var(--gray-600); font-size: 1.04rem; line-height: 1.8; }
+  .regional-copy p { margin-bottom: 22px; }
+  .regional-services { background: var(--gray-50); }
+  .regional-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .regional-service-card { padding: 0 0 30px; overflow: hidden; }
+  .regional-service-card h3, .regional-service-card p, .regional-service-card .service-link { margin-left: 30px; margin-right: 30px; }
+  .regional-service-image { height: 190px; overflow: hidden; margin-bottom: 26px; }
+  .regional-service-image img { width: 100%; height: 100%; object-fit: cover; }
+  .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .process-grid article { border-top: 2px solid var(--accent); padding-top: 20px; }
+  .process-grid span { color: var(--accent); font-weight: 700; letter-spacing: .12em; }
+  .process-grid h3 { margin: 14px 0 10px; }
+  .process-grid p { color: var(--gray-600); line-height: 1.7; }
+  .regional-faq { background: var(--gray-50); }
+  .regional-faq .faq-item { background: var(--white); padding: 26px; border: 1px solid var(--gray-200); }
+  .regional-faq .faq-item p { color: var(--gray-600); line-height: 1.7; }
+  .regional-cta { text-align: center; background: var(--blue-900); color: var(--white); }
+  .regional-cta h2 { max-width: 760px; margin: 0 auto 20px; }
+  .regional-cta p { color: var(--silver); max-width: 680px; margin: 0 auto 36px; }
+  @media (max-width: 800px) { .regional-service-grid, .process-grid { grid-template-columns: 1fr; } .regional-service-image { height: 220px; } }
+</style>

@@ -1,0 +1,7 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { getService } from '../../data/services';
+const service = getService('box-de-vidro');
+if (!service) throw new Error('Serviço de box não encontrado');
+---
+<ServicePage service={service} />

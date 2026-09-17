@@ -1,0 +1,32 @@
+---
+const {
+  title,
+  description,
+  canonical,
+  image = '/img/esquadrias-aluminio-sjc-hero.webp',
+  type = 'website',
+  schemas = [],
+} = Astro.props;
+
+const absoluteImage = image.startsWith('http') ? image : `https://www.w7mvidros.com.br${image}`;
+const schemaGraph = Array.isArray(schemas) ? schemas : [schemas];
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href={canonical} />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content="W7M Designer" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={absoluteImage} />
+<meta property="og:image:alt" content={title} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImage} />
+{schemaGraph.filter(Boolean).map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
