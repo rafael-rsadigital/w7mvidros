@@ -1,0 +1,7 @@
+---
+import ServicePage from '../../../components/ServicePage.astro';
+import { getService } from '../../../data/services';
+const service = getService('vidracaria-sob-medida');
+if (!service) throw new Error('Serviço de vidraçaria não encontrado');
+---
+<ServicePage service={service} />

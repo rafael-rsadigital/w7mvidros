@@ -64,4 +64,8 @@
     <loc>https://www.w7mvidros.com.br/regioes/vila-adyana/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.w7mvidros.com.br/servicos/vidracaria/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
