@@ -19,7 +19,7 @@ export const regions: Region[] = [
     title: 'Esquadrias e Cortina de Vidro no Jardim Aquarius | W7M Designer',
     description: 'Esquadrias de alumínio, cortina de vidro, box e vidraçaria sob medida para apartamentos e projetos no Jardim Aquarius, em São José dos Campos.',
     eyebrow: 'Atendimento no Jardim Aquarius',
-    intro: 'Soluções sob medida para apartamentos, varandas e projetos residenciais no Jardim Aquarius.',
+    intro: 'Esquadrias, Cortina de Vidro e Box no Jardim Aquarius – São José dos Campos',
     paragraphs: [
       'A W7M Designer atende projetos no Jardim Aquarius com fabricação e instalação de esquadrias de alumínio, cortina de vidro, box e outras soluções em vidro. O atendimento começa pela compreensão do imóvel, das medidas e do resultado esperado para o ambiente.',
       'Em apartamentos e condomínios, a visita técnica ajuda a verificar acesso, medidas, pontos de fixação e eventuais exigências do edifício antes da definição do orçamento. Assim, a proposta considera o projeto real, e não apenas uma estimativa genérica por mensagem.',
